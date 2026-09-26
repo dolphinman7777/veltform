@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" fill="none">
+<defs>
+  <filter id="bloomShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#474948" flood-opacity="0.28"/>
+  </filter>
+  <linearGradient id="petalBlue" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#6ba3d6"/>
+    <stop offset="55%" stop-color="#2a6fa8"/>
+    <stop offset="100%" stop-color="#1a5080"/>
+  </linearGradient>
+  <linearGradient id="petalLight" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#b8d4ea"/>
+    <stop offset="100%" stop-color="#4a8fc4"/>
+  </linearGradient>
+</defs>
+<g filter="url(#bloomShadow)">
+  <path d="M200,250 C170,170 110,150 90,200 C70,250 110,300 150,310 C130,260 155,220 200,250Z" fill="url(#petalBlue)" opacity="0.92"/>
+  <path d="M200,250 C230,170 290,150 310,200 C330,250 290,300 250,310 C270,260 245,220 200,250Z" fill="url(#petalLight)" opacity="0.9"/>
+  <path d="M200,250 C200,160 260,120 300,150 C340,180 330,240 290,280 C250,240 220,220 200,250Z" fill="url(#petalBlue)" opacity="0.88"/>
+  <path d="M200,250 C200,160 140,120 100,150 C60,180 70,240 110,280 C150,240 180,220 200,250Z" fill="url(#petalLight)" opacity="0.86"/>
+  <path d="M200,250 C150,210 130,280 160,330 C190,360 220,340 200,250Z" fill="url(#petalBlue)" opacity="0.84"/>
+  <path d="M200,250 C250,210 270,280 240,330 C210,360 180,340 200,250Z" fill="url(#petalLight)" opacity="0.84"/>
+  <path d="M200,250 C200,320 160,360 200,390 C240,360 200,320 200,250Z" fill="url(#petalBlue)" opacity="0.8"/>
+  <circle cx="200" cy="248" r="42" fill="#e8913a" opacity="0.95"/>
+  <circle cx="200" cy="248" r="28" fill="#f4c078" opacity="0.9"/>
+  <g stroke="#1a5080" stroke-width="1.2" opacity="0.5">
+    <line x1="200" y1="206" x2="200" y2="170"/>
+    <line x1="228" y1="220" x2="258" y2="195"/>
+    <line x1="172" y1="220" x2="142" y2="195"/>
+    <line x1="236" y1="252" x2="272" y2="252"/>
+    <line x1="164" y1="252" x2="128" y2="252"/>
+  </g>
+</g>
+</svg>

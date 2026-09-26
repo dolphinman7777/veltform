@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <style>
+      .b { fill: none; stroke: #9ec9e8; stroke-width: 1.4; }
+      .bf { fill: #9ec9e8; opacity: 0.55; }
+      .g { fill: none; stroke: #9ec9e8; stroke-width: 0.8; }
+      .gd { fill: none; stroke: #9ec9e8; stroke-width: 0.8; stroke-dasharray: 3 3; }
+      .ax { fill: none; stroke: #474948; stroke-width: 0.8; opacity: 0.35; }
+      .r { fill: none; stroke: #d94f4f; stroke-width: 0.9; }
+      .t { font: 7px "IBM Plex Mono", monospace; fill: #474948; }
+      .tr { font: 6px "IBM Plex Mono", monospace; fill: #d94f4f; }
+    </style>
+  </defs>
+
+  <symbol id="gu-01" viewBox="0 0 100 100">
+    <rect class="b" x="28" y="22" width="44" height="44"/>
+    <line class="ax" x1="24" y1="22" x2="24" y2="66"/>
+    <line class="ax" x1="28" y1="70" x2="72" y2="70"/>
+    <line class="ax" x1="24" y1="26" x2="28" y2="26"/>
+    <line class="ax" x1="24" y1="34" x2="28" y2="34"/>
+    <line class="ax" x1="24" y1="42" x2="28" y2="42"/>
+    <line class="ax" x1="24" y1="50" x2="28" y2="50"/>
+    <line class="ax" x1="24" y1="58" x2="28" y2="58"/>
+    <line class="ax" x1="32" y1="70" x2="32" y2="66"/>
+    <line class="ax" x1="40" y1="70" x2="40" y2="66"/>
+    <line class="ax" x1="48" y1="70" x2="48" y2="66"/>
+    <line class="ax" x1="56" y1="70" x2="56" y2="66"/>
+    <line class="ax" x1="64" y1="70" x2="64" y2="66"/>
+  </symbol>
+
+  <symbol id="gu-02" viewBox="0 0 100 100">
+    <rect class="b" x="28" y="22" width="44" height="44"/>
+    <rect class="bf" x="28" y="22" width="44" height="44"/>
+    <line class="g" x1="39" y1="22" x2="39" y2="66"/>
+    <line class="g" x1="50" y1="22" x2="50" y2="66"/>
+    <line class="g" x1="61" y1="22" x2="61" y2="66"/>
+    <line class="g" x1="28" y1="33" x2="72" y2="33"/>
+    <line class="g" x1="28" y1="44" x2="72" y2="44"/>
+    <line class="g" x1="28" y1="55" x2="72" y2="55"/>
+    <text class="t" x="22" y="70">0</text>
+    <text class="t" x="30" y="74">0</text>
+  </symbol>
+
+  <symbol id="gu-03" viewBox="0 0 100 100">
+    <line class="ax" x1="30" y1="72" x2="72" y2="72"/>
+    <line class="ax" x1="30" y1="28" x2="30" y2="72"/>
+    <text class="t" x="24" y="76">0</text>
+  </symbol>
+
+  <symbol id="gu-04" viewBox="0 0 100 100">
+    <rect class="b" x="28" y="22" width="44" height="44"/>
+    <line class="gd" x1="39" y1="22" x2="39" y2="66"/>
+    <line class="gd" x1="50" y1="22" x2="50" y2="66"/>
+    <line class="gd" x1="61" y1="22" x2="61" y2="66"/>
+    <line class="gd" x1="28" y1="33" x2="72" y2="33"/>
+    <line class="gd" x1="28" y1="44" x2="72" y2="44"/>
+    <line class="gd" x1="28" y1="55" x2="72" y2="55"/>
+    <line class="r" x1="24" y1="22" x2="24" y2="66"/>
+    <line class="r" x1="24" y1="66" x2="28" y2="66"/>
+    <line class="r" x1="28" y1="70" x2="72" y2="70"/>
+    <line class="r" x1="72" y1="66" x2="72" y2="70"/>
+    <text class="tr" x="14" y="46">4px</text>
+    <text class="tr" x="46" y="78">4px</text>
+  </symbol>
+
+  <symbol id="gu-05" viewBox="0 0 100 100">
+    <rect class="gd" x="28" y="22" width="44" height="44"/>
+    <line class="gd" x1="39" y1="22" x2="39" y2="66"/>
+    <line class="gd" x1="50" y1="22" x2="50" y2="66"/>
+    <line class="gd" x1="61" y1="22" x2="61" y2="66"/>
+    <line class="gd" x1="28" y1="33" x2="72" y2="33"/>
+    <line class="gd" x1="28" y1="44" x2="72" y2="44"/>
+    <line class="gd" x1="28" y1="55" x2="72" y2="55"/>
+    <line class="ax" x1="24" y1="22" x2="24" y2="66"/>
+    <line class="ax" x1="28" y1="70" x2="72" y2="70"/>
+    <line class="ax" x1="24" y1="26" x2="28" y2="26"/>
+    <line class="ax" x1="24" y1="34" x2="28" y2="34"/>
+    <line class="ax" x1="24" y1="42" x2="28" y2="42"/>
+    <line class="ax" x1="24" y1="50" x2="28" y2="50"/>
+    <line class="ax" x1="24" y1="58" x2="28" y2="58"/>
+    <line class="ax" x1="32" y1="70" x2="32" y2="66"/>
+    <line class="ax" x1="40" y1="70" x2="40" y2="66"/>
+    <line class="ax" x1="48" y1="70" x2="48" y2="66"/>
+    <line class="ax" x1="56" y1="70" x2="56" y2="66"/>
+    <line class="ax" x1="64" y1="70" x2="64" y2="66"/>
+  </symbol>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F4F4F4" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#D4FFD3" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#889B89" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%" stop-color="#D4FFD3" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#D4FFD3" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#D4FFD3" stop-opacity="0.12"/>
+    </linearGradient>
+    <pattern id="pane" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M8 0 L0 0 0 8" fill="none" stroke="#474948" stroke-opacity="0.06" stroke-width="0.4"/>
+    </pattern>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#474948" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- ghost Victorian vault behind -->
+  <g opacity="0.14" stroke="#474948" stroke-width="1" fill="none">
+    <path d="M60,210 Q210,40 360,210"/>
+    <path d="M90,210 Q210,80 330,210"/>
+    <line x1="90" y1="210" x2="90" y2="120"/><line x1="330" y1="210" x2="330" y2="120"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <!-- plinth -->
+    <rect x="52" y="248" width="316" height="14" fill="#474948" opacity="0.9"/>
+    <rect x="48" y="260" width="324" height="6" fill="#474948" opacity="0.5"/>
+
+    <!-- main volume -->
+    <rect x="58" y="108" width="304" height="140" fill="url(#glass)" stroke="#474948" stroke-width="1.8"/>
+    <rect x="58" y="108" width="304" height="140" fill="url(#pane)"/>
+
+    <!-- roof slab -->
+    <rect x="46" y="96" width="328" height="14" fill="#F4F4F4" stroke="#474948" stroke-width="1.8"/>
+    <line x1="46" y1="103" x2="374" y2="103" stroke="#474948" stroke-width="0.6" opacity="0.4"/>
+
+    <!-- mullions -->
+    <g stroke="#474948" stroke-width="1.2" opacity="0.85">
+      <line x1="134" y1="108" x2="134" y2="248"/>
+      <line x1="210" y1="108" x2="210" y2="248"/>
+      <line x1="286" y1="108" x2="286" y2="248"/>
+      <line x1="58" y1="158" x2="362" y2="158"/>
+      <line x1="58" y1="208" x2="362" y2="208"/>
+    </g>
+
+    <!-- interior glow + specimen -->
+    <rect x="62" y="112" width="296" height="132" fill="url(#glow)"/>
+    <path d="M210,230 Q195,190 210,155 Q225,190 210,230" fill="#889B89" opacity="0.5"/>
+    <path d="M210,155 Q175,145 165,175 Q190,165 210,155" fill="#889B89" opacity="0.35"/>
+    <path d="M210,155 Q245,145 255,175 Q230,165 210,155" fill="#889B89" opacity="0.35"/>
+    <ellipse cx="210" cy="232" rx="38" ry="6" fill="#474948" opacity="0.12"/>
+
+    <!-- door -->
+    <rect x="188" y="208" width="44" height="40" fill="rgba(244,244,244,0.4)" stroke="#474948" stroke-width="1"/>
+    <line x1="210" y1="208" x2="210" y2="248" stroke="#474948" stroke-width="0.8"/>
+
+    <!-- ridge actuator -->
+    <rect x="196" y="88" width="28" height="8" fill="#474948" opacity="0.7"/>
+    <line x1="210" y1="88" x2="210" y2="96" stroke="#D4FFD3" stroke-width="1.5"/>
+
+    <!-- sensor nodes (data anchors) -->
+    <g class="sensor-nodes">
+      <circle cx="58" cy="108" r="4" fill="#D4FFD3" stroke="#474948" stroke-width="1" data-sensor="tl"/>
+      <circle cx="362" cy="108" r="4" fill="#D4FFD3" stroke="#474948" stroke-width="1" data-sensor="tr"/>
+      <circle cx="58" cy="248" r="4" fill="#D4FFD3" stroke="#474948" stroke-width="1" data-sensor="bl"/>
+      <circle cx="362" cy="248" r="4" fill="#D4FFD3" stroke="#474948" stroke-width="1" data-sensor="br"/>
+      <circle cx="210" cy="96" r="4" fill="#D4FFD3" stroke="#474948" stroke-width="1" data-sensor="roof"/>
+      <circle cx="134" cy="158" r="3.5" fill="#889B89" stroke="#474948" stroke-width="1" data-sensor="mid-l"/>
+      <circle cx="286" cy="158" r="3.5" fill="#889B89" stroke="#474948" stroke-width="1" data-sensor="mid-r"/>
+      <circle cx="210" cy="220" r="3.5" fill="#889B89" stroke="#474948" stroke-width="1" data-sensor="soil"/>
+    </g>
+  </g>
+</svg>
