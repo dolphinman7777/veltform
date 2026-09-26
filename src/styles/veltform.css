@@ -5,14 +5,13 @@ body {
 }
 
 .hero-evolve {
-  height: 220vh;
+  height: auto;
   padding: 0;
   background: var(--soft);
 }
 
 .hero-evolve-sticky {
-  position: sticky;
-  top: var(--site-header, 4.6rem);
+  position: relative;
   z-index: 1;
   height: calc(100vh - var(--site-header, 4.6rem));
   height: calc(100dvh - var(--site-header, 4.6rem));
@@ -53,17 +52,6 @@ body {
   padding: 0.04em 0.35em;
 }
 
-.hero-evolve-step {
-  margin-top: 1.4rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: var(--sage);
-  width: fit-content;
-  background: rgba(244, 244, 244, 0.9);
-  padding: 0.15em 0.4em;
-}
-
 .hero-evolve-sticky .hero-scene {
   position: absolute;
   inset: 0;
@@ -81,7 +69,6 @@ body {
   object-fit: cover;
   object-position: center center;
   pointer-events: none;
-  opacity: 0;
 }
 
 .hero-build {
@@ -111,7 +98,6 @@ body {
   display: flex;
   justify-content: space-between;
   pointer-events: none;
-  opacity: 0;
 }
 
 .hero-zone {
@@ -122,23 +108,6 @@ body {
   color: var(--ink);
   background: rgba(244, 244, 244, 0.82);
   padding: 0.2rem 0.4rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-evolve {
-    height: auto;
-  }
-
-  .hero-evolve-sticky {
-    position: relative;
-    height: auto;
-    min-height: min(78vh, 46rem);
-  }
-
-  .hero-garden,
-  .hero-zones {
-    opacity: 1;
-  }
 }
 
 .hero-cards--clean .hero-cards-stage {
