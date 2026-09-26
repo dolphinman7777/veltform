@@ -102,16 +102,6 @@ body {
   height: auto;
 }
 
-.hero-panels {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  pointer-events: none;
-  opacity: 0;
-}
-
 .hero-zones {
   position: absolute;
   z-index: 4;
@@ -146,7 +136,6 @@ body {
   }
 
   .hero-garden,
-  .hero-panels,
   .hero-zones {
     opacity: 1;
   }

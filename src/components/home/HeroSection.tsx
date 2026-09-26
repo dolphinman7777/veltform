@@ -19,7 +19,6 @@ function fade(progress: number, start: number, end: number) {
 export function HeroSection() {
   const rootRef = useRef<HTMLElement>(null);
   const gardenRef = useRef<HTMLImageElement>(null);
-  const panelsRef = useRef<HTMLImageElement>(null);
   const zonesRef = useRef<HTMLDivElement>(null);
   const stepRef = useRef<HTMLParagraphElement>(null);
 
@@ -30,7 +29,6 @@ export function HeroSection() {
       const plants = fade(progress, 0, 0.42);
       const climate = fade(progress, 0.4, 0.88);
       if (gardenRef.current) gardenRef.current.style.opacity = String(plants);
-      if (panelsRef.current) panelsRef.current.style.opacity = String(plants);
       if (zonesRef.current) {
         zonesRef.current.style.opacity = String(climate);
         zonesRef.current.setAttribute("aria-hidden", climate < 0.2 ? "true" : "false");
@@ -118,14 +116,8 @@ export function HeroSection() {
               <div className="hero-build">
                 <img
                   className="hero-frame"
-                  src="/images/hero/greenhouse-frame.png?v=1"
-                  alt="Timber greenhouse frame"
-                />
-                <img
-                  className="hero-panels"
-                  ref={panelsRef}
-                  src="/images/hero/solar-panels.png?v=1"
-                  alt=""
+                  src="/images/hero/greenhouse-hero.png?v=2"
+                  alt="Timber greenhouse"
                 />
                 <div className="hero-zones" ref={zonesRef} aria-hidden="true">
                   <p className="hero-zone mono">cool · leafy</p>
