@@ -67,29 +67,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: 68% center;
   pointer-events: none;
-}
-
-.hero-zones {
-  position: absolute;
-  z-index: 4;
-  left: 22%;
-  right: 18%;
-  bottom: 14%;
-  display: flex;
-  justify-content: space-between;
-  pointer-events: none;
-}
-
-.hero-zone {
-  margin: 0;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: var(--ink);
-  background: rgba(244, 244, 244, 0.82);
-  padding: 0.2rem 0.4rem;
 }
 
 .hero-cards--clean .hero-cards-stage {
@@ -138,6 +117,9 @@ body {
     align-items: stretch;
     padding-right: 0;
     overflow: visible;
+  }
+
+  .hero-evolve-sticky .hero-cards--clean .hero-cards-stage {
     min-height: calc(100dvh - var(--site-header, 4.6rem));
   }
 
@@ -145,12 +127,17 @@ body {
     position: relative;
     top: auto;
     left: auto;
+    z-index: 6;
   }
 
   .hero-evolve-sticky .hero-scene {
     position: absolute;
-    inset: 0;
-    height: auto;
+    inset: auto 0 0 0;
+    height: 54%;
+  }
+
+  .hero-plate {
+    object-position: right center;
   }
 
   .hero-wordmark--clean .hero-wordmark-eden {
@@ -159,12 +146,6 @@ body {
 
   .hero-wordmark--clean .hero-subline {
     font-size: clamp(0.95rem, 3.2vw, 1.15rem);
-  }
-
-  .hero-zones {
-    left: 8%;
-    right: 8%;
-    bottom: 8%;
   }
 
   .hero-render img {
@@ -1153,17 +1134,6 @@ body {
 .signal-slide .signal-footer {
   position: relative;
   z-index: 1;
-}
-
-.signal-botanical {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 0;
-  width: clamp(9rem, 24vw, 17rem);
-  height: auto;
-  pointer-events: none;
-  user-select: none;
 }
 
 .signal-headline {

@@ -21,13 +21,9 @@ export function HeroSection() {
             <div className="hero-scene">
               <img
                 className="hero-plate"
-                src="/images/hero/hero-page.png"
+                src="/images/hero/hero-background.jpg"
                 alt=""
               />
-              <div className="hero-zones">
-                <p className="hero-zone mono">cool · leafy</p>
-                <p className="hero-zone hero-zone--warm mono">warm · sun</p>
-              </div>
             </div>
           </div>
         </div>

@@ -5,14 +5,6 @@ import { site } from "@/content/site";
 export function ThesisSection() {
   return (
     <section className="signal-slide" id="approach">
-      <img
-        className="signal-botanical"
-        src="/images/hero/king-protea.png"
-        alt=""
-        width={1024}
-        height={1024}
-        decoding="async"
-      />
       <div className="signal-content">
         <h2 className="signal-headline mono">
           <span className="signal-headline-line">
