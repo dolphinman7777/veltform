@@ -14,6 +14,13 @@ export type Offering =
   | { id: string; title: string; kind: "copy"; body: string }
   | { id: string; title: string; kind: "list"; items: readonly string[] };
 
+export type LifestyleScenario = {
+  id: string;
+  title: string;
+  body: string;
+  image: string;
+};
+
 export const site = {
   name: "veltform",
   displayName: "Veltform",
@@ -43,11 +50,6 @@ export const site = {
       id: "irrigation",
       title: "Root zone and irrigation planning",
       body: "Choose from soil beds, raised beds and hydroponic systems, including deep water culture and nutrient film technique. Where nearby trees or hedges compete for water and nutrients, raised or isolated beds can protect the growing area. Moisture sensors can help schedule irrigation so roots receive water while retaining the air they need to grow.",
-    },
-    {
-      id: "ipm",
-      title: "Integrated pest management strategies",
-      body: "We develop a plant protection plan around your crops and the pests present on site. Regular monitoring, good growing practices and suitable biological controls form the foundation. Depending on your approach, the plan may also include compatible treatments when needed.",
     },
     {
       id: "lighting",
@@ -92,13 +94,11 @@ export const site = {
       body: "Different crops and growth stages can favour different conditions. Planting leafy greens in a cooler, shadier area and sun loving crops in a brighter area makes use of the variation already present in a greenhouse. Where crops need more distinct conditions, partitions and separately controlled zones may help. A climate guide can set out suitable temperature, humidity and ventilation targets for your equipment and chosen crops.",
     },
   ] satisfies Concept[],
-  sensorsHighlight: "the sensors",
-  sensorsHeadline: "in your greenhouse",
-  sensorsLine: "steer the climate.",
-  sensorsCopy:
-    "Sensors connect readings to fans, irrigation, and remote monitoring on your site.",
+  sensorsHighlight: "Use sensors",
+  sensorsHeadline: "in your greenhouse to steer the climate.",
+  sensorsCopy: "Hands off approach to climate management",
   sensorReadings: [
-    { id: "temperature", caption: "temperature · extraction fans" },
+    { id: "temperature", caption: "temperature · air movement" },
     { id: "humidity", caption: "humidity · vapour pressure deficit" },
     { id: "moisture", caption: "moisture · irrigation schedule" },
     { id: "light", caption: "light · daily light requirement" },
@@ -178,5 +178,27 @@ export const site = {
       caption: "wooden frame study",
     },
   ],
+  lifestyleIntro:
+    "The same structure can be a kitchen garden, a botanical library, or a living space.",
+  scenarios: [
+    {
+      id: "kitchen-garden",
+      title: "kitchen garden",
+      body: "Vegetable production, planned for maximum efficiency.",
+      image: "/images/lifestyle/kitchen-garden.jpg",
+    },
+    {
+      id: "botanical-library",
+      title: "botanical library",
+      body: "A stable climate for rare collections.",
+      image: "/images/lifestyle/botanical-library.jpg",
+    },
+    {
+      id: "living-space",
+      title: "living space",
+      body: "A comfortable mixed-use space for plants and people.",
+      image: "/images/lifestyle/living-space.jpg",
+    },
+  ] satisfies LifestyleScenario[],
   contactEmail: "hello@veltform.com",
 } as const;

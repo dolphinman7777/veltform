@@ -22,9 +22,7 @@ export function ThesisSection() {
             in a greenhouse built for <span className="signal-mint">your site and your crops</span>.
           </span>
         </h2>
-        <p className="mono" style={{ marginTop: "1.25rem", fontSize: "0.72rem", color: "var(--sage)", maxWidth: "36rem", lineHeight: 1.65 }}>
-          {site.thesisSupport}
-        </p>
+        <p className="signal-support mono">{site.thesisSupport}</p>
       </div>
 
       <div className="signal-stage">
@@ -32,6 +30,11 @@ export function ThesisSection() {
           <svg className="signal-trace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             <path
               className="signal-path"
+              d="M 5 86 L 5 58 Q 5 54 9 54 L 52 54 Q 56 54 56 50 L 56 36 Q 56 32 60 32 L 93 32"
+            />
+            <path
+              className="signal-path signal-path--trail"
+              pathLength="1"
               d="M 5 86 L 5 58 Q 5 54 9 54 L 52 54 Q 56 54 56 50 L 56 36 Q 56 32 60 32 L 93 32"
             />
             <line className="signal-drop" x1="17" y1="54" x2="17" y2="36" />

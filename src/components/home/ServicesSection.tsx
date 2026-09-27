@@ -16,8 +16,8 @@ export function ServicesSection() {
 
   return (
     <section className="velt-section velt-services" id="services">
-      <div className="velt-section-head velt-section-head--display velt-services-intro">
-        <div className="velt-services-intro-copy">
+      <div className="velt-section-head velt-section-head--display velt-slide-intro">
+        <div className="velt-slide-intro-copy">
           <h2 className="mono">
             <span className="signal-mint">services</span>
             <br />

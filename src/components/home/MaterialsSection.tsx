@@ -55,9 +55,15 @@ export function MaterialsSection() {
     <section className="eden-os-slide" id="materials">
       <SensorReadouts />
 
-      <h2 className="eos-headline mono">
-        <span className="pool-mint">materials</span> and growing systems
-      </h2>
+      <div className="velt-section-head velt-section-head--display velt-slide-intro">
+        <div className="velt-slide-intro-copy">
+          <h2 className="mono">
+            <span className="signal-mint">materials</span>
+            <br />
+            and growing systems
+          </h2>
+        </div>
+      </div>
 
       <div className="eos-split">
         <div className="eos-demo">

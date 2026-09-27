@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/SiteHeader";
 import { CuratedSlide } from "@/components/home/CuratedSlide";
 import { HeroSection } from "@/components/home/HeroSection";
+import { LifestyleSection } from "@/components/home/LifestyleSection";
 import { MaterialsSection } from "@/components/home/MaterialsSection";
 import { SensorsSection } from "@/components/home/SensorsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ThesisSection />
+        <LifestyleSection />
         <ServicesSection />
         <SlideBridgeStrawberry />
         <SensorsSection />

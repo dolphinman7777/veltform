@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -20,6 +20,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: `${site.displayName} — ${site.tagline}`,
   description: site.subtagline,
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#DED7C8",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

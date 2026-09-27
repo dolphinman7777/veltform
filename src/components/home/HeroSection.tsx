@@ -20,21 +20,13 @@ export function HeroSection() {
 
             <div className="hero-scene">
               <img
-                className="hero-garden"
-                src="/images/hero/garden-edges.png?v=21"
+                className="hero-plate"
+                src="/images/hero/hero-page.png"
                 alt=""
               />
-
-              <div className="hero-build">
-                <img
-                  className="hero-frame"
-                  src="/images/hero/greenhouse-hero.png?v=2"
-                  alt="Timber greenhouse"
-                />
-                <div className="hero-zones">
-                  <p className="hero-zone mono">cool · leafy</p>
-                  <p className="hero-zone hero-zone--warm mono">warm · sun</p>
-                </div>
+              <div className="hero-zones">
+                <p className="hero-zone mono">cool · leafy</p>
+                <p className="hero-zone hero-zone--warm mono">warm · sun</p>
               </div>
             </div>
           </div>

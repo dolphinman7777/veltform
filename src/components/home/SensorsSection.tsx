@@ -11,10 +11,10 @@ function SensorDrawing({ id }: { id: SensorId }) {
           <circle cx="28.5" cy="64" r="8" fill="none" stroke="#9ec9e8" strokeWidth="1.6" />
           <rect x="26.6" y="40" width="3.8" height="20" rx="1.6" fill="#9ec9e8" />
           <circle cx="28.5" cy="64" r="3.6" fill="#9ec9e8" />
-          <circle cx="70" cy="46" r="15" fill="none" stroke="#9ec9e8" strokeWidth="1.6" />
-          <path d="M70 46 L70 33 M70 46 L81 53 M70 46 L59 53" fill="none" stroke="#9ec9e8" strokeWidth="1.6" strokeLinecap="round" />
-          <circle cx="70" cy="46" r="2.2" fill="#9ec9e8" />
-          <path d="M70 25 V17 M66.5 20.5 L70 17 L73.5 20.5" fill="none" stroke="#9ec9e8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M52 32 C60 28 66 36 76 31" fill="none" stroke="#9ec9e8" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M48 46 C56 41 64 51 72 46" fill="none" stroke="#9ec9e8" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M74 40 L82 46 L74 52" fill="none" stroke="#9ec9e8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M52 60 C60 56 66 64 76 59" fill="none" stroke="#9ec9e8" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case "humidity":
@@ -75,13 +75,15 @@ function SensorDrawing({ id }: { id: SensorId }) {
 export function SensorsSection() {
   return (
     <section className="data-slide" id="sensors">
-      <div className="data-content">
-        <h2 className="data-headline mono">
-          <span className="data-mint">{site.sensorsHighlight}</span> {site.sensorsHeadline}
-          <br />
-          {site.sensorsLine}
-        </h2>
-        <p className="data-copy mono">{site.sensorsCopy}</p>
+      <div className="velt-section-head velt-section-head--display velt-slide-intro">
+        <div className="velt-slide-intro-copy">
+          <h2 className="mono">
+            <span className="signal-mint">{site.sensorsHighlight}</span>
+            <br />
+            <span className="data-headline-line">{site.sensorsHeadline}</span>
+          </h2>
+          <p>{site.sensorsCopy}</p>
+        </div>
       </div>
 
       <div className="data-stage">

@@ -16,6 +16,7 @@ export function SiteHeader() {
         <a href="/#services">Services</a>
         <a href="/#sensors">Sensors</a>
         <a href="/#materials">Materials</a>
+        <a href="/#lifestyle">Lifestyle</a>
       </nav>
       <div className="velt-site-header-side">
         <Link className="velt-site-portal" href="/portal">
