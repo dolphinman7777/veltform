@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
+import { ScrollOnNavigate } from "@/components/ScrollOnNavigate";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -30,7 +31,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${cormorant.variable} ${ibmPlexMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ScrollOnNavigate />
+        {children}
+      </body>
     </html>
   );
 }

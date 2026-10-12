@@ -75,16 +75,7 @@ function SensorDrawing({ id }: { id: SensorId }) {
 export function SensorsSection() {
   return (
     <section className="data-slide" id="sensors">
-      <div className="velt-section-head velt-section-head--display velt-slide-intro">
-        <div className="velt-slide-intro-copy">
-          <h2 className="mono">
-            <span className="signal-mint">{site.sensorsHighlight}</span>
-            <br />
-            <span className="data-headline-line">{site.sensorsHeadline}</span>
-          </h2>
-          <p>{site.sensorsCopy}</p>
-        </div>
-      </div>
+      <p className="veld-sensors-intro-copy mono">{site.sensorsCopy}</p>
 
       <div className="data-stage">
         <header className="anthro-slide-head mono">
@@ -108,7 +99,7 @@ export function SensorsSection() {
         </div>
 
         <footer className="anthro-slide-foot mono">
-          <span className="velt-tag-mint">Monitoring</span>
+          <span className="veld-tag-mint">Monitoring</span>
         </footer>
       </div>
     </section>

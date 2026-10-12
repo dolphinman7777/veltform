@@ -1,5 +1,5 @@
 @import "../styles/eden.css";
-@import "../styles/veltform.css";
+@import "../styles/veldform.css";
 
 :root {
   --serif: var(--font-cormorant), "Cormorant Garamond", "Times New Roman", serif;

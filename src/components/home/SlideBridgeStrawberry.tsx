@@ -27,17 +27,17 @@ export function SlideBridgeStrawberry() {
   }, []);
 
   return (
-    <div className="velt-slide-bridge" ref={rootRef}>
-      <p className="velt-slide-bridge-label velt-slide-bridge-label--left">Bespoke Greenhouses</p>
+    <div className="veld-slide-bridge" ref={rootRef}>
+      <p className="veld-slide-bridge-label veld-slide-bridge-label--left">Bespoke Greenhouses</p>
       <img
-        className="velt-slide-bridge-figure"
+        className="veld-slide-bridge-figure"
         src="/images/hero/strawberry.png"
         alt=""
         width={1024}
         height={1024}
         decoding="async"
       />
-      <p className="velt-slide-bridge-label velt-slide-bridge-label--right">Climate Systems</p>
+      <p className="veld-slide-bridge-label veld-slide-bridge-label--right">Climate Systems</p>
     </div>
   );
 }

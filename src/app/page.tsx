@@ -1,12 +1,10 @@
 import { SiteHeader } from "@/components/SiteHeader";
 import { CuratedSlide } from "@/components/home/CuratedSlide";
 import { HeroSection } from "@/components/home/HeroSection";
-import { LifestyleSection } from "@/components/home/LifestyleSection";
-import { MaterialsSection } from "@/components/home/MaterialsSection";
 import { SensorsSection } from "@/components/home/SensorsSection";
-import { ServicesSection } from "@/components/home/ServicesSection";
 import { SiteFooter } from "@/components/home/SiteFooter";
-import { SlideBridgeStrawberry } from "@/components/home/SlideBridgeStrawberry";
+import { ArchToSensorsBand } from "@/components/home/ArchToSensorsBand";
+import { ArchitecturalInfluencesSection } from "@/components/home/ArchitecturalInfluencesSection";
 import { ThesisSection } from "@/components/home/ThesisSection";
 
 export default function HomePage() {
@@ -16,12 +14,10 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ThesisSection />
-        <LifestyleSection />
-        <ServicesSection />
-        <SlideBridgeStrawberry />
+        <ArchitecturalInfluencesSection />
+        <ArchToSensorsBand />
         <SensorsSection />
         <CuratedSlide />
-        <MaterialsSection />
       </main>
       <SiteFooter />
     </>

@@ -51,12 +51,19 @@ export function MaterialsSection() {
   const [active, setActive] = useState(0);
   const offering = site.offerings[active];
 
+  function select(index: number) {
+    const count = site.offerings.length;
+    const next = (index + count) % count;
+    setActive(next);
+    document.getElementById(`material-tab-${site.offerings[next].id}`)?.focus();
+  }
+
   return (
     <section className="eden-os-slide" id="materials">
       <SensorReadouts />
 
-      <div className="velt-section-head velt-section-head--display velt-slide-intro">
-        <div className="velt-slide-intro-copy">
+      <div className="veld-section-head veld-section-head--display veld-slide-intro">
+        <div className="veld-slide-intro-copy">
           <h2 className="mono">
             <span className="signal-mint">materials</span>
             <br />
@@ -91,19 +98,47 @@ export function MaterialsSection() {
           </figure>
         </div>
 
-        <aside className="eos-sidebar">
-          <nav className="eos-sidebar-nav velt-eos-nav" aria-label="Materials and growing systems">
-            {site.offerings.map((item, index) => (
-              <button
-                key={item.id}
-                type="button"
-                className={index === active ? "eos-side-item is-active mono" : "eos-side-item mono"}
-                onClick={() => setActive(index)}
-              >
-                {item.title}
-              </button>
-            ))}
-          </nav>
+        <aside className="eos-sidebar veld-materials-sidebar">
+          <div
+            className="veld-services-tabs veld-materials-tabs"
+            role="tablist"
+            aria-orientation="vertical"
+            aria-label="Materials and growing systems"
+          >
+            {site.offerings.map((item, index) => {
+              const selected = index === active;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  id={`material-tab-${item.id}`}
+                  className={selected ? "veld-services-tab is-active" : "veld-services-tab"}
+                  aria-selected={selected}
+                  tabIndex={selected ? 0 : -1}
+                  onClick={() => setActive(index)}
+                  onKeyDown={(event) => {
+                    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+                      event.preventDefault();
+                      select(active + 1);
+                    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+                      event.preventDefault();
+                      select(active - 1);
+                    } else if (event.key === "Home") {
+                      event.preventDefault();
+                      select(0);
+                    } else if (event.key === "End") {
+                      event.preventDefault();
+                      select(site.offerings.length - 1);
+                    }
+                  }}
+                >
+                  <span className="veld-services-tab-index">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="veld-services-tab-title">{item.title}</span>
+                </button>
+              );
+            })}
+          </div>
 
           <div className="eos-side-icons" aria-hidden="true">
             <div className="data-type-cell">

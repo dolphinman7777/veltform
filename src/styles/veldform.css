@@ -1,7 +1,205 @@
-/* Veltform layout helpers — extends eden design tokens */
+/* Veldform layout helpers — extends eden design tokens */
 
 body {
   overflow-x: clip;
+}
+
+.veld-process {
+  --veld-green: #4a7a48;
+  border-top: 1px solid var(--line-faint);
+  background: #fff;
+  padding: clamp(3.5rem, 12vh, 7rem) clamp(1.25rem, 5vw, 3.5rem) clamp(4.5rem, 14vh, 9rem);
+  text-align: center;
+}
+
+.veld-process__title {
+  margin: 0 0 clamp(2.5rem, 8vh, 4.5rem);
+  font-size: clamp(1.85rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.veld-process__body {
+  width: min(40rem, 100%);
+  margin: 0 auto;
+  border-top: 1px solid var(--line-faint);
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.veld-process__steps {
+  --veld-process-index-width: clamp(2.85rem, 7vw, 3.65rem);
+  --veld-process-column-gap: clamp(0.55rem, 1.5vw, 0.85rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.veld-process__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.veld-process__item:last-child {
+  border-bottom: 0;
+}
+
+.veld-process__trigger {
+  display: grid;
+  grid-template-columns: var(--veld-process-index-width) auto;
+  column-gap: var(--veld-process-column-gap);
+  align-items: center;
+  justify-content: center;
+  width: min(17.5rem, 100%);
+  margin: 0 auto;
+  padding: clamp(1.1rem, 2.8vh, 1.65rem) clamp(0.75rem, 2vw, 1.15rem);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: clamp(0.95rem, 1.75vw, 1.28rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.veld-process__trigger:hover .veld-process__name {
+  color: rgba(71, 73, 72, 0.72);
+}
+
+.veld-process__trigger:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.veld-process__index {
+  justify-self: end;
+  font-size: clamp(1.35rem, 2.5vw, 1.95rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.veld-process__name {
+  justify-self: start;
+  text-align: left;
+  font-weight: 400;
+}
+
+.veld-process__item.is-open .veld-process__index {
+  color: var(--veld-green);
+}
+
+.veld-process__detail {
+  width: 100%;
+  padding: 0 clamp(1rem, 4vw, 1.5rem) clamp(1rem, 2.5vh, 1.35rem);
+}
+
+.veld-process__detail[hidden] {
+  display: none;
+}
+
+.veld-process__description {
+  margin: 0 auto;
+  max-width: 36ch;
+  text-align: center;
+  font-size: clamp(0.92rem, 1.65vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  color: var(--sage);
+  text-transform: lowercase;
+}
+
+
+.veld-systems-hero {
+  background: #f3f0ea;
+}
+
+.veld-systems-hero__stage {
+  position: relative;
+  height: calc(100vh - var(--site-header, 4.6rem));
+  height: calc(100dvh - var(--site-header, 4.6rem));
+  min-height: clamp(22rem, 52vh, 36rem);
+  overflow: hidden;
+}
+
+.veld-systems-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 32% 88%;
+  transform: scale(1.06);
+  transform-origin: left bottom;
+  pointer-events: none;
+  user-select: none;
+}
+
+.veld-systems-hero__copy {
+  position: absolute;
+  z-index: 2;
+  top: clamp(2rem, 10vh, 5rem);
+  left: auto;
+  right: clamp(1.5rem, 8vw, 6.5rem);
+  max-width: min(36rem, calc(100% - 2.5rem));
+  text-align: right;
+}
+
+.veld-systems-hero__title {
+  margin: 0;
+  font-size: clamp(3.25rem, 9vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+}
+
+.veld-systems-hero__support {
+  margin: 1.1rem 0 0 auto;
+  max-width: 28ch;
+  font-size: clamp(1.05rem, 2.4vw, 1.75rem);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-transform: lowercase;
+}
+
+@media (max-width: 720px) {
+  .veld-systems-hero__stage {
+    height: auto;
+    min-height: calc(100dvh - var(--site-header, 4.6rem));
+    display: flex;
+    flex-direction: column;
+  }
+
+  .veld-systems-hero__image {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 55vh;
+    object-fit: cover;
+    object-position: 40% 92%;
+    transform: scale(1.05);
+    transform-origin: center bottom;
+  }
+
+  .veld-systems-hero__copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    align-self: flex-end;
+    padding: 1.25rem clamp(1.25rem, 5vw, 2rem) 1.75rem;
+    text-align: right;
+  }
 }
 
 .hero-evolve {
@@ -42,8 +240,13 @@ body {
   position: absolute;
   z-index: 6;
   top: 6%;
-  left: clamp(1.2rem, 4vw, 3rem);
+  right: clamp(1.2rem, 4vw, 3rem);
+  left: auto;
   max-width: min(52rem, calc(100% - 2.4rem));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .hero-evolve-sticky .hero-line--1,
@@ -67,7 +270,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 68% center;
+  object-position: center center;
   pointer-events: none;
 }
 
@@ -126,8 +329,13 @@ body {
   .hero-evolve-sticky .hero-wordmark--clean {
     position: relative;
     top: auto;
+    right: auto;
     left: auto;
     z-index: 6;
+    align-self: flex-end;
+    align-items: flex-end;
+    padding-right: clamp(1rem, 4vw, 1.5rem);
+    padding-left: clamp(1rem, 4vw, 1.5rem);
   }
 
   .hero-evolve-sticky .hero-scene {
@@ -146,6 +354,14 @@ body {
 
   .hero-wordmark--clean .hero-subline {
     font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+  }
+
+  .hero-wordmark--clean .hero-line--2 {
+    margin-right: clamp(1.5rem, 14vw, 5rem);
+  }
+
+  .hero-wordmark--clean .hero-line--3 {
+    margin-right: clamp(3rem, 28vw, 10rem);
   }
 
   .hero-render img {
@@ -167,6 +383,8 @@ body {
 }
 
 .hero-wordmark--clean .hero-brand-box {
+  align-items: flex-end;
+  text-align: right;
   gap: 0.8rem;
   padding: 1.3rem 1.7rem 1.4rem;
 }
@@ -190,9 +408,71 @@ body {
 
 .hero-wordmark--clean .hero-wordmark-lines {
   gap: clamp(0.75rem, 1.8vw, 1.15rem);
+  align-items: flex-end;
 }
 
-.velt-section {
+.hero-wordmark--clean .hero-line--1 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero-wordmark--clean .hero-line--2 {
+  margin-left: 0;
+  margin-right: clamp(2.5rem, 11vw, 9rem);
+}
+
+.hero-wordmark--clean .hero-line--3 {
+  margin-left: 0;
+  margin-right: clamp(5rem, 24vw, 18rem);
+}
+
+.arch-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-height: 0;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem) 0;
+  background: #fff;
+}
+
+.arch-slide-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4rem, 10vw, 6.5rem);
+  width: min(100%, 80rem);
+  margin: 0 auto;
+}
+
+.arch-slide-headline {
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(1.85rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-transform: lowercase;
+}
+
+#architectural-influences .signal-mint {
+  text-transform: none;
+}
+
+.arch-slide-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(78vh, 46rem);
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.veld-section {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -200,16 +480,16 @@ body {
   color: var(--ink);
 }
 
-.velt-section--paper {
+.veld-section--paper {
   background: var(--paper);
 }
 
-.velt-section-head {
+.veld-section-head {
   padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem) 1rem;
   max-width: 52rem;
 }
 
-.velt-section-head h2 {
+.veld-section-head h2 {
   font-family: var(--mono);
   font-size: clamp(1rem, 2.2vw, 1.35rem);
   font-weight: 400;
@@ -217,7 +497,7 @@ body {
   text-transform: lowercase;
 }
 
-.velt-section-head p {
+.veld-section-head p {
   margin-top: 1rem;
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -226,7 +506,7 @@ body {
   max-width: 40rem;
 }
 
-.velt-section-head.velt-section-head--display {
+.veld-section-head.veld-section-head--display {
   max-width: none;
   width: 100%;
   text-align: center;
@@ -239,7 +519,7 @@ body {
   padding: 0 clamp(1.25rem, 5vw, 3.5rem);
 }
 
-.velt-section-head--display h2 {
+.veld-section-head--display h2 {
   margin: 0;
   font-size: clamp(1.55rem, 3.6vw, 3rem);
   font-weight: 400;
@@ -249,33 +529,31 @@ body {
   margin-inline: auto;
 }
 
-.velt-section-head--display p {
+.veld-section-head--display p {
   margin: 0;
   margin-inline: auto;
   text-align: center;
 }
 
-#services.velt-section {
+#services.veld-section {
   padding-top: 0;
 }
 
-#services .velt-section-head.velt-section-head--display.velt-slide-intro,
-#sensors .velt-section-head.velt-section-head--display.velt-slide-intro,
-#materials .velt-section-head.velt-section-head--display.velt-slide-intro,
-#lifestyle .velt-section-head.velt-section-head--display.velt-slide-intro {
+#services .veld-section-head.veld-section-head--display.veld-slide-intro,
+#materials .veld-section-head.veld-section-head--display.veld-slide-intro,
+#lifestyle .veld-section-head.veld-section-head--display.veld-slide-intro {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
   justify-items: center;
   align-items: stretch;
   gap: 0;
-  min-height: clamp(16rem, 38vh, 24rem);
+  min-height: clamp(14rem, 32vh, 21rem);
   padding: 0 clamp(1.25rem, 5vw, 3.5rem);
 }
 
-#services .velt-slide-intro-copy,
-#sensors .velt-slide-intro-copy,
-#materials .velt-slide-intro-copy,
-#lifestyle .velt-slide-intro-copy {
+#services .veld-slide-intro-copy,
+#materials .veld-slide-intro-copy,
+#lifestyle .veld-slide-intro-copy {
   grid-row: 2;
   display: flex;
   flex-direction: column;
@@ -284,40 +562,54 @@ body {
   width: 100%;
 }
 
-#lifestyle.velt-lifestyle {
+#lifestyle.veld-lifestyle {
   height: auto;
-  min-height: calc(100dvh - var(--site-header, 4.6rem));
+  min-height: 0;
   max-height: none;
   overflow: visible;
-  padding: 0;
+  padding: clamp(2rem, 6vh, 3.75rem) 0 0;
   scroll-margin-top: var(--site-header, 4.6rem);
 }
 
 @media (max-width: 940px) {
-  #lifestyle.velt-lifestyle {
-    padding: 0;
+  #lifestyle.veld-lifestyle {
+    padding-top: clamp(1.5rem, 5vh, 3rem);
+  }
+
+  #lifestyle .veld-section-head.veld-section-head--display.veld-slide-intro {
+    min-height: clamp(17rem, 40vh, 26rem);
+  }
+
+  #services .veld-section-head.veld-section-head--display.veld-slide-intro {
+    min-height: clamp(17rem, 40vh, 26rem);
+  }
+
+  #materials .veld-section-head.veld-section-head--display.veld-slide-intro {
+    min-height: clamp(17rem, 40vh, 26rem);
   }
 }
 
-#lifestyle .velt-section-head.velt-section-head--display.velt-slide-intro {
-  min-height: 0;
+#lifestyle .veld-section-head.veld-section-head--display.veld-slide-intro {
   flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(1.5rem, 4vh, 2.75rem) clamp(1.25rem, 5vw, 3.5rem) clamp(2rem, 6vh, 3.75rem);
+  min-height: clamp(19rem, 44vh, 30rem);
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
 }
 
-#materials .velt-section-head.velt-section-head--display.velt-slide-intro {
-  min-height: 0;
+#services .veld-section-head.veld-section-head--display.veld-slide-intro {
   flex: 0 0 auto;
-  padding: clamp(5.5rem, 14vh, 9rem) clamp(1.25rem, 5vw, 3.5rem) clamp(2.5rem, 6vh, 4.25rem);
+  min-height: clamp(19rem, 44vh, 30rem);
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
 }
 
-#services .velt-slide-intro-copy h2,
-#sensors .velt-slide-intro-copy h2,
-#materials .velt-slide-intro-copy h2,
-#lifestyle .velt-slide-intro-copy h2 {
+#materials .veld-section-head.veld-section-head--display.veld-slide-intro {
+  flex: 0 0 auto;
+  min-height: clamp(19rem, 44vh, 30rem);
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+#services .veld-slide-intro-copy h2,
+#materials .veld-slide-intro-copy h2,
+#lifestyle .veld-slide-intro-copy h2 {
   max-width: none;
   width: 100%;
   text-align: center;
@@ -328,33 +620,120 @@ body {
 }
 
 @media (max-width: 1400px) {
-  #services .velt-slide-intro-copy h2,
-  #sensors .velt-slide-intro-copy h2,
-  #materials .velt-slide-intro-copy h2,
-  #lifestyle .velt-slide-intro-copy h2 {
+  #services .veld-slide-intro-copy h2,
+  #materials .veld-slide-intro-copy h2,
+  #lifestyle .veld-slide-intro-copy h2,
+  .veld-sensors-intro-head h2,
+  .veld-sensors-intro-subline,
+  .arch-slide-headline {
     font-size: clamp(1.15rem, 3.35vw, 2.9rem);
   }
 }
 
-.velt-section-body {
+.veld-section-body {
   flex: 1;
   padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4rem);
 }
 
-#services .velt-section-body {
+#services .veld-section-body {
+  padding-top: clamp(2rem, 6vh, 3.75rem);
   padding-bottom: 0;
 }
 
-.velt-slide-bridge {
+.veld-arch-to-sensors-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  background: #fff;
+}
+
+.veld-strawberry-rhythm {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  min-height: clamp(48rem, 82vh, 68rem);
+}
+
+.veld-strawberry-rhythm__spacer {
+  width: 100%;
+  min-height: 0;
+}
+
+.veld-arch-to-sensors-band .veld-slide-bridge {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.veld-sensors-intro-rhythm {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  min-height: clamp(7rem, 16vh, 10rem);
+}
+
+.veld-sensors-intro-rhythm__spacer {
+  width: 100%;
+  min-height: 0;
+}
+
+.veld-sensors-intro-head {
+  width: 100%;
+  text-align: center;
+}
+
+.veld-sensors-intro-head h2 {
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(1.85rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+.veld-arch-to-sensors-band .signal-mint {
+  text-transform: none;
+}
+
+.veld-sensors-intro-subline {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.85rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+#sensors .veld-sensors-intro-copy {
+  margin: 0;
+  padding: 0.75rem clamp(1.25rem, 5vw, 3.5rem) clamp(1.25rem, 4vh, 2rem);
+  text-align: center;
+  font-size: clamp(0.82rem, 1.6vw, 1.05rem);
+  line-height: 1.55;
+  color: var(--ink);
+  text-transform: lowercase;
+}
+
+.veld-slide-bridge {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(1.25rem, 4vw, 2.75rem);
-  padding: clamp(7.5rem, 16vw, 12rem) clamp(1.5rem, 6vw, 5rem);
+  box-sizing: border-box;
   background: #fff;
 }
 
-.velt-slide-bridge-figure {
+.veld-slide-bridge-figure {
   display: block;
   width: clamp(5.5rem, 16vw, 10rem);
   height: auto;
@@ -364,7 +743,7 @@ body {
   flex: 0 0 auto;
 }
 
-.velt-slide-bridge-label {
+.veld-slide-bridge-label {
   margin: 0;
   flex: 0 0 auto;
   font-family: var(--mono);
@@ -379,25 +758,25 @@ body {
     transform 0.7s ease;
 }
 
-.velt-slide-bridge-label--left {
+.veld-slide-bridge-label--left {
   text-align: right;
   transform: translateX(-0.7em);
   transition-delay: 0.05s;
 }
 
-.velt-slide-bridge-label--right {
+.veld-slide-bridge-label--right {
   text-align: left;
   transform: translateX(0.7em);
   transition-delay: 0.16s;
 }
 
-.velt-slide-bridge.is-inview .velt-slide-bridge-label {
+.veld-slide-bridge.is-inview .veld-slide-bridge-label {
   opacity: 1;
   transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .velt-slide-bridge-label {
+  .veld-slide-bridge-label {
     opacity: 1;
     transform: none;
     transition: none;
@@ -430,7 +809,7 @@ body {
   text-align: center;
 }
 
-#sensors .velt-tag-mint {
+#sensors .veld-tag-mint {
   display: inline-block;
   background: var(--mint);
   color: var(--ink);
@@ -439,7 +818,24 @@ body {
   line-height: 1;
 }
 
-.velt-eos-intro {
+#sensors.data-slide {
+  min-height: 0;
+  padding-bottom: clamp(5rem, 15vh, 10rem);
+}
+
+#sensors .data-stage {
+  width: min(1520px, calc(100% - clamp(1rem, 2vw, 1.5rem)));
+  margin-inline: clamp(0.5rem, 1vw, 0.85rem);
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+#sensors .data-stage .grid-usage-row {
+  width: 100%;
+  max-width: none;
+}
+
+.veld-eos-intro {
   max-width: 62ch;
   margin: -1rem 0 clamp(1.6rem, 3vw, 2.4rem);
   font-size: 0.78rem;
@@ -447,14 +843,19 @@ body {
   color: var(--ink);
 }
 
-.velt-eos-nav {
-  gap: 0.15rem;
-  margin-bottom: auto;
+#materials {
+  --veld-green: #4a7a48;
 }
 
-.velt-eos-nav .eos-side-item {
-  font-size: clamp(0.82rem, 1.35vw, 1.05rem);
-  line-height: 1.3;
+#materials .veld-materials-sidebar {
+  padding-top: 0;
+  padding-left: 0;
+}
+
+#materials .veld-materials-tabs {
+  width: 100%;
+  margin-bottom: auto;
+  justify-content: flex-start;
 }
 
 #materials.eden-os-slide {
@@ -469,6 +870,7 @@ body {
 #materials .eos-split {
   flex: 1 1 auto;
   min-height: clamp(32rem, 68vh, 48rem);
+  margin-top: clamp(2rem, 6vh, 3.75rem);
 }
 
 #materials .eos-demo {
@@ -514,20 +916,20 @@ body {
   margin: 0;
 }
 
-.velt-services,
-.velt-materials {
-  --velt-green: #4a7a48;
+.veld-services,
+.veld-materials {
+  --veld-green: #4a7a48;
   background: #fff;
 }
 
-.velt-services-stage {
+.veld-services-stage {
   display: grid;
   grid-template-columns: minmax(20rem, 32rem) minmax(0, 1fr);
   align-items: stretch;
   min-height: 24rem;
 }
 
-.velt-services-tabs {
+.veld-services-tabs {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -535,7 +937,7 @@ body {
   border-bottom: 1px solid var(--line-faint);
 }
 
-.velt-services-tab {
+.veld-services-tab {
   appearance: none;
   display: flex;
   align-items: center;
@@ -552,20 +954,20 @@ body {
   color: rgba(71, 73, 72, 0.34);
 }
 
-.velt-services-tab + .velt-services-tab {
+.veld-services-tab + .veld-services-tab {
   border-top: 1px solid var(--line-faint);
 }
 
-.velt-services-tab:hover {
+.veld-services-tab:hover {
   color: rgba(71, 73, 72, 0.62);
 }
 
-.velt-services-tab:focus-visible {
+.veld-services-tab:focus-visible {
   outline: 1px solid var(--ink);
   outline-offset: -2px;
 }
 
-.velt-services-tab-index {
+.veld-services-tab-index {
   flex: 0 0 auto;
   font-size: 1.55rem;
   font-weight: 500;
@@ -573,21 +975,22 @@ body {
   line-height: 1;
 }
 
-.velt-services-tab-title {
+.veld-services-tab-title {
   font-size: 1.05rem;
   line-height: 1.35;
 }
 
-.velt-services-tab.is-active {
-  border-left-color: var(--velt-green);
-  color: var(--velt-green);
+.veld-services-tab.is-active {
+  border-left-color: var(--veld-green);
+  color: var(--veld-green);
 }
 
-.velt-services-tab.is-active .velt-services-tab-title {
-  color: var(--velt-green);
+.veld-services-tab.is-active .veld-services-tab-index,
+.veld-services-tab.is-active .veld-services-tab-title {
+  color: var(--veld-green);
 }
 
-.velt-services-panel {
+.veld-services-panel {
   position: relative;
   display: flex;
   align-items: center;
@@ -597,7 +1000,7 @@ body {
   background: #efefef;
 }
 
-.velt-services-panel p {
+.veld-services-panel p {
   margin: 0;
   max-width: 36rem;
   text-align: center;
@@ -607,7 +1010,7 @@ body {
   color: var(--ink);
 }
 
-.velt-services-dots {
+.veld-services-dots {
   position: absolute;
   right: 1rem;
   bottom: 0.85rem;
@@ -615,7 +1018,7 @@ body {
   gap: 0.32rem;
 }
 
-.velt-services-dot {
+.veld-services-dot {
   width: 0.42rem;
   height: 0.42rem;
   padding: 0;
@@ -624,30 +1027,30 @@ body {
   cursor: pointer;
 }
 
-.velt-services-dot.is-active {
-  background: var(--velt-green);
+.veld-services-dot.is-active {
+  background: var(--veld-green);
 }
 
-.velt-services-dot:focus-visible {
+.veld-services-dot:focus-visible {
   outline: 1px solid var(--ink);
   outline-offset: 2px;
 }
 
-.velt-material-choices {
+.veld-material-choices {
   display: flex;
   flex-direction: column;
   gap: 1.35rem;
   width: min(100%, 36rem);
 }
 
-.velt-material-choice-index {
+.veld-material-choice-index {
   margin: 0 0 0.35rem;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
-  color: var(--velt-green);
+  color: var(--veld-green);
 }
 
-.velt-material-choice h3 {
+.veld-material-choice h3 {
   margin: 0 0 0.45rem;
   font-family: var(--mono);
   font-size: 0.95rem;
@@ -656,7 +1059,7 @@ body {
   color: var(--ink);
 }
 
-.velt-services-panel .velt-material-choice p {
+.veld-services-panel .veld-material-choice p {
   margin: 0;
   max-width: none;
   text-align: left;
@@ -665,7 +1068,7 @@ body {
   color: rgba(71, 73, 72, 0.88);
 }
 
-.velt-material-menu {
+.veld-material-menu {
   list-style: none;
   width: min(100%, 34rem);
   margin: 0;
@@ -675,7 +1078,7 @@ body {
   gap: 0.95rem;
 }
 
-.velt-material-menu li {
+.veld-material-menu li {
   display: grid;
   grid-template-columns: 2.4rem 1fr;
   gap: 0.75rem;
@@ -686,31 +1089,31 @@ body {
   color: var(--ink);
 }
 
-.velt-material-menu span {
-  color: var(--velt-green);
+.veld-material-menu span {
+  color: var(--veld-green);
   font-size: 0.8rem;
 }
 
 @media (max-width: 800px) {
-  .velt-services-stage {
+  .veld-services-stage {
     grid-template-columns: 1fr;
   }
 }
 
-.velt-services-grid {
+.veld-services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
   gap: 1rem;
 }
 
-.velt-service-card {
+.veld-service-card {
   border: 1px solid var(--line);
   background: rgba(244, 244, 244, 0.72);
   padding: 1.1rem 1.15rem 1.25rem;
   min-height: 100%;
 }
 
-.velt-service-card h3 {
+.veld-service-card h3 {
   font-family: var(--serif);
   font-size: 1.15rem;
   font-weight: 500;
@@ -718,57 +1121,57 @@ body {
   margin-bottom: 0.65rem;
 }
 
-.velt-service-card p {
+.veld-service-card p {
   font-family: var(--mono);
   font-size: 0.68rem;
   line-height: 1.65;
   color: rgba(71, 73, 72, 0.88);
 }
 
-.velt-concepts-grid {
+.veld-concepts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
   gap: 0.85rem;
 }
 
-.velt-concept-card {
+.veld-concept-card {
   border: 1px solid var(--line-faint);
   background: #fff;
   padding: 1rem 1.05rem;
 }
 
-.velt-concept-card h3 {
+.veld-concept-card h3 {
   font-family: var(--serif);
   font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
 
-.velt-concept-card p {
+.veld-concept-card p {
   font-family: var(--mono);
   font-size: 0.65rem;
   line-height: 1.6;
 }
 
-.velt-materials-split {
+.veld-materials-split {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 @media (min-width: 960px) {
-  .velt-materials-split {
+  .veld-materials-split {
     grid-template-columns: 1.1fr 0.9fr;
     align-items: start;
   }
 }
 
-.velt-list {
+.veld-list {
   list-style: none;
   margin: 0.75rem 0 0;
   padding: 0;
 }
 
-.velt-list li {
+.veld-list li {
   position: relative;
   padding-left: 1rem;
   margin-bottom: 0.45rem;
@@ -777,34 +1180,34 @@ body {
   line-height: 1.55;
 }
 
-.velt-list li::before {
+.veld-list li::before {
   content: "–";
   position: absolute;
   left: 0;
   color: var(--sage);
 }
 
-.velt-gallery-row {
+.veld-gallery-row {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
 
-.velt-gallery-cell {
+.veld-gallery-cell {
   border: 1px solid var(--line);
   background: #fff;
   overflow: hidden;
 }
 
-.velt-gallery-cell img {
+.veld-gallery-cell img {
   display: block;
   width: 100%;
   height: 11rem;
   object-fit: cover;
 }
 
-.velt-gallery-cell figcaption {
+.veld-gallery-cell figcaption {
   padding: 0.45rem 0.55rem;
   font-family: var(--mono);
   font-size: 0.58rem;
@@ -813,106 +1216,115 @@ body {
   color: var(--sage);
 }
 
-.velt-site-header {
+.veld-site-header {
   position: sticky;
   top: 0;
   z-index: 20;
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding: 0.85rem clamp(1rem, 3vw, 2rem);
+  padding: 1rem clamp(1rem, 3vw, 2rem);
   background: rgba(244, 244, 244, 0.92);
   border-bottom: 1px solid var(--line-faint);
   backdrop-filter: blur(8px);
 }
 
-.velt-site-header-side {
+.veld-site-header .brand-lockup--compact .brand-main {
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+}
+
+.veld-site-header .brand-lockup-sub {
+  font-size: clamp(0.75rem, 1.15vw, 0.88rem);
+  letter-spacing: 0.06em;
+}
+
+.veld-site-header-side {
   flex: 1 1 0;
   display: flex;
   align-items: center;
   min-width: 0;
 }
 
-.velt-site-header-side:last-child {
+.veld-site-header-side:last-child {
   justify-content: flex-end;
   gap: 0.45rem;
 }
 
-.velt-site-nav {
+.veld-site-nav {
   display: flex;
   flex: 0 0 auto;
-  gap: 0.85rem 1.1rem;
+  gap: 1rem 1.35rem;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
   text-transform: lowercase;
   white-space: nowrap;
 }
 
 @media (max-width: 940px) {
-  .velt-site-header {
+  .veld-site-header {
     flex-wrap: wrap;
   }
 
-  .velt-site-header-side {
+  .veld-site-header-side {
     flex: 0 0 auto;
   }
 
-  .velt-site-header-side:first-child {
+  .veld-site-header-side:first-child {
     flex-basis: 100%;
   }
 
-  .velt-site-header-side:last-child {
+  .veld-site-header-side:last-child {
     margin-left: auto;
   }
 
-  .velt-site-nav {
+  .veld-site-nav {
     flex-wrap: wrap;
     white-space: normal;
   }
 }
 
-.velt-site-nav a {
+.veld-site-nav a {
   color: var(--ink);
   text-decoration: none;
 }
 
-.velt-site-nav a:hover {
+.veld-site-nav a:hover {
   color: var(--sage);
 }
 
-.velt-site-portal,
-.velt-site-cta {
+.veld-site-portal,
+.veld-site-cta {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
   text-decoration: none;
   border: 1px solid var(--ink);
-  padding: 0.35rem 0.65rem;
+  padding: 0.45rem 0.8rem;
 }
 
-.velt-site-portal {
+.veld-site-portal {
   color: var(--ink);
   background: #fff;
   text-transform: lowercase;
 }
 
-.velt-site-portal:hover {
+.veld-site-portal:hover {
   background: var(--ink);
   color: #fff;
 }
 
-.velt-site-cta {
+.veld-site-cta {
   font-style: italic;
   color: #4a7a48;
   background: var(--mint);
 }
 
-.velt-site-cta:hover {
+.veld-site-cta:hover {
   background: var(--ink);
   color: var(--mint);
   border-color: var(--ink);
 }
 
-.velt-site-footer {
+.veld-site-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -925,7 +1337,7 @@ body {
   text-align: center;
 }
 
-.velt-site-footer .velt-slide-bridge {
+.veld-site-footer .veld-slide-bridge {
   flex: 1;
   width: 100%;
   background: transparent;
@@ -933,13 +1345,13 @@ body {
   padding-bottom: clamp(2rem, 6vh, 4rem);
 }
 
-.velt-footer-meta {
+.veld-footer-meta {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.velt-site-footer p {
+.veld-site-footer p {
   font-family: var(--mono);
   font-size: 0.65rem;
   line-height: 1.6;
@@ -947,11 +1359,11 @@ body {
   margin: 0;
 }
 
-.velt-site-footer a {
+.veld-site-footer a {
   color: #3f9a4a;
 }
 
-.velt-footer-mark {
+.veld-footer-mark {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -962,7 +1374,7 @@ body {
   background: #fff;
 }
 
-.velt-site-footer .velt-footer-name {
+.veld-site-footer .veld-footer-name {
   font-family: var(--serif);
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -973,13 +1385,13 @@ body {
   color: var(--ink);
 }
 
-.velt-footer-sub {
+.veld-footer-sub {
   font-size: 0.72rem;
   margin: 0;
   color: var(--ink);
 }
 
-.velt-portal {
+.veld-portal {
   min-height: calc(100dvh - var(--site-header, 4.6rem));
   display: flex;
   flex-direction: column;
@@ -987,7 +1399,7 @@ body {
   background: var(--soft);
 }
 
-.velt-portal-copy {
+.veld-portal-copy {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -996,7 +1408,7 @@ body {
   padding: 2rem 1.25rem 1rem;
 }
 
-.velt-portal-fynbos {
+.veld-portal-fynbos {
   width: auto;
   height: clamp(8.5rem, 26vh, 14.5rem);
   pointer-events: none;
@@ -1004,22 +1416,22 @@ body {
 }
 
 @media (max-height: 700px) {
-  .velt-portal-fynbos {
+  .veld-portal-fynbos {
     height: 7.5rem;
   }
 }
 
-.velt-portal-title {
+.veld-portal-title {
   font-size: clamp(2.8rem, 6.4vw, 4.4rem);
   line-height: 0.9;
   margin: 0;
 }
 
-.velt-portal-line {
+.veld-portal-line {
   margin: 1.65rem 0 0;
 }
 
-.velt-portal-line a {
+.veld-portal-line a {
   display: inline-block;
   font-size: clamp(0.78rem, 1.5vw, 1rem);
   font-style: italic;
@@ -1031,35 +1443,45 @@ body {
   padding: 0.12em 0.45em 0.08em;
 }
 
-.velt-portal-line a:hover {
+.veld-portal-line a:hover {
   background: var(--ink);
   color: var(--mint);
 }
 
-.velt-lifestyle {
+.veld-lifestyle {
   scroll-margin-top: 0;
 }
 
-.velt-lifestyle-row {
-  --velt-lifestyle-gap: clamp(0.65rem, 1.4vw, 1.1rem);
-  flex: 1 1 auto;
-  min-height: clamp(20rem, 54vh, 36rem);
+.veld-lifestyle-stage {
+  --veld-lifestyle-gap: clamp(0.65rem, 1.4vw, 1.1rem);
+  --veld-green: #4a7a48;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.8vw, 1.15rem);
+  width: 100%;
+  padding: clamp(2rem, 6vh, 3.75rem) clamp(1.25rem, 4vw, 3rem) clamp(1.75rem, 5vh, 3.25rem);
+}
+
+.veld-lifestyle-cards,
+.veld-lifestyle-details-row {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  gap: var(--velt-lifestyle-gap);
+  gap: var(--veld-lifestyle-gap);
   width: 100%;
-  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(1.75rem, 5vh, 3.25rem);
 }
 
-.velt-scenario {
-  position: relative;
+.veld-lifestyle-cards > .veld-scenario,
+.veld-lifestyle-details-row > .veld-scenario-details {
   flex: 1 1 0;
-  width: auto;
-  height: auto;
   min-width: 0;
-  min-height: 20rem;
-  align-self: stretch;
+}
+
+.veld-scenario {
+  position: relative;
+  width: 100%;
+  min-height: clamp(18rem, 48vh, 32rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1070,7 +1492,7 @@ body {
   container-type: inline-size;
 }
 
-.velt-scenario img {
+.veld-scenario img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1079,7 +1501,7 @@ body {
   object-position: center center;
 }
 
-.velt-scenario::before {
+.veld-scenario::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1096,24 +1518,221 @@ body {
   z-index: 1;
 }
 
-.velt-scenario h3 {
+.veld-scenario-copy {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.veld-scenario h3 {
   margin: 0;
   font-size: clamp(1.2rem, 11cqw, 2.45rem);
   line-height: 0.95;
 }
 
-.velt-scenario p {
-  position: relative;
-  z-index: 2;
+.veld-scenario-lead {
   margin: 0.45rem 0 0;
   font-size: clamp(0.62rem, 3.5cqw, 0.78rem);
   line-height: 1.4;
   color: var(--ink);
 }
 
-.velt-landscape-card.landscape-card {
+.veld-scenario-details {
+  --veld-scenario-detail-label-width: 9.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid var(--line-faint);
+  background: #fff;
+  text-align: center;
+}
+
+.veld-scenario-detail + .veld-scenario-detail {
+  border-top: 1px solid var(--line-faint);
+}
+
+.veld-scenario-detail-trigger {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0.85rem 0.75rem;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--mono);
+  color: rgba(71, 73, 72, 0.34);
+  text-transform: lowercase;
+}
+
+.veld-scenario-detail-label {
+  display: grid;
+  grid-template-columns: 1.35em minmax(0, 1fr);
+  column-gap: 0.45rem;
+  align-items: baseline;
+  justify-items: start;
+  width: min(100%, var(--veld-scenario-detail-label-width));
+  text-align: left;
+}
+
+.veld-scenario-detail-trigger:hover {
+  color: rgba(71, 73, 72, 0.62);
+}
+
+.veld-scenario-detail-trigger:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.veld-scenario-detail.is-open .veld-scenario-detail-trigger {
+  color: var(--veld-green);
+}
+
+.veld-scenario-detail-mark {
+  justify-self: center;
+  width: 100%;
+  font-size: clamp(1.25rem, 4.5cqw, 1.55rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+}
+
+.veld-scenario-detail-title {
+  font-size: clamp(0.92rem, 3.8cqw, 1.05rem);
+  line-height: 1.35;
+}
+
+.veld-scenario-detail-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+  background: #efefef;
+}
+
+.veld-scenario-detail.is-open .veld-scenario-detail-panel {
+  grid-template-rows: 1fr;
+}
+
+.veld-scenario-detail-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.veld-scenario-detail-panel-inner p {
+  margin: 0;
+  padding: 0 clamp(0.85rem, 2.5vw, 1.1rem);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: clamp(0.82rem, 3.2cqw, 0.98rem);
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.veld-scenario-detail-panel-inner p:first-child {
+  padding-top: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.veld-scenario-detail-panel-inner p:last-child {
+  padding-bottom: clamp(1.1rem, 2.8vw, 1.45rem);
+}
+
+.veld-scenario-detail-panel-inner p + p {
+  margin-top: 0.85rem;
+}
+
+.veld-scenario-detail-info-lead {
+  font-weight: 500;
+}
+
+.veld-scenario-detail-info-lead strong {
+  font-weight: 600;
+}
+
+.veld-scenario-detail-closing {
+  margin: 1rem 0 0;
+  padding: 0 clamp(0.85rem, 2.5vw, 1.1rem);
+  border: 0;
+  font-family: var(--mono);
+  font-size: clamp(0.82rem, 3.2cqw, 0.98rem);
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.veld-scenario-detail-closing p {
+  margin: 0;
+  padding: 0;
+}
+
+.veld-scenario-detail-closing em {
+  font-style: italic;
+}
+
+.veld-scenario-detail-closing em::before {
+  content: "\201C";
+}
+
+.veld-scenario-detail-closing em::after {
+  content: "\201D";
+}
+
+.veld-scenario-detail-list {
+  padding: clamp(1.35rem, 3.2vw, 1.85rem) clamp(1rem, 2.8vw, 1.35rem)
+    clamp(1.35rem, 3.2vw, 1.85rem);
+  text-align: left;
+}
+
+.veld-scenario-detail-panel-inner .veld-scenario-detail-list p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  line-height: 1.55;
+}
+
+.veld-scenario-detail-panel-inner .veld-scenario-detail-list .veld-scenario-detail-list-paragraph {
+  margin: 0;
+}
+
+.veld-scenario-detail-panel-inner .veld-scenario-detail-list .veld-scenario-detail-list-intro {
+  margin: 1.75rem 0 0.55rem;
+}
+
+.veld-scenario-detail-list ul {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  list-style: disc;
+  list-style-position: outside;
+}
+
+.veld-scenario-detail-list li {
+  margin: clamp(0.75rem, 2vw, 1rem) 0 0;
+  font-family: var(--mono);
+  font-size: clamp(0.78rem, 3vw, 0.92rem);
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.veld-scenario-detail-list li:first-child {
+  margin-top: 0.15rem;
+}
+
+.veld-scenario-detail-list a {
+  color: var(--veld-green, #4a7a48);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.veld-scenario-detail-list a:hover {
+  color: var(--ink);
+}
+
+.veld-landscape-card.landscape-card {
   position: relative;
   right: auto;
   top: auto;
@@ -1174,6 +1793,15 @@ body {
 
 .signal-url {
   font-size: clamp(3.1rem, 7vw, 5rem);
+}
+
+.signal-slide .signal-stage {
+  padding-bottom: clamp(2.5rem, 8vh, 5rem);
+}
+
+.signal-slide .signal-footer {
+  padding-top: clamp(3.5rem, 12vh, 7.5rem);
+  padding-bottom: clamp(4.5rem, 14vh, 9.5rem);
 }
 
 .signal-math {
@@ -1532,7 +2160,8 @@ body {
 .curated-slide {
   background: #fff;
   color: var(--ink);
-  border-bottom-color: var(--line-faint);
+  border-top: 1px solid var(--line-faint);
+  border-bottom: 1px solid var(--line-faint);
 }
 
 .curated-slide::before {

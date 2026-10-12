@@ -11,18 +11,18 @@ export default function PortalPage() {
   return (
     <>
       <SiteHeader />
-      <main className="velt-portal">
-        <div className="velt-portal-copy">
+      <main className="veld-portal">
+        <div className="veld-portal-copy">
           <div className="hero-brand-box">
-            <h1 className="velt-portal-title brand-natural">coming soon</h1>
+            <h1 className="veld-portal-title brand-natural">coming soon</h1>
             <p className="hero-subline mono">customer portal</p>
           </div>
-          <p className="velt-portal-line mono">
+          <p className="veld-portal-line mono">
             <a href="/">back to site</a>
           </p>
         </div>
         <img
-          className="velt-portal-fynbos"
+          className="veld-portal-fynbos"
           src="/images/hero/fynbos.png"
           alt=""
           width={343}

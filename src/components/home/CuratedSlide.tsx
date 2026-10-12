@@ -71,7 +71,7 @@ export function CuratedSlide() {
 
         <article className="spec-card" data-node="bramble" style={{ "--x": "8%", "--y": "38%", "--r": "-1deg" } as CSSProperties}>
           <header className="spec-head">
-            <h3 className="serif">Bramble K</h3>
+            <h3 className="serif">Kbay</h3>
             <span className="spec-serial mono">
               <span className="spec-sq" aria-hidden="true" />
               003
@@ -88,7 +88,7 @@ export function CuratedSlide() {
           <div className="spec-join" aria-hidden="true" />
           <footer className="spec-bottom">
             <div className="spec-meta-lines mono">
-              <p className="spec-meta-label">BRAMBLE K</p>
+              <p className="spec-meta-label">KBAY</p>
               <span className="spec-pip spec-pip--mint">TEMP 21.8°C</span>
               <span className="spec-term">season · setpoints</span>
               <span className="spec-pip spec-pip--mint">VPD 0.94</span>
