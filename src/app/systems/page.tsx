@@ -4,6 +4,7 @@ import { SystemsHeroSection } from "@/components/systems/SystemsHeroSection";
 import { LifestyleSection } from "@/components/home/LifestyleSection";
 import { MaterialsSection } from "@/components/home/MaterialsSection";
 import { ProcessSection } from "@/components/systems/ProcessSection";
+import { SystemsEnquireSection } from "@/components/systems/SystemsEnquireSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { site } from "@/content/site";
@@ -23,6 +24,7 @@ export default function SystemsPage() {
         <ServicesSection />
         <MaterialsSection />
         <ProcessSection />
+        <SystemsEnquireSection />
       </main>
       <SiteFooter />
     </>

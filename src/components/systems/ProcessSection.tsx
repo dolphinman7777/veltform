@@ -8,9 +8,13 @@ export function ProcessSection() {
 
   return (
     <section className="veld-process" id="process" aria-labelledby="process-heading">
-      <h2 className="veld-process__title mono" id="process-heading">
-        <span className="signal-mint">{site.processHighlight}</span>
-      </h2>
+      <div className="veld-section-head veld-section-head--display veld-slide-intro">
+        <div className="veld-slide-intro-copy">
+          <h2 className="mono" id="process-heading">
+            <span className="signal-mint">{site.processHighlight}</span>
+          </h2>
+        </div>
+      </div>
       <div className="veld-process__body" onMouseLeave={() => setOpenId(null)}>
         <ol className="veld-process__steps">
           {site.processSteps.map((step) => {
