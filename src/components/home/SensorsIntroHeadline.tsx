@@ -1,6 +1,22 @@
 import { site } from "@/content/site";
 
-export function SensorsIntroHeadline() {
+type SensorsIntroHeadlineProps = {
+  variant?: "band" | "hero";
+};
+
+export function SensorsIntroHeadline({ variant = "band" }: SensorsIntroHeadlineProps) {
+  if (variant === "hero") {
+    return (
+      <div className="veld-sensors-intro-hero-copy">
+        <h2 className="mono">
+          <span className="signal-mint">{site.sensorsHighlight}</span>
+          <br />
+          {site.sensorsHeadline}
+        </h2>
+      </div>
+    );
+  }
+
   return (
     <div className="veld-sensors-intro-rhythm">
       <div className="veld-sensors-intro-head">

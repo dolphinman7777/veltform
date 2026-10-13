@@ -5,7 +5,6 @@ import { HeroVideoSlide } from "@/components/home/HeroVideoSlide";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { ArchitecturalInfluencesSection } from "@/components/home/ArchitecturalInfluencesSection";
 import { ClimateSystemsSlide } from "@/components/home/ClimateSystemsSlide";
-import { LifestyleSection } from "@/components/home/LifestyleSection";
 import { ThesisSection } from "@/components/home/ThesisSection";
 
 export default function HomePage() {
@@ -17,7 +16,6 @@ export default function HomePage() {
         <ArchitecturalInfluencesSection />
         <ClimateSystemsSlide />
         <ThesisSection />
-        <LifestyleSection />
         <HeroVideoSlide />
         <CuratedSlide />
       </main>

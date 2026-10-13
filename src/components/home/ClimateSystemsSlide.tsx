@@ -13,6 +13,11 @@ export function ClimateSystemsSlide() {
           <p className="climate-systems-slide__body mono">{site.climateSystemsBody}</p>
         </div>
         <figure className="climate-systems-slide__figure">
+          <div className="climate-systems-slide__labels mono" aria-hidden="true">
+            {site.climateSystemsLabels.map((label) => (
+              <span key={label} className="climate-systems-slide__label">{label}</span>
+            ))}
+          </div>
           <img
             className="arch-slide-image climate-systems-slide__image"
             src={site.climateSystemsImage}
@@ -21,11 +26,6 @@ export function ClimateSystemsSlide() {
             height={778}
             decoding="async"
           />
-          <div className="climate-systems-slide__labels mono">
-            {site.climateSystemsLabels.map((label) => (
-              <span key={label} className="climate-systems-slide__label">{label}</span>
-            ))}
-          </div>
         </figure>
       </div>
     </section>

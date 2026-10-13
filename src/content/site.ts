@@ -48,11 +48,17 @@ export type LifestyleScenarioDetails = {
   cropType: LifestyleScenarioDetailCopy;
 };
 
+export type LifestyleScenarioSlide = {
+  tagline: string;
+  paragraphs: readonly string[];
+};
+
 export type LifestyleScenario = {
   id: string;
   title: string;
   body: string;
   image: string;
+  slide: LifestyleScenarioSlide;
   details: LifestyleScenarioDetails;
 };
 
@@ -269,12 +275,21 @@ export const site = {
   ],
   lifestyleIntro:
     "The same structure can be a kitchen garden, a botanical library, or a living space.",
+  lifestyleSlideEyebrow: "Greenhouse Systems",
   scenarios: [
     {
       id: "kitchen-garden",
       title: "kitchen garden",
       body: "Vegetable production, planned for maximum efficiency.",
       image: "/images/lifestyle/kitchen-garden.jpg",
+      slide: {
+        tagline: "Fresh food, grown your way.",
+        paragraphs: [
+          "Our smart greenhouse systems make it easier to grow fresh vegetables, juicy tomatoes, sweet peppers, chillies, leafy greens and specialty crops in a carefully controlled environment. Designed for restaurant owners, private chefs, food businesses and passionate food lovers, they give you greater control over what you grow, how it grows and when it's ready to harvest.",
+          "Check your greenhouse conditions directly from your phone, keep track of changes and manage your growing environment wherever you are.",
+          "Consistent harvests, crop quality comes along with technology, sustainability and a passion for great food. Explore the flavours, aromas and varieties that make fresh ingredients truly special",
+        ],
+      },
       details: { info: "", specs: "", cropType: "" },
     },
     {
@@ -282,6 +297,14 @@ export const site = {
       title: "botanical library",
       body: "A stable climate for rare collections.",
       image: "/images/lifestyle/botanical-library.jpg",
+      slide: {
+        tagline: "A living library of plants.",
+        paragraphs: [
+          "Imagine stepping into your own little world of lush greenery, exotic flowers and extraordinary plants. Your own living sanctuary. Our Botanical Libraries combine elegant architectural design with intelligent climate-control technology, creating carefully balanced environments where rare and delicate plants can flourish.",
+          "With the ability to monitor and manage temperature, humidity and other growing conditions you can nurture a unique collection of plants: from delicate orchids and ferns to fascinating carnivorous plants and endangered species.",
+          "Whether you're passionate about protecting biodiversity or simply dream of being surrounded by greenery, your botanical library becomes a space to explore, discover and connect with the plant world.",
+        ],
+      },
       details: {
         info: {
           lead: "A living library of plants.",
@@ -364,6 +387,14 @@ export const site = {
       title: "living space",
       body: "A comfortable mixed-use space for plants and people.",
       image: "/images/lifestyle/living-space.jpg",
+      slide: {
+        tagline: "A botanical living space for plants and people.",
+        paragraphs: [
+          "Designed with both plants and people in mind, a Living Space offers the best of both worlds. Dine semi-alfresco in a cool, shaded retreat when the summer heat gets too much, or soak up the sunshine on a clear winter's day with a book on the couch.",
+          "Take a break from your desk, pick fresh aromatic mint for your tea, snack on berries out of season, or simply enjoy a quiet moment surrounded by greenery. Classic houseplants and rare exotics add aesthetic appeal; leafy greens and edible flowers add freshness to your table.",
+          "Unlike a traditional greenhouse focused on maximum production, a Living Space is shaped around your interests, habits and personal tastes — a little ecosystem of your own, where plants and people can thrive together.",
+        ],
+      },
       details: {
         info:
           "A botanical living space, designed to host and grow, harvest and entertain, side by side.\n\nClassic houseplants and rare exotics add aesthetic appeal. Leafy greens and edible flowers add freshness to your summer salad. And kitchen herbs to spice up that cosy winter braai.\n\nDesigned with both plants and people in mind, a Living Space offers the best of both worlds. Dine semi-alfresco in a cool, shaded retreat when the summer heat gets too much, or soak up the sunshine on a clear winter's day with a book on the couch. Take a break from your desk, shake your body to pick some fresh aromatic mint for your tea, snack on freshly grown berries out of season, or simply enjoy a quiet moment surrounded by greenery. Some say plants grow better with music. So do not hesitate! Bring out that vinyl and mix some greens into your next set.\n\nUnlike a traditional greenhouse focused on maximum production, a Living Space is shaped around your interests, habits and personal tastes. A place to experiment with your favourite plants, gather around the table with friends, or enjoy a slow morning with a coffee. A little ecosystem of your own, where plants and people can thrive together.",

@@ -5,8 +5,11 @@ import { usePathname } from "next/navigation";
 
 const items = [
   { href: "/", label: "home" },
+  { href: "/lifestyle", label: "lifestyle" },
   { href: "/systems", label: "systems" },
+  { href: "/climate", label: "climate" },
   { href: "/education", label: "education" },
+  { href: "/process", label: "process" },
 ] as const;
 
 export function PrimaryNav() {

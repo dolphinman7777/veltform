@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
-import { SystemsHeroSection } from "@/components/systems/SystemsHeroSection";
 import { MaterialsSection } from "@/components/home/MaterialsSection";
-import { ProcessSection } from "@/components/systems/ProcessSection";
 import { SystemsEnquireSection } from "@/components/systems/SystemsEnquireSection";
+import { SystemsSensorsHeroSection } from "@/components/systems/SystemsSensorsHeroSection";
+import { SensorsSection } from "@/components/home/SensorsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { site } from "@/content/site";
@@ -18,10 +18,10 @@ export default function SystemsPage() {
     <>
       <SiteHeader />
       <main id="top">
-        <SystemsHeroSection />
         <ServicesSection />
         <MaterialsSection />
-        <ProcessSection />
+        <SystemsSensorsHeroSection />
+        <SensorsSection />
         <SystemsEnquireSection />
       </main>
       <SiteFooter />
