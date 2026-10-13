@@ -2,12 +2,13 @@ import { site } from "@/content/site";
 
 export function ArchitecturalInfluencesSection() {
   return (
-    <section className="arch-slide" id="architectural-influences" aria-label="Architectural influences">
+    <section className="arch-slide" id="architectural-influences" aria-label="Bespoke greenhouse designs">
       <div className="arch-slide-inner">
         <h2 className="arch-slide-headline mono">
-          <span className="signal-mint">{site.architecturalInfluencesHighlight}</span>
-          <br />
-          <span className="arch-slide-headline-line">{site.architecturalInfluencesHeadline}</span>
+          <span className="arch-slide-headline-line">
+            <span className="signal-mint">{site.architecturalInfluencesHighlight}</span>{" "}
+            {site.architecturalInfluencesHeadline}
+          </span>
         </h2>
         <img
           className="arch-slide-image"

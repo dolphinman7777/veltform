@@ -1,22 +1,12 @@
 import type { CSSProperties } from "react";
 import { RootCalculations } from "@/components/home/RootCalculations";
+import { ThesisIntro } from "@/components/home/ThesisIntro";
 import { site } from "@/content/site";
 
 export function ThesisSection() {
   return (
     <section className="signal-slide" id="approach">
-      <div className="signal-content">
-        <h2 className="signal-headline mono">
-          <span className="signal-headline-line">
-            grow <span className="signal-mint">more of the year</span>,
-          </span>
-          <span className="signal-headline-line">
-            in a greenhouse built for <span className="signal-mint">your site and your crops</span>.
-          </span>
-        </h2>
-        <p className="signal-support mono">{site.thesisSupport}</p>
-      </div>
-
+      <ThesisIntro />
       <div className="signal-stage">
         <div className="signal-trace-wrap">
           <svg className="signal-trace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">

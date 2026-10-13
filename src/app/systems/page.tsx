@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SystemsHeroSection } from "@/components/systems/SystemsHeroSection";
-import { LifestyleSection } from "@/components/home/LifestyleSection";
 import { MaterialsSection } from "@/components/home/MaterialsSection";
 import { ProcessSection } from "@/components/systems/ProcessSection";
 import { SystemsEnquireSection } from "@/components/systems/SystemsEnquireSection";
@@ -20,7 +19,6 @@ export default function SystemsPage() {
       <SiteHeader />
       <main id="top">
         <SystemsHeroSection />
-        <LifestyleSection />
         <ServicesSection />
         <MaterialsSection />
         <ProcessSection />

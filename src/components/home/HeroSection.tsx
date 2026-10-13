@@ -13,18 +13,16 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="hero-scene">
-              <video
+            <div className="hero-scene" aria-hidden="true">
+              <img
                 className="hero-plate"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster={site.heroImage}
-                aria-hidden="true"
-              >
-                <source src={site.heroVideo} type="video/mp4" />
-              </video>
+                src={site.heroBackground}
+                alt=""
+                width={1536}
+                height={1024}
+                decoding="async"
+                fetchPriority="high"
+              />
             </div>
           </div>
         </div>
