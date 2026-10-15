@@ -2,7 +2,7 @@ import { site } from "@/content/site";
 
 export function HeroVideoSlide() {
   return (
-    <section className="hero-video-slide" id="greenhouse" aria-label="Daily light target">
+    <section className="hero-video-slide" id="greenhouse" aria-label="Consistent abundance">
       <video
         className="hero-video-slide__plate"
         autoPlay
@@ -16,8 +16,10 @@ export function HeroVideoSlide() {
       </video>
       <div className="hero-video-slide__copy">
         <h2 className="hero-video-slide__headline mono">
-          achieve your{" "}
-          <span className="signal-mint">{site.heroVideoHeadlineHighlight}</span>, irrespective of the weather.
+          <span className="hero-video-slide__headline-text">
+            {site.heroVideoHeadlineHighlight}{" "}
+            <span className="signal-mint">{site.heroVideoHeadline}</span>
+          </span>
         </h2>
       </div>
     </section>

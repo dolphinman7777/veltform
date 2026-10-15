@@ -400,7 +400,20 @@ body {
 }
 
 .thesis-intro .signal-headline {
-  max-width: 26ch;
+  max-width: none;
+}
+
+.thesis-intro .signal-headline-line:first-child {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .thesis-intro .signal-headline {
+    font-size: clamp(1.05rem, 3.8vw, 1.55rem);
+  }
 }
 
 .thesis-intro .signal-support {
@@ -431,22 +444,38 @@ body {
   z-index: 2;
   top: clamp(2rem, 10vh, 5rem);
   right: clamp(1.5rem, 8vw, 6.5rem);
-  left: clamp(1.5rem, 8vw, 6.5rem);
-  max-width: min(40rem, 100%);
-  margin-left: auto;
+  left: auto;
+  max-width: none;
   text-align: right;
   pointer-events: none;
 }
 
 .hero-video-slide__headline {
   margin: 0;
-  font-size: clamp(1.55rem, 3.6vw, 3rem);
+  font-size: clamp(1.95rem, 5vw, 3.65rem);
   font-weight: 400;
-  line-height: 1.24;
+  line-height: 1.12;
   letter-spacing: 0.02em;
   color: #fff;
   text-transform: lowercase;
   text-shadow: 0 1px 24px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
+}
+
+.hero-video-slide__headline-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero-video-slide__headline .signal-mint {
+  display: inline;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .hero-video-slide__headline {
+    font-size: clamp(1.2rem, 6.8vw, 1.95rem);
+  }
 }
 
 .hero-cards--clean .hero-cards-stage {
@@ -810,6 +839,10 @@ body {
 .veld-lifestyle-slide {
   --veld-lifestyle-art-ratio: 2617 / 1397;
   --veld-lifestyle-copy-width: 48%;
+  --veld-lifestyle-slide-max-width: min(
+    100%,
+    calc((100dvh - var(--site-header, 4.6rem) - 2rem) * 2617 / 1397)
+  );
   display: grid;
   place-items: center;
   min-height: calc(100vh - var(--site-header, 4.6rem));
@@ -823,7 +856,7 @@ body {
   position: relative;
   margin: 0;
   width: 100%;
-  max-width: min(100%, calc((100dvh - var(--site-header, 4.6rem) - 2rem) * 2617 / 1397));
+  max-width: var(--veld-lifestyle-slide-max-width);
   max-height: calc(100dvh - var(--site-header, 4.6rem) - 2rem);
   aspect-ratio: var(--veld-lifestyle-art-ratio);
 }
@@ -845,13 +878,60 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: stretch;
   gap: 0;
   width: var(--veld-lifestyle-copy-width);
   padding: clamp(1.5rem, 4.5vw, 3.25rem) clamp(1.25rem, 3.5vw, 2.75rem);
   text-align: left;
-  overflow: auto;
+  overflow: hidden;
+  container-type: size;
+  container-name: lifestyle-copy;
+}
+
+.veld-lifestyle-slide__details {
+  width: 100%;
+  margin-top: clamp(1rem, 2.2vw, 1.5rem);
+  flex: 0 0 auto;
+}
+
+.veld-lifestyle-slide__copy .veld-scenario-details {
+  text-align: center;
+}
+
+.veld-lifestyle-slide__copy .veld-scenario-detail-trigger {
+  justify-content: center;
+}
+
+.veld-lifestyle-slide__copy .veld-scenario-detail-label {
+  margin-inline: auto;
+}
+
+.veld-lifestyle-slide__copy .veld-scenario-detail-panel {
+  display: block;
+  grid-template-rows: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.42s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.veld-lifestyle-slide__copy .veld-scenario-detail.is-open .veld-scenario-detail-panel {
+  max-height: clamp(11rem, calc(100cqh - 9rem), 38rem);
+  grid-template-rows: none;
+}
+
+.veld-lifestyle-slide__copy .veld-scenario-detail.is-open .veld-scenario-detail-panel-inner {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  max-height: clamp(11rem, calc(100cqh - 9rem), 38rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veld-lifestyle-slide__copy .veld-scenario-detail-panel {
+    transition: none;
+  }
 }
 
 .veld-lifestyle-slide__eyebrow {
@@ -882,9 +962,12 @@ body {
 
 .veld-lifestyle-slide__body {
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   gap: clamp(1rem, 2vw, 1.35rem);
+  min-height: 0;
   max-width: 100%;
+  overflow: visible;
 }
 
 .veld-lifestyle-slide__body p {
@@ -1915,7 +1998,7 @@ body {
 }
 
 .veld-scenario-details {
-  --veld-scenario-detail-label-width: 9.25rem;
+  --veld-scenario-detail-label-width: 12rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -1981,6 +2064,7 @@ body {
 .veld-scenario-detail-title {
   font-size: clamp(0.92rem, 3.8cqw, 1.05rem);
   line-height: 1.35;
+  white-space: nowrap;
 }
 
 .veld-scenario-detail-panel {

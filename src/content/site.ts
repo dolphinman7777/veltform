@@ -43,9 +43,9 @@ export type LifestyleScenarioDetailCopy =
   | LifestyleScenarioListDetail;
 
 export type LifestyleScenarioDetails = {
-  info: LifestyleScenarioDetailCopy;
-  specs: LifestyleScenarioDetailCopy;
-  cropType: LifestyleScenarioDetailCopy;
+  focus: LifestyleScenarioDetailCopy;
+  climateTypes: LifestyleScenarioDetailCopy;
+  cropTypes: LifestyleScenarioDetailCopy;
 };
 
 export type LifestyleScenarioSlide = {
@@ -58,6 +58,7 @@ export type LifestyleScenario = {
   title: string;
   body: string;
   image: string;
+  homeImage: string;
   slide: LifestyleScenarioSlide;
   details: LifestyleScenarioDetails;
 };
@@ -71,7 +72,8 @@ export const site = {
   heroImage: "/images/hero/living-space.png",
   heroBackground: "/images/hero/bespoke-greenhouse-quiet-strata.png",
   heroVideo: "/videos/greenhouse-weather-and-light-v2.mp4",
-  heroVideoHeadlineHighlight: "daily light target",
+  heroVideoHeadlineHighlight: "consistent",
+  heroVideoHeadline: "abundance",
   systemsHeroImage: "/images/systems/hero-landscape.png",
   systemsHeroHighlight: "systems",
   systemsHeroSupport: "bespoke greenhouses and climate systems",
@@ -116,16 +118,14 @@ export const site = {
   architecturalInfluencesHighlight: "bespoke",
   architecturalInfluencesHeadline: "greenhouse designs",
   architecturalInfluencesImage: "/images/home/architectural-influences.png",
-  climateSystemsHighlight: "climate",
-  climateSystemsHeadline: "systems",
+  climateSystemsHighlight: "automatic",
+  climateSystemsHeadline: "climate management",
   climateSystemsBody:
     "Autonomous climate steering can promote the speed of plant growth, but also increase the production of nutritionally or medicinally relevant compounds which make up the unique aroma and flavour of plants.",
   climateSystemsImage: "/images/home/climate-steering.png",
   climateSystemsLabels: ["Light", "Heat", "Water", "Climate"] as const,
   sealRing: "science · structure · season",
-  thesis:
-    "Grow more of the year, in a greenhouse built for your site and your crops.",
-  thesisHighlight: ["more of the year", "your site and your crops"],
+  thesis: "Smart systems manage the science so you don't have to.",
   thesisSupport:
     "Each one is planned around the light, weather, and crops on your site.",
   servicesIntro:
@@ -282,6 +282,7 @@ export const site = {
       title: "kitchen garden",
       body: "Vegetable production, planned for maximum efficiency.",
       image: "/images/lifestyle/kitchen-garden.jpg",
+      homeImage: "/images/lifestyle/home/kitchen-garden.png",
       slide: {
         tagline: "Fresh food, grown your way.",
         paragraphs: [
@@ -290,13 +291,14 @@ export const site = {
           "Consistent harvests, crop quality comes along with technology, sustainability and a passion for great food. Explore the flavours, aromas and varieties that make fresh ingredients truly special",
         ],
       },
-      details: { info: "", specs: "", cropType: "" },
+      details: { focus: "", climateTypes: "", cropTypes: "" },
     },
     {
       id: "botanical-library",
       title: "botanical library",
       body: "A stable climate for rare collections.",
       image: "/images/lifestyle/botanical-library.jpg",
+      homeImage: "/images/lifestyle/home/botanical-library.png",
       slide: {
         tagline: "A living library of plants.",
         paragraphs: [
@@ -306,7 +308,7 @@ export const site = {
         ],
       },
       details: {
-        info: {
+        focus: {
           lead: "A living library of plants.",
           paragraphs: [
             "Imagine stepping into your own little world of lush greenery, exotic flowers and extraordinary plants. Your own living sanctuary. Our Botanical Libraries combine elegant architectural design with intelligent climate-control technology, creating carefully balanced environments where rare and delicate plants can flourish.",
@@ -316,8 +318,8 @@ export const site = {
           closing:
             "Connect with the nature. Cultivate the extraordinary. Preserve its beauty. And share it with others.",
         },
-        specs: "",
-        cropType: {
+        climateTypes: "",
+        cropTypes: {
           paragraphs: [
             "Climate stability and resilience, a biosphere to sustain a unique collection of endemic, endangered or exotic plants. A botanical library can include more than just a cultivation environment, but also one designed around conservation, seed saving and propagation.",
           ],
@@ -387,6 +389,7 @@ export const site = {
       title: "living space",
       body: "A comfortable mixed-use space for plants and people.",
       image: "/images/lifestyle/living-space.jpg",
+      homeImage: "/images/lifestyle/home/living-space.png",
       slide: {
         tagline: "A botanical living space for plants and people.",
         paragraphs: [
@@ -396,10 +399,10 @@ export const site = {
         ],
       },
       details: {
-        info:
+        focus:
           "A botanical living space, designed to host and grow, harvest and entertain, side by side.\n\nClassic houseplants and rare exotics add aesthetic appeal. Leafy greens and edible flowers add freshness to your summer salad. And kitchen herbs to spice up that cosy winter braai.\n\nDesigned with both plants and people in mind, a Living Space offers the best of both worlds. Dine semi-alfresco in a cool, shaded retreat when the summer heat gets too much, or soak up the sunshine on a clear winter's day with a book on the couch. Take a break from your desk, shake your body to pick some fresh aromatic mint for your tea, snack on freshly grown berries out of season, or simply enjoy a quiet moment surrounded by greenery. Some say plants grow better with music. So do not hesitate! Bring out that vinyl and mix some greens into your next set.\n\nUnlike a traditional greenhouse focused on maximum production, a Living Space is shaped around your interests, habits and personal tastes. A place to experiment with your favourite plants, gather around the table with friends, or enjoy a slow morning with a coffee. A little ecosystem of your own, where plants and people can thrive together.",
-        specs: "",
-        cropType: "",
+        climateTypes: "",
+        cropTypes: "",
       },
     },
   ] satisfies LifestyleScenario[],

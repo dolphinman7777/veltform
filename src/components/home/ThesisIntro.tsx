@@ -5,11 +5,10 @@ export function ThesisIntro() {
     <div className="signal-content thesis-intro">
       <h2 className="signal-headline mono">
         <span className="signal-headline-line">
-          grow <span className="signal-mint">more of the year</span>,
+          <span className="signal-mint">smart</span> systems manage the{" "}
+          <span className="signal-mint">science</span>
         </span>
-        <span className="signal-headline-line">
-          in a greenhouse built for <span className="signal-mint">your site and your crops</span>.
-        </span>
+        <span className="signal-headline-line">so you don&apos;t have to</span>
       </h2>
       <p className="signal-support mono">{site.thesisSupport}</p>
     </div>

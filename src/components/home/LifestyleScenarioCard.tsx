@@ -15,15 +15,15 @@ const expandableFields: {
   key: keyof LifestyleScenarioDetails;
   label: string;
 }[] = [
-  { key: "info", label: "info" },
-  { key: "specs", label: "specs" },
-  { key: "cropType", label: "crop type" },
+  { key: "focus", label: "focus" },
+  { key: "climateTypes", label: "climate types" },
+  { key: "cropTypes", label: "crop types" },
 ];
 
 export function LifestyleScenarioVisual({ scenario }: { scenario: LifestyleScenario }) {
   return (
     <article className="veld-scenario" id={scenario.id}>
-      <img src={scenario.image} alt="" />
+      <img src={scenario.homeImage} alt="" />
       <div className="veld-scenario-copy">
         <h3 className="brand-natural">{scenario.title}</h3>
         <p className="mono veld-scenario-lead">{scenario.body}</p>
@@ -67,10 +67,20 @@ function LifestyleDetailRow({
   );
 }
 
-export function LifestyleScenarioDetails({ scenario }: { scenario: LifestyleScenario }) {
+export function LifestyleScenarioDetails({
+  scenario,
+  includeFocus = true,
+}: {
+  scenario: LifestyleScenario;
+  includeFocus?: boolean;
+}) {
+  const fields = includeFocus
+    ? expandableFields
+    : expandableFields.filter((field) => field.key !== "focus");
+
   return (
     <div className="veld-scenario-details" aria-label={`${scenario.title} details`}>
-      {expandableFields.map((field) => (
+      {fields.map((field) => (
         <LifestyleDetailRow
           key={field.key}
           label={field.label}

@@ -1,3 +1,4 @@
+import { LifestyleScenarioDetails } from "@/components/home/LifestyleScenarioCard";
 import type { LifestyleScenario } from "@/content/site";
 import { site } from "@/content/site";
 
@@ -30,6 +31,9 @@ export function LifestyleSlide({ scenario }: { scenario: LifestyleScenario }) {
             {scenario.slide.paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
+          </div>
+          <div className="veld-lifestyle-slide__details">
+            <LifestyleScenarioDetails scenario={scenario} includeFocus={false} />
           </div>
         </div>
       </figure>

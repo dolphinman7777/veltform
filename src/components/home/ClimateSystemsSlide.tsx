@@ -2,7 +2,7 @@ import { site } from "@/content/site";
 
 export function ClimateSystemsSlide() {
   return (
-    <section className="arch-slide climate-systems-slide" id="climate-systems" aria-label="Climate systems">
+    <section className="arch-slide climate-systems-slide" id="climate-systems" aria-label="Automatic climate management">
       <div className="arch-slide-inner">
         <div className="climate-systems-slide__intro">
           <h2 className="arch-slide-headline mono">
