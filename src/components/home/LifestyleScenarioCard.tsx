@@ -23,7 +23,7 @@ const expandableFields: {
 export function LifestyleScenarioVisual({ scenario }: { scenario: LifestyleScenario }) {
   return (
     <article className="veld-scenario" id={scenario.id}>
-      <img src={scenario.homeImage} alt="" />
+      <img src={scenario.homeImage} alt="" loading="lazy" decoding="async" />
       <div className="veld-scenario-copy">
         <h3 className="brand-natural">{scenario.title}</h3>
         <p className="mono veld-scenario-lead">{scenario.body}</p>

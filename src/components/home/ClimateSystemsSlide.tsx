@@ -16,6 +16,7 @@ export function ClimateSystemsSlide() {
         <figure className="climate-systems-slide__figure">
           <img
             className="arch-slide-image climate-systems-slide__image"
+            loading="lazy"
             src={site.climateSystemsImage}
             alt="Light, heat, water, and air and climate control flowing through greenhouse systems"
             width={1755}

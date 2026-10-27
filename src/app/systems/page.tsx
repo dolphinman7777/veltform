@@ -8,7 +8,11 @@ import { SensorsSection } from "@/components/home/SensorsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { SiteFooter } from "@/components/home/SiteFooter";
 
-export const metadata: Metadata = pageMetadata("systems", "/systems");
+// Hidden for now: kept out of search results. Remove `robots` here (and restore the nav/sitemap entries) to show it again.
+export const metadata: Metadata = {
+  ...pageMetadata("systems", "/systems"),
+  robots: { index: false, follow: true },
+};
 
 export default function SystemsPage() {
   return (

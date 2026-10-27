@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 export const navItems = [
   { href: "/", label: "home" },
   { href: "/lifestyle", label: "lifestyle" },
-  { href: "/systems", label: "systems" },
+  // Systems is hidden for now (page kept at /systems). Restore this line to show it again.
+  // { href: "/systems", label: "systems" },
   { href: "/environments", label: "environments" },
   { href: "/process", label: "process" },
 ] as const;

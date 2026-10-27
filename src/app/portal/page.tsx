@@ -27,7 +27,7 @@ export default function PortalPage() {
         </div>
         <img
           className="veld-portal-fynbos"
-          src="/images/portal/fynbos.png"
+          src="/images/portal/fynbos.webp"
           alt=""
           width={343}
           height={613}

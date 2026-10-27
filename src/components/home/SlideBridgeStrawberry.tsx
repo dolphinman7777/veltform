@@ -31,10 +31,11 @@ export function SlideBridgeStrawberry() {
       <p className="veld-slide-bridge-label veld-slide-bridge-label--left">Bespoke Greenhouses</p>
       <img
         className="veld-slide-bridge-figure"
-        src="/images/shared/strawberry.png"
+        loading="lazy"
+        src="/images/shared/strawberry.webp"
         alt=""
-        width={1024}
-        height={1024}
+        width={320}
+        height={320}
         decoding="async"
       />
       <p className="veld-slide-bridge-label veld-slide-bridge-label--right">Climate Systems</p>

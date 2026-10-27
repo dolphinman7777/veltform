@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
+import { ImagePrefetcher } from "@/components/ImagePrefetcher";
 import { ScrollOnNavigate } from "@/components/ScrollOnNavigate";
+import { prefetchImageUrls } from "@/content/prefetch-images";
 import { shareImage } from "@/content/seo";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -98,6 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <ScrollOnNavigate />
         {children}
+        <ImagePrefetcher urls={prefetchImageUrls()} />
       </body>
     </html>
   );

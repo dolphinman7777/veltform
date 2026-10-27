@@ -6,7 +6,8 @@ const pages: { path: string; priority: number; changeFrequency: "monthly" | "yea
   { path: "/", priority: 1, changeFrequency: "monthly" },
   { path: "/environments", priority: 0.9, changeFrequency: "monthly" },
   { path: "/lifestyle", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/systems", priority: 0.8, changeFrequency: "monthly" },
+  // Hidden for now — restore with the nav link in PrimaryNav.
+  // { path: "/systems", priority: 0.8, changeFrequency: "monthly" },
   { path: "/process", priority: 0.7, changeFrequency: "yearly" },
   { path: "/enquire", priority: 0.8, changeFrequency: "yearly" },
 ];

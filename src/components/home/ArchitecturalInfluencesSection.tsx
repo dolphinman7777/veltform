@@ -12,6 +12,7 @@ export function ArchitecturalInfluencesSection() {
         </h2>
         <img
           className="arch-slide-image"
+          loading="lazy"
           src={site.architecturalInfluencesImage}
           alt=""
           width={1920}

@@ -62,10 +62,10 @@ export const site = {
   displayName: "Veldform",
   tagline: "Bespoke Botanical Environments",
   heroMotto: "Bespoke Botanical Environments",
-  heroImage: "/images/home/video-poster.png",
-  heroBackground: "/images/home/hero-desktop.png",
-  heroBackgroundMobile: "/images/home/hero-mobile.jpg",
-  heroBackgroundMobileBw: "/images/home/hero-mobile-bw.jpg",
+  heroImage: "/images/home/video-poster.webp",
+  heroBackground: "/images/home/hero-desktop.webp",
+  heroBackgroundMobile: "/images/home/hero-mobile.webp",
+  heroBackgroundMobileBw: "/images/home/hero-mobile-bw.webp",
   heroVideo: "/videos/home-weather-and-light.mp4",
   heroVideoHeadlineHighlight: "consistent",
   heroVideoHeadline: "abundance",
@@ -109,13 +109,13 @@ export const site = {
   ] as const,
   architecturalInfluencesHighlight: "bespoke",
   architecturalInfluencesHeadline: "greenhouse designs",
-  architecturalInfluencesImage: "/images/home/architectural-influences.png",
+  architecturalInfluencesImage: "/images/home/architectural-influences.webp",
   climateSystemsHighlight: "automatic",
   climateSystemsHeadline: "climate management",
   climateSystemsSubline: "For more than comfort.",
   climateSystemsBody:
     "Autonomous climate steering can promote the speed of plant growth, and increase the production of nutritionally and medicinally relevant compounds which make up the unique aroma and flavour of plants.",
-  climateSystemsImage: "/images/home/automatic-climate-management.png",
+  climateSystemsImage: "/images/home/automatic-climate-management.webp",
   thesisSupport:
     "Each one is planned around the light, weather, and crops on your site.",
   servicesIntro:
@@ -221,8 +221,8 @@ export const site = {
       id: "kitchen-garden",
       title: "kitchen garden",
       body: "Vegetable production, planned for maximum efficiency.",
-      image: "/images/lifestyle/kitchen-garden.jpg",
-      homeImage: "/images/home/lifestyle-kitchen-garden.png",
+      image: "/images/lifestyle/kitchen-garden.webp",
+      homeImage: "/images/home/lifestyle-kitchen-garden.webp",
       slide: {
         tagline: "Grown for flavour.",
         paragraphs: [
@@ -244,8 +244,8 @@ export const site = {
       id: "botanical-library",
       title: "botanical library",
       body: "A stable climate for rare collections.",
-      image: "/images/lifestyle/botanical-library.jpg",
-      homeImage: "/images/home/lifestyle-botanical-library.png",
+      image: "/images/lifestyle/botanical-library.webp",
+      homeImage: "/images/home/lifestyle-botanical-library.webp",
       slide: {
         tagline: "A collector’s paradise.",
         paragraphs: [
@@ -268,8 +268,8 @@ export const site = {
       id: "living-space",
       title: "living space",
       body: "A comfortable mixed-use space for plants and people.",
-      image: "/images/lifestyle/living-space.jpg",
-      homeImage: "/images/home/lifestyle-living-space.png",
+      image: "/images/lifestyle/living-space.webp",
+      homeImage: "/images/home/lifestyle-living-space.webp",
       slide: {
         tagline: "The tranquility of nature and the expression of design.",
         paragraphs: [
