@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const items = [
+export const navItems = [
   { href: "/", label: "home" },
   { href: "/lifestyle", label: "lifestyle" },
   { href: "/systems", label: "systems" },
-  { href: "/climate", label: "climate" },
-  { href: "/education", label: "education" },
+  { href: "/environments", label: "environments" },
   { href: "/process", label: "process" },
 ] as const;
 
@@ -17,7 +16,7 @@ export function PrimaryNav() {
 
   return (
     <nav className="veld-site-nav" aria-label="Primary">
-      {items.map((item) => {
+      {navItems.map((item) => {
         const active = pathname === item.href;
         return (
           <Link

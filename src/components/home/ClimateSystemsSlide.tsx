@@ -10,20 +10,16 @@ export function ClimateSystemsSlide() {
               <span className="signal-mint">{site.climateSystemsHighlight}</span> {site.climateSystemsHeadline}
             </span>
           </h2>
+          <p className="climate-systems-slide__subline"><em>– {site.climateSystemsSubline}</em></p>
           <p className="climate-systems-slide__body mono">{site.climateSystemsBody}</p>
         </div>
         <figure className="climate-systems-slide__figure">
-          <div className="climate-systems-slide__labels mono" aria-hidden="true">
-            {site.climateSystemsLabels.map((label) => (
-              <span key={label} className="climate-systems-slide__label">{label}</span>
-            ))}
-          </div>
           <img
             className="arch-slide-image climate-systems-slide__image"
             src={site.climateSystemsImage}
-            alt="Illustrations of light, heat, water, and climate control in greenhouse systems"
-            width={2021}
-            height={778}
+            alt="Light, heat, water, and air and climate control flowing through greenhouse systems"
+            width={1755}
+            height={896}
             decoding="async"
           />
         </figure>

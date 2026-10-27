@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Coming soon — ${site.displayName}`,
+  title: { absolute: `Coming soon — ${site.displayName}` },
   description: "The customer portal is coming soon.",
+  // Placeholder page: keep it out of search results until the portal launches.
+  robots: { index: false, follow: true },
+  alternates: { canonical: null },
 };
 
 export default function PortalPage() {
@@ -18,12 +22,12 @@ export default function PortalPage() {
             <p className="hero-subline mono">customer portal</p>
           </div>
           <p className="veld-portal-line mono">
-            <a href="/">back to site</a>
+            <Link href="/">back to site</Link>
           </p>
         </div>
         <img
           className="veld-portal-fynbos"
-          src="/images/hero/fynbos.png"
+          src="/images/portal/fynbos.png"
           alt=""
           width={343}
           height={613}

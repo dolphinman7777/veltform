@@ -25,7 +25,7 @@ function OfferingSpec({ offering }: { offering: (typeof site.offerings)[number] 
     <>
       <div className="eos-software-grid grid-usage-frame">
         <svg viewBox="0 0 100 100" aria-hidden="true">
-          <use href="/eden-grid-usage.svg#gu-04" />
+          <use href="/images/systems/grid-usage.svg#gu-04" />
         </svg>
       </div>
       <div className="eos-software-rule" aria-hidden="true" />
@@ -143,17 +143,17 @@ export function MaterialsSection() {
           <div className="eos-side-icons" aria-hidden="true">
             <div className="data-type-cell">
               <svg viewBox="0 0 100 100">
-                <use href="/eden-telemetry-icons.svg#dt-04" />
+                <use href="/images/systems/telemetry-icons.svg#dt-04" />
               </svg>
             </div>
             <div className="data-type-cell">
               <svg viewBox="0 0 100 100">
-                <use href="/eden-telemetry-icons.svg#dt-08" />
+                <use href="/images/systems/telemetry-icons.svg#dt-08" />
               </svg>
             </div>
             <div className="data-type-cell">
               <svg viewBox="0 0 100 100">
-                <use href="/eden-telemetry-icons.svg#dt-09" />
+                <use href="/images/systems/telemetry-icons.svg#dt-09" />
               </svg>
             </div>
           </div>

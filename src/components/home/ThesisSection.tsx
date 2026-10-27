@@ -19,20 +19,22 @@ export function ThesisSection() {
               pathLength="1"
               d="M 5 86 L 5 58 Q 5 54 9 54 L 52 54 Q 56 54 56 50 L 56 36 Q 56 32 60 32 L 93 32"
             />
-            <line className="signal-drop" x1="17" y1="54" x2="17" y2="36" />
+            <line className="signal-drop" x1="17" y1="54" x2="17" y2="18" />
             <line className="signal-drop" x1="31" y1="54" x2="31" y2="18" />
-            <line className="signal-drop" x1="45" y1="54" x2="45" y2="42" />
-            <line className="signal-drop" x1="84" y1="32" x2="84" y2="46" />
-            <line className="signal-branch signal-branch--light" pathLength="1" x1="17" y1="54" x2="17" y2="36" />
+            <line className="signal-drop" x1="45" y1="54" x2="45" y2="18" />
+            <line className="signal-drop" x1="70" y1="32" x2="70" y2="46" />
+            <line className="signal-drop" x1="84" y1="32" x2="84" y2="4" />
+            <line className="signal-branch signal-branch--light" pathLength="1" x1="17" y1="54" x2="17" y2="18" />
             <line className="signal-branch signal-branch--temp" pathLength="1" x1="31" y1="54" x2="31" y2="18" />
-            <line className="signal-branch signal-branch--vpd" pathLength="1" x1="45" y1="54" x2="45" y2="42" />
-            <line className="signal-branch signal-branch--root" pathLength="1" x1="84" y1="32" x2="84" y2="46" />
+            <line className="signal-branch signal-branch--water" pathLength="1" x1="45" y1="54" x2="45" y2="18" />
+            <line className="signal-branch signal-branch--root" pathLength="1" x1="70" y1="32" x2="70" y2="46" />
+            <line className="signal-branch signal-branch--plant" pathLength="1" x1="84" y1="32" x2="84" y2="4" />
           </svg>
 
           <span className="signal-traveler" aria-hidden="true" />
 
           <div className="signal-nodes">
-            <div className="signal-node signal-node--light" style={{ "--x": "17%", "--y": "54%", "--ry": "36%" } as CSSProperties}>
+            <div className="signal-node signal-node--light" style={{ "--x": "17%", "--y": "54%", "--ry": "18%" } as CSSProperties}>
               <span className="signal-readout mono">LIGHT</span>
               <span className="signal-sensor" aria-hidden="true" />
               <span className="signal-node-caption mono">photosynthesis · DLI</span>
@@ -42,18 +44,23 @@ export function ThesisSection() {
               <span className="signal-sensor" aria-hidden="true" />
               <span className="signal-node-caption mono">season · setpoints</span>
             </div>
-            <div className="signal-node signal-node--vpd" style={{ "--x": "45%", "--y": "54%", "--ry": "42%" } as CSSProperties}>
-              <span className="signal-readout mono">VPD</span>
+            <div className="signal-node signal-node--water" style={{ "--x": "45%", "--y": "54%", "--ry": "18%" } as CSSProperties}>
+              <span className="signal-readout mono">WATER</span>
               <span className="signal-sensor" aria-hidden="true" />
-              <span className="signal-node-caption mono">humidity · transpiration</span>
+              <span className="signal-node-caption mono">humidity · irrigation</span>
             </div>
             <div
               className="signal-node signal-node--root signal-node--readout-below"
-              style={{ "--x": "84%", "--y": "32%", "--ry": "47%", "--cy": "53%" } as CSSProperties}
+              style={{ "--x": "70%", "--y": "32%", "--ry": "47%", "--cy": "53%" } as CSSProperties}
             >
               <span className="signal-sensor" aria-hidden="true" />
               <span className="signal-readout mono">ROOT</span>
               <RootCalculations />
+            </div>
+            <div className="signal-node signal-node--plant" style={{ "--x": "84%", "--y": "32%", "--ry": "4%" } as CSSProperties}>
+              <span className="signal-readout mono">PLANT</span>
+              <span className="signal-sensor" aria-hidden="true" />
+              <span className="signal-node-caption mono">growth · flavour</span>
             </div>
           </div>
         </div>

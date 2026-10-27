@@ -1,24 +1,18 @@
-import Link from "next/link";
+import { MobileNav } from "@/components/MobileNav";
 import { PrimaryNav } from "@/components/PrimaryNav";
-import { site } from "@/content/site";
+import Link from "next/link";
 
 export function SiteHeader() {
   return (
     <header className="veld-site-header">
-      <div className="veld-site-header-side">
-        <Link className="brand-lockup brand-lockup--compact" href="/">
-          <div className="brand-lockup-text">
-            <span className="brand-main brand-natural">{site.name}</span>
-            <span className="brand-lockup-sub mono">{site.tagline}</span>
-          </div>
-        </Link>
-      </div>
+      <div className="veld-site-header-side" />
       <PrimaryNav />
       <div className="veld-site-header-side">
-        <a className="veld-site-cta" href={`mailto:${site.contactEmail}`}>
+        <Link className="veld-site-cta" href="/enquire">
           Enquire &rarr;
-        </a>
+        </Link>
       </div>
+      <MobileNav />
     </header>
   );
 }

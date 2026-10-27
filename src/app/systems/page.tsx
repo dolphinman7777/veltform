@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MaterialsSection } from "@/components/home/MaterialsSection";
 import { SystemsEnquireSection } from "@/components/systems/SystemsEnquireSection";
@@ -6,18 +7,15 @@ import { SystemsSensorsHeroSection } from "@/components/systems/SystemsSensorsHe
 import { SensorsSection } from "@/components/home/SensorsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { SiteFooter } from "@/components/home/SiteFooter";
-import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: `Systems — ${site.displayName}`,
-  description: site.servicesIntro,
-};
+export const metadata: Metadata = pageMetadata("systems", "/systems");
 
 export default function SystemsPage() {
   return (
     <>
       <SiteHeader />
       <main id="top">
+        <h1 className="visually-hidden">Systems: greenhouse services, materials and sensors</h1>
         <ServicesSection />
         <MaterialsSection />
         <SystemsSensorsHeroSection />

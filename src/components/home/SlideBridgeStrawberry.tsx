@@ -31,7 +31,7 @@ export function SlideBridgeStrawberry() {
       <p className="veld-slide-bridge-label veld-slide-bridge-label--left">Bespoke Greenhouses</p>
       <img
         className="veld-slide-bridge-figure"
-        src="/images/hero/strawberry.png"
+        src="/images/shared/strawberry.png"
         alt=""
         width={1024}
         height={1024}

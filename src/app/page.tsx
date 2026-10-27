@@ -1,5 +1,6 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { SiteHeader } from "@/components/SiteHeader";
-import { CuratedSlide } from "@/components/home/CuratedSlide";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HeroVideoSlide } from "@/components/home/HeroVideoSlide";
 import { SiteFooter } from "@/components/home/SiteFooter";
@@ -7,6 +8,8 @@ import { ArchitecturalInfluencesSection } from "@/components/home/ArchitecturalI
 import { ClimateSystemsSlide } from "@/components/home/ClimateSystemsSlide";
 import { LifestyleHomeSection } from "@/components/home/LifestyleHomeSection";
 import { ThesisSection } from "@/components/home/ThesisSection";
+
+export const metadata: Metadata = pageMetadata("home", "/");
 
 export default function HomePage() {
   return (
@@ -19,7 +22,6 @@ export default function HomePage() {
         <ThesisSection />
         <HeroVideoSlide />
         <LifestyleHomeSection />
-        <CuratedSlide />
       </main>
       <SiteFooter />
     </>

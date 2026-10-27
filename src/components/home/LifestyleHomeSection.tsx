@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   LifestyleScenarioDetails,
   LifestyleScenarioVisual,
@@ -10,7 +11,7 @@ export function LifestyleHomeSection() {
       <div className="veld-section-head veld-section-head--display veld-slide-intro">
         <div className="veld-slide-intro-copy">
           <h2 className="mono">
-            <span className="signal-mint">lifestyle</span>
+            <span className="signal-mint">lifestyle segments</span>
           </h2>
           <p>{site.lifestyleIntro}</p>
         </div>
@@ -26,6 +27,11 @@ export function LifestyleHomeSection() {
             <LifestyleScenarioDetails key={scenario.id} scenario={scenario} />
           ))}
         </div>
+      </div>
+      <div className="veld-home-enquire">
+        <Link className="veld-site-cta" href="/enquire">
+          Enquire &rarr;
+        </Link>
       </div>
     </section>
   );

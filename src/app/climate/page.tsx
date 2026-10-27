@@ -1,19 +1,6 @@
-import type { Metadata } from "next";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/home/SiteFooter";
-import { site } from "@/content/site";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: `Climate — ${site.displayName}`,
-  description: site.subtagline,
-};
-
+// Old address: a permanent (308) redirect passes search ranking to /environments.
 export default function ClimatePage() {
-  return (
-    <>
-      <SiteHeader />
-      <main />
-      <SiteFooter />
-    </>
-  );
+  permanentRedirect("/environments");
 }

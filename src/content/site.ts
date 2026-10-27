@@ -4,12 +4,6 @@ export type Service = {
   body: string;
 };
 
-export type Concept = {
-  id: string;
-  title: string;
-  body: string;
-};
-
 export type Offering =
   | { id: string; title: string; kind: "copy"; body: string }
   | { id: string; title: string; kind: "list"; items: readonly string[] };
@@ -66,17 +60,15 @@ export type LifestyleScenario = {
 export const site = {
   name: "veldform",
   displayName: "Veldform",
-  tagline: "Bespoke Greenhouses and Climate Systems",
-  subtagline: "Bespoke Greenhouses and Climate Systems",
-  heroMotto: "Science & Design, botanical & experiential",
-  heroImage: "/images/hero/living-space.png",
-  heroBackground: "/images/hero/bespoke-greenhouse-quiet-strata.png",
-  heroVideo: "/videos/greenhouse-weather-and-light-v2.mp4",
+  tagline: "Bespoke Botanical Environments",
+  heroMotto: "Bespoke Botanical Environments",
+  heroImage: "/images/home/video-poster.png",
+  heroBackground: "/images/home/hero-desktop.png",
+  heroBackgroundMobile: "/images/home/hero-mobile.jpg",
+  heroBackgroundMobileBw: "/images/home/hero-mobile-bw.jpg",
+  heroVideo: "/videos/home-weather-and-light.mp4",
   heroVideoHeadlineHighlight: "consistent",
   heroVideoHeadline: "abundance",
-  systemsHeroImage: "/images/systems/hero-landscape.png",
-  systemsHeroHighlight: "systems",
-  systemsHeroSupport: "bespoke greenhouses and climate systems",
   processHighlight: "process",
   processSteps: [
     {
@@ -120,12 +112,10 @@ export const site = {
   architecturalInfluencesImage: "/images/home/architectural-influences.png",
   climateSystemsHighlight: "automatic",
   climateSystemsHeadline: "climate management",
+  climateSystemsSubline: "For more than comfort.",
   climateSystemsBody:
-    "Autonomous climate steering can promote the speed of plant growth, but also increase the production of nutritionally or medicinally relevant compounds which make up the unique aroma and flavour of plants.",
-  climateSystemsImage: "/images/home/climate-steering.png",
-  climateSystemsLabels: ["Light", "Heat", "Water", "Climate"] as const,
-  sealRing: "science · structure · season",
-  thesis: "Smart systems manage the science so you don't have to.",
+    "Autonomous climate steering can promote the speed of plant growth, and increase the production of nutritionally and medicinally relevant compounds which make up the unique aroma and flavour of plants.",
+  climateSystemsImage: "/images/home/automatic-climate-management.png",
   thesisSupport:
     "Each one is planned around the light, weather, and crops on your site.",
   servicesIntro:
@@ -162,33 +152,6 @@ export const site = {
       body: "We offer onsite training for owners and staff, from hands-on growing basics to more detailed system management. This can cover germination, transplanting, hydroponic reservoirs, crop monitoring and routine maintenance, supported by a digital or printed guide.",
     },
   ] satisfies Service[],
-  concepts: [
-    {
-      id: "light",
-      title: "Light",
-      body: "Light supplies the energy for photosynthesis. How well a plant uses that light also depends on its temperature, water supply, nutrients and growing conditions.",
-    },
-    {
-      id: "temperature",
-      title: "Temperature",
-      body: "Every crop has a temperature range in which it grows well. A greenhouse helps manage conditions throughout the day and across the seasons, increasing the time crops spend within a suitable range.",
-    },
-    {
-      id: "vpd",
-      title: "Vapour pressure deficit",
-      body: "Vapour pressure deficit, or VPD, describes the difference between the moisture in the air and the amount it could hold when saturated. It helps explain how readily water moves from leaves into the air. Temperature and relative humidity can be used to estimate VPD, but the most suitable range depends on the crop and its stage of growth. Conditions that are too dry can increase water stress, while overly humid conditions can restrict transpiration and encourage some diseases.",
-    },
-    {
-      id: "water",
-      title: "Water and root zone",
-      body: "Plants need both water and oxygen around their roots. Waterlogged conditions reduce the oxygen available to roots, while dry conditions limit growth and can cause water stress. Irrigation sensors help inform watering decisions, with settings adjusted to the specific crop, soil or substrate in real time rather than relying on a single schedule.",
-    },
-    {
-      id: "zoning",
-      title: "Climate steering and zoning",
-      body: "Different crops and growth stages can favour different conditions. Planting leafy greens in a cooler, shadier area and sun loving crops in a brighter area makes use of the variation already present in a greenhouse. Where crops need more distinct conditions, partitions and separately controlled zones may help. A climate guide can set out suitable temperature, humidity and ventilation targets for your equipment and chosen crops.",
-    },
-  ] satisfies Concept[],
   sensorsHighlight: "Use sensors",
   sensorsHeadline: "in your greenhouse to steer the climate.",
   sensorsCopy: "Hands off approach to climate management",
@@ -199,7 +162,6 @@ export const site = {
     { id: "light", caption: "light · daily light requirement" },
     { id: "monitoring", caption: "monitoring · remote alerts" },
   ] as const,
-  conceptsSectionTitle: "essential plant growth concepts",
   materialsIntro:
     "Greenhouses can range from bespoke timber and glass structures to prefabricated aluminium and polycarbonate kits. Appearance and budget matter, but site conditions, light transmission, ventilation and how the greenhouse is managed also shape growing performance.",
   offerings: [
@@ -251,28 +213,6 @@ export const site = {
       body: "Space for washing, preparing and drying harvested produce, designed around the crops and intended use.",
     },
   ] satisfies Offering[],
-  galleryHeadline: "reference imagery — structure, light, and layout.",
-  galleryHighlight: "reference imagery",
-  galleryCopy:
-    "Project visualizations and site studies inform frame choice, footprint, and cladding before build.",
-  gallery: [
-    {
-      src: "/images/projects/image3.png",
-      caption: "visualization · reduced area",
-    },
-    {
-      src: "/images/projects/image2.png",
-      caption: "visualization · full available area",
-    },
-    {
-      src: "/images/projects/image1.png",
-      caption: "visualization · wooden frame, polycarbonate cladding",
-    },
-    {
-      src: "/images/gallery/frame.png",
-      caption: "wooden frame study",
-    },
-  ],
   lifestyleIntro:
     "The same structure can be a kitchen garden, a botanical library, or a living space.",
   lifestyleSlideEyebrow: "Greenhouse Systems",
@@ -282,104 +222,44 @@ export const site = {
       title: "kitchen garden",
       body: "Vegetable production, planned for maximum efficiency.",
       image: "/images/lifestyle/kitchen-garden.jpg",
-      homeImage: "/images/lifestyle/home/kitchen-garden.png",
+      homeImage: "/images/home/lifestyle-kitchen-garden.png",
       slide: {
-        tagline: "Fresh food, grown your way.",
+        tagline: "Grown for flavour.",
         paragraphs: [
-          "Our smart greenhouse systems make it easier to grow fresh vegetables, juicy tomatoes, sweet peppers, chillies, leafy greens and specialty crops in a carefully controlled environment. Designed for restaurant owners, private chefs, food businesses and passionate food lovers, they give you greater control over what you grow, how it grows and when it's ready to harvest.",
-          "Check your greenhouse conditions directly from your phone, keep track of changes and manage your growing environment wherever you are.",
-          "Consistent harvests, crop quality comes along with technology, sustainability and a passion for great food. Explore the flavours, aromas and varieties that make fresh ingredients truly special",
+          "A kitchen garden gives you the freedom to grow ingredients around the food you enjoy.",
+          "Commercial produce must meet the demands of handling, transport and shelf life. Growing for your own kitchen allows different priorities: a tomato’s flavour, a pepper’s sweetness, the fragrance of a particular herb. You can choose varieties for their eating qualities and harvest them when they are ready, minutes before they reach the plate.",
+          "Our smart greenhouse systems make this easier to achieve. Climate, watering and lighting are managed automatically, helping maintain the conditions plants need to thrive without daily attention. We don't grow plants, they grow themselves, we just need to put them in the right environment. You can enjoy a productive garden without having to master the science behind it.",
+          "Your needs come first. You choose what goes into the soil, and onto the plants, and in turn, what ends up on your plate.",
+          "For a home cook, this might mean growing varieties that are difficult to find locally and organically, or simply keeping favourite herbs close at hand.",
+          "For a private chef or hospitality kitchens, it offers the opportunity to grow around a menu, choosing ingredients for the qualities a dish calls for. Grown locally, picked when ripe.",
         ],
       },
-      details: { focus: "", climateTypes: "", cropTypes: "" },
+      details: {
+        focus: "Flavour, organic passion, convenience, consistency, self-sufficiency.",
+        climateTypes: "Multi-group or crop choice specific — Mediterranean.",
+        cropTypes: "Tomatoes, cucumber, herbs, peppers, chillies, strawberries, dwarf bananas.",
+      },
     },
     {
       id: "botanical-library",
       title: "botanical library",
       body: "A stable climate for rare collections.",
       image: "/images/lifestyle/botanical-library.jpg",
-      homeImage: "/images/lifestyle/home/botanical-library.png",
+      homeImage: "/images/home/lifestyle-botanical-library.png",
       slide: {
-        tagline: "A living library of plants.",
+        tagline: "A collector’s paradise.",
         paragraphs: [
-          "Imagine stepping into your own little world of lush greenery, exotic flowers and extraordinary plants. Your own living sanctuary. Our Botanical Libraries combine elegant architectural design with intelligent climate-control technology, creating carefully balanced environments where rare and delicate plants can flourish.",
-          "With the ability to monitor and manage temperature, humidity and other growing conditions you can nurture a unique collection of plants: from delicate orchids and ferns to fascinating carnivorous plants and endangered species.",
-          "Whether you're passionate about protecting biodiversity or simply dream of being surrounded by greenery, your botanical library becomes a space to explore, discover and connect with the plant world.",
+          "A unique climate, a biosphere to sustain a special collection of plants. A botanical library can include more than just a cultivation environment, but also one designed around conservation, seed saving and propagation. Grow your collection, and travel with peace of mind, the automatic climate and self watering systems will keep your plants thriving while you're away.",
         ],
       },
       details: {
-        focus: {
-          lead: "A living library of plants.",
-          paragraphs: [
-            "Imagine stepping into your own little world of lush greenery, exotic flowers and extraordinary plants. Your own living sanctuary. Our Botanical Libraries combine elegant architectural design with intelligent climate-control technology, creating carefully balanced environments where rare and delicate plants can flourish.",
-            "With the ability to monitor and manage temperature, humidity and other growing conditions you can nurture a unique collection of plants: from delicate orchids and ferns to fascinating carnivorous plants and endangered species.",
-            "Discover new species and enjoy the experience of watching nature flourish. Whether you're passionate about protecting biodiversity or simply dream of being surrounded by greenery, your botanical library becomes a space to explore, discover and connect with the plant world.",
-          ],
-          closing:
-            "Connect with the nature. Cultivate the extraordinary. Preserve its beauty. And share it with others.",
-        },
-        climateTypes: "",
+        focus: "Curiosity, passion, collection.",
+        climateTypes: "Multi-group or plant group specific: tropical, arid, cloud forest, Mediterranean.",
         cropTypes: {
-          paragraphs: [
-            "Climate stability and resilience, a biosphere to sustain a unique collection of endemic, endangered or exotic plants. A botanical library can include more than just a cultivation environment, but also one designed around conservation, seed saving and propagation.",
-          ],
-          intro: "Crop types include; Dias's, Sundews, Bromeliads, Orchids ferns",
           items: [
-            "Drosera capensis",
-            "Drosera regia",
-            {
-              segments: [
-                {
-                  text: "Drosera admirabilis",
-                  href:
-                    "https://www.fierceflora.com/finding-every-described-sundew-in-the-western-cape-south-africa/",
-                },
-                " & ",
-                {
-                  text: "Drosera aliciae",
-                  href: "https://pza.sanbi.org/drosera-aliciae",
-                },
-              ],
-            },
-            {
-              segments: [
-                {
-                  text: "Adiantum capillus-veneris",
-                  href:
-                    "https://www.google.com/search?kgmid=%2Fm%2F02kw75&q=Adiantum+capillus-veneris",
-                },
-                " (Cape Maidenhair Fern): The quintessential waterfall fern. It clings directly to wet, vertical rock faces in deep gorges, constantly bathed in fine waterfall spray.",
-              ],
-            },
-            {
-              segments: [
-                {
-                  text: "Blechnum capense",
-                  href: "https://www.google.com/search?q=Blechnum+capense",
-                },
-                " (Cape Blechnum / Deer Fern): A robust fern with striking, arching fronds that forms dense colonies along shaded stream banks and mountain seeps.",
-              ],
-            },
-            {
-              segments: [
-                {
-                  text: "Rumohra adiantiformis",
-                  href:
-                    "https://www.google.com/search?kgmid=%2Fm%2F066182l&q=Rumohra+adiantiformis",
-                },
-                " (Seven-weeks Fern / Leatherleaf Fern): Thrives in moist, dark forest margins and wet rocky areas from the Cape Peninsula upwards.",
-              ],
-            },
-            {
-              segments: [
-                {
-                  text: "Alsophila capensis",
-                  href:
-                    "https://www.google.com/search?kgmid=%2Fhkb%2FCg4KCGxhbmd1YWdlEgJlbgoOCgR0eXBlEgZBTklNQUwKIQoLZW50aXR5X25hbWUSEmFsc29waGlsYSBjYXBlbnNpcw%3D%3D&q=Alsophila+capensis",
-                },
-                " (Cape Tree Fern): For a dramatic look, this beautiful tree fern grows natively along cool forest rivers and mist-heavy mountain ravines.",
-              ],
-            },
+            "Tropical — aroids, palms, prayer plants",
+            "Arid — cacti, succulents, spurges",
+            "Cloud forest — orchids, bromeliads, ferns",
           ],
         },
       },
@@ -389,22 +269,61 @@ export const site = {
       title: "living space",
       body: "A comfortable mixed-use space for plants and people.",
       image: "/images/lifestyle/living-space.jpg",
-      homeImage: "/images/lifestyle/home/living-space.png",
+      homeImage: "/images/home/lifestyle-living-space.png",
       slide: {
-        tagline: "A botanical living space for plants and people.",
+        tagline: "The tranquility of nature and the expression of design.",
         paragraphs: [
-          "Designed with both plants and people in mind, a Living Space offers the best of both worlds. Dine semi-alfresco in a cool, shaded retreat when the summer heat gets too much, or soak up the sunshine on a clear winter's day with a book on the couch.",
-          "Take a break from your desk, pick fresh aromatic mint for your tea, snack on berries out of season, or simply enjoy a quiet moment surrounded by greenery. Classic houseplants and rare exotics add aesthetic appeal; leafy greens and edible flowers add freshness to your table.",
-          "Unlike a traditional greenhouse focused on maximum production, a Living Space is shaped around your interests, habits and personal tastes — a little ecosystem of your own, where plants and people can thrive together.",
+          "Visually distilled, with architectural plants, capturing curiosity with interesting exotics or evoking emotion with intentional sprays of floral colour - the botanical scene sets the backdrop for life to unfold.",
+          "Cool and shaded in summer and warm and sunny in winter, bespoke design and automatic climate management solutions create a climate to be desired.",
+          "As a mixed utility space the additional options are boundless. Be it a bar, a braai or a discreet yet immersive sound system, a plunge pool or a sauna, if we can't install or build it we’ll find a sub-contractor who can - or work alongside artisans of your choosing.",
+          "Unlike a traditional greenhouse focused on maximizing crop production, our Living Spaces are shaped around your interests, hobbies and personal tastes and style.",
+          "A place to relax, to enjoy natural beauty, to express yourself and share your expression with others.",
         ],
       },
       details: {
-        focus:
-          "A botanical living space, designed to host and grow, harvest and entertain, side by side.\n\nClassic houseplants and rare exotics add aesthetic appeal. Leafy greens and edible flowers add freshness to your summer salad. And kitchen herbs to spice up that cosy winter braai.\n\nDesigned with both plants and people in mind, a Living Space offers the best of both worlds. Dine semi-alfresco in a cool, shaded retreat when the summer heat gets too much, or soak up the sunshine on a clear winter's day with a book on the couch. Take a break from your desk, shake your body to pick some fresh aromatic mint for your tea, snack on freshly grown berries out of season, or simply enjoy a quiet moment surrounded by greenery. Some say plants grow better with music. So do not hesitate! Bring out that vinyl and mix some greens into your next set.\n\nUnlike a traditional greenhouse focused on maximum production, a Living Space is shaped around your interests, habits and personal tastes. A place to experiment with your favourite plants, gather around the table with friends, or enjoy a slow morning with a coffee. A little ecosystem of your own, where plants and people can thrive together.",
-        climateTypes: "",
-        cropTypes: "",
+        focus: "Entertainment, tranquility, space creation, all-weather garden.",
+        climateTypes: "Comfortable — semi-tropical, cool.",
+        cropTypes: "Palms, ferns, creepers, flowers.",
       },
     },
   ] satisfies LifestyleScenario[],
   contactEmail: "hello@veldform.com",
+  /** Public origin used for canonical URLs, sitemap and share tags. Override with NEXT_PUBLIC_SITE_URL. */
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://veldform.com").replace(/\/$/, ""),
+  /**
+   * Search/social copy only — shown in Google results and link previews, never on the page.
+   * Kept in step with on-page copy.
+   */
+  seo: {
+    home: {
+      title: "Veldform — Bespoke Botanical Environments",
+      description:
+        "Bespoke botanical environments with automatic climate management: kitchen gardens, botanical libraries and living spaces, designed and built around your plants.",
+    },
+    lifestyle: {
+      title: "Lifestyle Segments — Kitchen Gardens to Living Spaces",
+      description:
+        "A kitchen garden grown for flavour, a botanical library for collectors, or a botanical living space. Explore how a Veldform environment fits the way you live.",
+    },
+    systems: {
+      title: "Systems — Greenhouse Services and Materials",
+      description:
+        "Site assessment, climate design, irrigation, lighting, monitoring and training: the services, materials and sensors behind a Veldform greenhouse.",
+    },
+    environments: {
+      title: "Environments — Four Growing Climates",
+      description:
+        "Temperature, humidity, VPD and light ranges for Mediterranean, tropical, arid and cloud forest growing environments, with botanical curation and rare plant sourcing.",
+    },
+    process: {
+      title: "Process — From Enquiry to Build",
+      description:
+        "How a Veldform environment comes together: enquire, map your site, quote, measure and build.",
+    },
+    enquire: {
+      title: "Enquire — Book a Consultation",
+      description:
+        "Book a consultation with Veldform about a kitchen garden, botanical library, living space, design support or retrofitting.",
+    },
+  },
 } as const;

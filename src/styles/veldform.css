@@ -636,8 +636,13 @@ body {
   align-items: stretch;
   justify-content: flex-start;
   min-height: 0;
-  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem) 0;
+  padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 4vw, 2.5rem) clamp(5rem, 12vw, 9rem);
   background: #fff;
+}
+
+.arch-slide + .arch-slide {
+  padding-top: clamp(4rem, 10vw, 7rem);
+  border-top: 1px solid var(--line);
 }
 
 .arch-slide-inner {
@@ -702,24 +707,12 @@ body {
   margin-top: 0;
 }
 
-.climate-systems-slide__labels {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(0.5rem, 2vw, 1.25rem);
-  width: 100%;
-  margin: 0 0 clamp(1.5rem, 4vw, 2.75rem);
-  padding: 0 clamp(0.5rem, 2.5vw, 2rem);
-  font-size: clamp(1.32rem, 3.6vw, 2.2rem);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  color: var(--sage);
+.climate-systems-slide__subline {
+  margin: -0.5rem 0 0;
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--ink);
   text-align: center;
-  text-transform: none;
-}
-
-.climate-systems-slide__label {
-  display: block;
 }
 
 .climate-systems-slide__body {
@@ -857,23 +850,23 @@ body {
   margin: 0;
   width: 100%;
   max-width: var(--veld-lifestyle-slide-max-width);
-  max-height: calc(100dvh - var(--site-header, 4.6rem) - 2rem);
-  aspect-ratio: var(--veld-lifestyle-art-ratio);
+  /* Image and copy share one grid cell so the frame grows with long-form copy. */
+  display: grid;
 }
 
 .veld-lifestyle-slide__image {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  grid-area: 1 / 1;
+  align-self: start;
   object-fit: contain;
   object-position: center center;
 }
 
 .veld-lifestyle-slide__copy {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  position: relative;
+  grid-area: 1 / 1;
   z-index: 1;
   box-sizing: border-box;
   display: flex;
@@ -884,8 +877,7 @@ body {
   width: var(--veld-lifestyle-copy-width);
   padding: clamp(1.5rem, 4.5vw, 3.25rem) clamp(1.25rem, 3.5vw, 2.75rem);
   text-align: left;
-  overflow: hidden;
-  container-type: size;
+  container-type: inline-size;
   container-name: lifestyle-copy;
 }
 
@@ -2028,13 +2020,16 @@ body {
   text-transform: lowercase;
 }
 
+/* Every label gets the same width (sized to "climates"), centred, so the + marks line up. */
 .veld-scenario-detail-label {
   display: grid;
-  grid-template-columns: 1.35em minmax(0, 1fr);
+  grid-template-columns: 1.35em max-content;
   column-gap: 0.45rem;
   align-items: baseline;
   justify-items: start;
-  width: min(100%, var(--veld-scenario-detail-label-width));
+  width: calc(1.35em + 0.45rem + 8ch);
+  max-width: 100%;
+  margin-inline: auto;
   text-align: left;
 }
 
@@ -2448,8 +2443,9 @@ body {
 
 .signal-branch--light { animation-name: signal-branch-light; }
 .signal-branch--temp { animation-name: signal-branch-temp; }
-.signal-branch--vpd { animation-name: signal-branch-vpd; }
+.signal-branch--water { animation-name: signal-branch-water; }
 .signal-branch--root { animation-name: signal-branch-root; }
+.signal-branch--plant { animation-name: signal-branch-plant; }
 
 .signal-traveler {
   position: absolute;
@@ -2469,24 +2465,28 @@ body {
 
 .signal-node--light .signal-sensor,
 .signal-node--temp .signal-sensor,
-.signal-node--vpd .signal-sensor,
+.signal-node--water .signal-sensor,
 .signal-node--root .signal-sensor,
+.signal-node--plant .signal-sensor,
 .signal-node--light .signal-readout,
 .signal-node--temp .signal-readout,
-.signal-node--vpd .signal-readout,
-.signal-node--root .signal-readout {
+.signal-node--water .signal-readout,
+.signal-node--root .signal-readout,
+.signal-node--plant .signal-readout {
   animation: var(--signal-cycle) linear infinite;
 }
 
 .signal-node--light .signal-sensor { animation-name: signal-sensor-light; }
 .signal-node--temp .signal-sensor { animation-name: signal-sensor-temp; }
-.signal-node--vpd .signal-sensor { animation-name: signal-sensor-vpd; }
+.signal-node--water .signal-sensor { animation-name: signal-sensor-water; }
 .signal-node--root .signal-sensor { animation-name: signal-sensor-root; }
+.signal-node--plant .signal-sensor { animation-name: signal-sensor-plant; }
 
 .signal-node--light .signal-readout { animation-name: signal-readout-light; }
 .signal-node--temp .signal-readout { animation-name: signal-readout-temp; }
-.signal-node--vpd .signal-readout { animation-name: signal-readout-vpd; }
+.signal-node--water .signal-readout { animation-name: signal-readout-water; }
 .signal-node--root .signal-readout { animation-name: signal-readout-root; }
+.signal-node--plant .signal-readout { animation-name: signal-readout-plant; }
 
 @keyframes signal-trail {
   0% { stroke-dashoffset: 1; }
@@ -2531,13 +2531,19 @@ body {
   100% { stroke-dashoffset: 1; }
 }
 
-@keyframes signal-branch-vpd {
+@keyframes signal-branch-water {
   0%, 39% { stroke-dashoffset: 1; }
   45%, 92% { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: 1; }
 }
 
 @keyframes signal-branch-root {
+  0%, 63% { stroke-dashoffset: 1; }
+  70%, 92% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1; }
+}
+
+@keyframes signal-branch-plant {
   0%, 74% { stroke-dashoffset: 1; }
   81%, 92% { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: 1; }
@@ -2555,13 +2561,19 @@ body {
   100% { background: #c0392b; box-shadow: none; }
 }
 
-@keyframes signal-sensor-vpd {
+@keyframes signal-sensor-water {
   0%, 39% { background: #c0392b; box-shadow: none; }
   41%, 92% { background: #3f9a4a; box-shadow: 0 0 0 4px rgba(212, 255, 211, 0.95); }
   100% { background: #c0392b; box-shadow: none; }
 }
 
 @keyframes signal-sensor-root {
+  0%, 63% { background: #c0392b; box-shadow: none; }
+  65%, 92% { background: #3f9a4a; box-shadow: 0 0 0 4px rgba(212, 255, 211, 0.95); }
+  100% { background: #c0392b; box-shadow: none; }
+}
+
+@keyframes signal-sensor-plant {
   0%, 74% { background: #c0392b; box-shadow: none; }
   76%, 92% { background: #3f9a4a; box-shadow: 0 0 0 4px rgba(212, 255, 211, 0.95); }
   100% { background: #c0392b; box-shadow: none; }
@@ -2579,39 +2591,45 @@ body {
   100% { background: #fff; }
 }
 
-@keyframes signal-readout-vpd {
+@keyframes signal-readout-water {
   0%, 39% { background: #fff; }
   45%, 92% { background: var(--mint); }
   100% { background: #fff; }
 }
 
 @keyframes signal-readout-root {
+  0%, 63% { background: #fff; }
+  70%, 92% { background: var(--mint); }
+  100% { background: #fff; }
+}
+
+@keyframes signal-readout-plant {
   0%, 74% { background: #fff; }
   81%, 92% { background: var(--mint); }
   100% { background: #fff; }
 }
 
 @keyframes signal-math-panel {
-  0%, 76% { grid-template-rows: 0fr; }
-  81%, 92% { grid-template-rows: 1fr; }
+  0%, 65% { grid-template-rows: 0fr; }
+  70%, 92% { grid-template-rows: 1fr; }
   96%, 100% { grid-template-rows: 0fr; }
 }
 
 @keyframes signal-math-row {
-  0%, 78% { opacity: 0; transform: translateY(-0.3rem); }
-  84%, 92% { opacity: 1; transform: none; }
+  0%, 67% { opacity: 0; transform: translateY(-0.3rem); }
+  73%, 92% { opacity: 1; transform: none; }
   96%, 100% { opacity: 0; transform: translateY(-0.3rem); }
 }
 
 @keyframes signal-math-trigger {
-  0%, 76% { color: var(--sage); }
-  81%, 92% { color: var(--ink); }
+  0%, 65% { color: var(--sage); }
+  70%, 92% { color: var(--ink); }
   96%, 100% { color: var(--sage); }
 }
 
 @keyframes signal-math-chevron {
-  0%, 76% { top: 0.28rem; transform: rotate(45deg); }
-  81%, 92% { top: 0.12rem; transform: rotate(225deg); }
+  0%, 65% { top: 0.28rem; transform: rotate(45deg); }
+  70%, 92% { top: 0.12rem; transform: rotate(225deg); }
   96%, 100% { top: 0.28rem; transform: rotate(45deg); }
 }
 
@@ -3092,16 +3110,852 @@ body {
   .signal-branch,
   .signal-node--light .signal-sensor,
   .signal-node--temp .signal-sensor,
-  .signal-node--vpd .signal-sensor,
+  .signal-node--water .signal-sensor,
   .signal-node--root .signal-sensor,
+  .signal-node--plant .signal-sensor,
   .signal-node--light .signal-readout,
   .signal-node--temp .signal-readout,
-  .signal-node--vpd .signal-readout,
+  .signal-node--water .signal-readout,
   .signal-node--root .signal-readout,
+  .signal-node--plant .signal-readout,
   .signal-math-panel,
   .signal-math-row,
   .signal-math-trigger,
   .signal-math-trigger::after {
+    animation: none;
+  }
+}
+
+.veld-home-enquire {
+  display: flex;
+  justify-content: center;
+  padding: clamp(3rem, 8vh, 6rem) 1rem clamp(4rem, 10vh, 7rem);
+}
+
+.veld-home-enquire .veld-site-cta {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  padding: 0.7rem 1.4rem;
+}
+
+@media (max-width: 700px) {
+  .veld-lifestyle-slide__image,
+  .veld-lifestyle-slide__copy {
+    grid-area: auto;
+  }
+
+  /* The artwork's left half is blank space reserved for desktop copy; crop to the photo. */
+  .veld-lifestyle-slide__image {
+    aspect-ratio: 1178 / 1397;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  .veld-lifestyle-slide__copy {
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .veld-lifestyle-slide__eyebrow,
+  .veld-lifestyle-slide__title,
+  .veld-lifestyle-slide__tagline {
+    text-align: center;
+    align-self: center;
+  }
+
+  .veld-lifestyle-slide__copy {
+    --veld-lifestyle-copy-width: 100%;
+    order: 2;
+  }
+}
+
+.veld-enquire {
+  margin: 0;
+  padding: clamp(3rem, 10vh, 6rem) max(1rem, calc((100% - 38rem) / 2)) clamp(4rem, 12vh, 7rem);
+  background: #f7f7f5;
+  text-align: center;
+}
+
+.veld-enquire h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: -0.04em;
+}
+
+.veld-enquire-intro {
+  margin: 1rem 0 2.5rem;
+  font-size: 0.85rem;
+  color: var(--sage);
+}
+
+.veld-enquire-form {
+  display: grid;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.veld-enquire-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--sage);
+}
+
+.veld-enquire-form input,
+.veld-enquire-form select,
+.veld-enquire-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.veld-enquire-form input:focus,
+.veld-enquire-form select:focus,
+.veld-enquire-form textarea:focus {
+  outline: 2px solid #406a43;
+  outline-offset: 1px;
+}
+
+.veld-enquire-form textarea { resize: vertical; }
+
+.veld-enquire-form button {
+  justify-self: center;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.7rem 1.4rem;
+}
+
+.veld-enquire-form button:disabled { opacity: 0.6; cursor: wait; }
+
+.veld-enquire-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.veld-enquire-error { margin: 0; color: #b03a2e; font-size: 0.8rem; }
+
+.veld-enquire-done__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-cormorant), serif;
+  font-size: 2rem;
+}
+
+/* ---------- Mobile pass: header + hero ---------- */
+@media (max-width: 940px) {
+  .veld-site-header {
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    padding: 0.7rem clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  /* Desktop nav + Enquire give way to the mobile bar: home left, menu button right. */
+  .veld-site-header-side,
+  .veld-site-header > .veld-site-nav {
+    display: none;
+  }
+
+  .veld-mobile-nav {
+    display: flex;
+  }
+}
+
+/* ---------- Mobile nav ---------- */
+.veld-mobile-nav {
+  display: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.veld-mobile-nav__home {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: lowercase;
+  padding: 0.4rem 0;
+}
+
+.veld-mobile-nav__toggle {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.veld-burger {
+  position: relative;
+  display: block;
+  width: 1.4rem;
+  height: 0.95rem;
+}
+
+.veld-burger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.veld-burger span:nth-child(1) { top: 0; }
+.veld-burger span:nth-child(2) { top: calc(50% - 0.75px); }
+.veld-burger span:nth-child(3) { top: calc(100% - 1.5px); }
+
+.veld-burger.is-open span:nth-child(1) { top: calc(50% - 0.75px); transform: rotate(45deg); }
+.veld-burger.is-open span:nth-child(2) { opacity: 0; }
+.veld-burger.is-open span:nth-child(3) { top: calc(50% - 0.75px); transform: rotate(-45deg); }
+
+/* The header uses backdrop-filter, so these are positioned against it, opening just below it. */
+.veld-mobile-nav__backdrop {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 100dvh;
+  background: rgba(71, 73, 72, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.veld-mobile-nav__backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.veld-mobile-nav__panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(20rem, 85vw);
+  height: calc(100dvh - 100%);
+  padding: 1.5rem clamp(1.25rem, 5vw, 1.75rem) calc(1.5rem + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  background: #f7f7f5;
+  border-left: 1px solid var(--line);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1), visibility 0s linear 0.3s;
+}
+
+.veld-mobile-nav__panel.is-open {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1), visibility 0s;
+}
+
+.veld-mobile-nav__panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.veld-mobile-nav__panel li a {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.veld-mobile-nav__panel li a[aria-current="page"] {
+  color: var(--sage);
+}
+
+.veld-mobile-nav__panel .veld-mobile-nav__cta {
+  margin-top: auto;
+  text-align: center;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+}
+
+html.veld-menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 940px) {
+  .veld-mobile-nav {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veld-burger span,
+  .veld-mobile-nav__panel,
+  .veld-mobile-nav__backdrop {
+    transition: none;
+  }
+}
+
+@media (max-width: 860px) {
+  /* Wordmark box on top, photo fills the rest of the screen below it. */
+  .hero-evolve-sticky .hero-cards--clean .hero-cards-stage {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - var(--site-header, 3.6rem));
+  }
+
+  .hero-evolve-sticky .hero-wordmark--clean {
+    align-self: stretch;
+    flex: 0 0 auto;
+    align-items: center;
+    max-width: none;
+    padding: clamp(1.25rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .hero-wordmark--clean .hero-brand-box {
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+    padding: clamp(0.9rem, 4vw, 1.3rem) clamp(0.9rem, 4vw, 1.5rem);
+  }
+
+  .hero-evolve-sticky .hero-wordmark--clean .hero-wordmark-eden {
+    font-size: clamp(2.6rem, 17vw, 5.2rem);
+    line-height: 0.95;
+  }
+
+  .hero-evolve-sticky .hero-wordmark--clean .hero-subline {
+    font-size: clamp(0.85rem, 4vw, 1.15rem);
+    line-height: 1.4;
+  }
+
+  /* Full-screen portrait render; the wordmark box floats in the open sky at the top. */
+  .hero-evolve-sticky .hero-cards--clean .hero-cards-stage {
+    justify-content: flex-start;
+    padding-top: clamp(1.5rem, 9svh, 4.5rem);
+  }
+
+  .hero-evolve-sticky .hero-wordmark--clean {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-evolve-sticky .hero-scene {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    border-bottom: 0;
+  }
+
+  .hero-evolve-sticky .hero-scene picture {
+    display: contents;
+  }
+
+  .hero-evolve-sticky .hero-plate {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 70%;
+  }
+
+  .hero-wordmark--clean .hero-brand-box {
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  /* Colour → black & white → colour, on a slow loop. */
+  .hero-evolve-sticky .hero-plate--bw {
+    display: block;
+    opacity: 0;
+    animation: hero-bw-fade 9s ease-in-out 1s infinite;
+  }
+}
+
+/* The black-and-white twin is a mobile-only layer. */
+.hero-plate--bw {
+  display: none;
+}
+
+@keyframes hero-bw-fade {
+  0%, 30% { opacity: 0; }
+  40%, 75% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-evolve-sticky .hero-plate--bw {
+    animation: none;
+  }
+}
+
+/* ---------- Mobile pass: consistent abundance video ---------- */
+@media (max-width: 860px) {
+  /* Show the whole landscape video instead of a tall, heavily zoomed crop. */
+  .hero-video-slide {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 9vw, 3rem);
+    height: auto;
+    min-height: 0;
+    padding: clamp(3rem, 12vw, 5rem) 0;
+    background: #fff;
+  }
+
+  .hero-video-slide__copy {
+    position: static;
+    order: -1;
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+    text-align: center;
+  }
+
+  .hero-video-slide__headline {
+    color: var(--ink);
+    text-shadow: none;
+    font-size: clamp(1.5rem, 8vw, 2.4rem);
+  }
+
+  .hero-video-slide__headline-text {
+    white-space: normal;
+  }
+
+  .hero-video-slide__plate {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+}
+
+/* ---------- Mobile pass: footer ---------- */
+@media (max-width: 640px) {
+  /* Strawberry band: stack the two labels above and below the fruit. */
+  .veld-slide-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+    min-height: 0;
+    height: auto;
+    padding: clamp(3rem, 14vw, 4.5rem) 1rem;
+    overflow: hidden;
+  }
+
+  .veld-slide-bridge-label,
+  .veld-slide-bridge-label--left,
+  .veld-slide-bridge-label--right {
+    position: static;
+    inset: auto;
+    transform: none;
+    margin: 0;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+    font-size: 0.85rem;
+  }
+
+  .veld-slide-bridge-label--left { order: 1; }
+  .veld-slide-bridge-figure { order: 2; position: static; transform: none; width: clamp(4rem, 22vw, 5.5rem); height: auto; }
+  .veld-slide-bridge-label--right { order: 3; }
+
+  .veld-footer-meta {
+    padding-inline: 1rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .veld-footer-mark {
+    box-sizing: border-box;
+    width: auto;
+    max-width: calc(100% - 2rem);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .veld-footer-name {
+    font-size: clamp(2.6rem, 15vw, 3.6rem);
+    text-align: center;
+  }
+
+  .veld-footer-sub {
+    white-space: normal;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+}
+
+/* ---------- Mobile pass: lifestyle segments ---------- */
+@media (max-width: 760px) {
+  /* Stack each segment: image card, then its own drop-downs, then the next segment. */
+  .veld-lifestyle-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .veld-lifestyle-cards,
+  .veld-lifestyle-details-row {
+    display: contents;
+  }
+
+  .veld-lifestyle-cards > .veld-scenario:nth-child(1) { order: 1; }
+  .veld-lifestyle-details-row > .veld-scenario-details:nth-child(1) { order: 2; }
+  .veld-lifestyle-cards > .veld-scenario:nth-child(2) { order: 3; }
+  .veld-lifestyle-details-row > .veld-scenario-details:nth-child(2) { order: 4; }
+  .veld-lifestyle-cards > .veld-scenario:nth-child(3) { order: 5; }
+  .veld-lifestyle-details-row > .veld-scenario-details:nth-child(3) { order: 6; }
+
+  .veld-lifestyle-cards > .veld-scenario {
+    min-height: clamp(20rem, 105vw, 30rem);
+    margin-top: clamp(2rem, 8vw, 3rem);
+  }
+
+  .veld-lifestyle-cards > .veld-scenario:nth-child(1) {
+    margin-top: 0;
+  }
+
+  .veld-lifestyle-details-row > .veld-scenario-details {
+    margin-top: 0.6rem;
+  }
+
+  .veld-scenario-detail-trigger {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------- Mobile pass: smart systems diagram ---------- */
+@media (max-width: 700px) {
+  .signal-slide .signal-content {
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .signal-headline {
+    gap: 0.35em;
+    font-size: clamp(1.3rem, 6.4vw, 1.8rem);
+  }
+
+  .signal-headline-line,
+  .thesis-intro .signal-headline-line:first-child {
+    white-space: normal;
+  }
+
+  /* Root's calculation panel opens below its label; keep the row top-aligned. */
+  .signal-node--root {
+    align-items: start;
+  }
+
+  .signal-node .signal-math {
+    min-width: 0;
+  }
+
+  .signal-node .signal-math-row {
+    grid-template-columns: max-content max-content minmax(0, 1fr);
+    font-size: 0.62rem;
+  }
+
+  .signal-node .signal-math-row > * {
+    white-space: normal;
+  }
+
+  .signal-support {
+    margin-left: 0;
+    text-align: left;
+    font-size: 0.78rem;
+  }
+
+  .signal-slide .signal-stage {
+    padding: 1.5rem clamp(1rem, 5vw, 1.5rem) 2.5rem;
+  }
+
+  /* The wide trace can't fit a phone; show the sensors as a vertical rail instead. */
+  .signal-trace,
+  .signal-traveler {
+    display: none;
+  }
+
+  .signal-trace-wrap {
+    height: auto;
+  }
+
+  .signal-nodes {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-left: 0.4rem;
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    border-left: 1px solid rgba(71, 73, 72, 0.28);
+  }
+
+  .signal-node {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: 5.2rem 1fr;
+    align-items: center;
+    column-gap: 0.9rem;
+  }
+
+  .signal-node .signal-readout,
+  .signal-node .signal-node-caption,
+  .signal-node--readout-below .signal-readout,
+  .signal-node--readout-below .signal-node-caption,
+  .signal-node .signal-math {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+  }
+
+  .signal-node .signal-readout {
+    grid-column: 1;
+    justify-self: start;
+    font-size: 0.8rem;
+  }
+
+  .signal-node .signal-node-caption,
+  .signal-node .signal-math {
+    grid-column: 2;
+    font-size: 0.72rem;
+    white-space: normal;
+  }
+
+  .signal-node .signal-math {
+    align-items: flex-start;
+  }
+
+  .signal-node .signal-math-trigger {
+    font-size: 0.72rem;
+  }
+
+  /* Sensor dot sits on the rail, level with its label. */
+  .signal-node .signal-sensor {
+    position: absolute;
+    left: -1.4rem;
+    top: 0.85rem;
+    transform: translate(-50%, -50%);
+  }
+
+  .signal-slide .signal-footer {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* ---------- Mobile pass: systems page section intros ---------- */
+@media (max-width: 760px) {
+  /* Intro headings were centred in a tall fixed box, leaving big empty gaps. */
+  #process .veld-section-head.veld-section-head--display.veld-slide-intro,
+  #services .veld-section-head.veld-section-head--display.veld-slide-intro,
+  #materials .veld-section-head.veld-section-head--display.veld-slide-intro,
+  #lifestyle .veld-section-head.veld-section-head--display.veld-slide-intro {
+    min-height: 0;
+    padding-block: clamp(2.5rem, 10vw, 3.5rem) clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .veld-section,
+  .eden-os-slide {
+    min-height: 0;
+  }
+}
+
+/* ---------- Mobile pass: materials sidebar ---------- */
+@media (max-width: 760px) {
+  .veld-materials-sidebar .eos-side-icons {
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  .veld-materials-sidebar .eos-sidebar-copy,
+  .veld-materials-sidebar .eos-sidebar-meta {
+    text-align: center;
+    margin-inline: auto;
+  }
+}
+
+/* ---------- White footer (all screen sizes) ---------- */
+.veld-site-footer,
+.veld-site-footer .veld-slide-bridge {
+  background: #fff;
+}
+
+@media (max-width: 940px) {
+  .veld-footer-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .veld-footer-name,
+  .veld-footer-sub {
+    align-self: center;
+    text-align: center;
+  }
+}
+
+/* ---------- Process steps: numbers line up ---------- */
+/* Fixed number + label columns, centred as a block, so 01–05 share one left edge. */
+.veld-process__trigger {
+  display: grid;
+  grid-template-columns: 1fr max-content 8ch 1fr;
+  align-items: baseline;
+  column-gap: 0.6rem;
+}
+
+.veld-process__trigger .veld-process__index {
+  grid-column: 2;
+  min-width: 2ch;
+  text-align: left;
+}
+
+.veld-process__trigger .veld-process__name {
+  grid-column: 3;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Enquire form: custom select chevron, inset from the edge, consistent across browsers. */
+.veld-enquire-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23474948' stroke-width='1.4'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px 8px;
+}
+
+/* ---------- Portrait tablets (iPad etc.): use the mobile hero with the colour/B&W fade ---------- */
+@media (orientation: portrait) and (min-width: 861px) and (max-width: 1366px) {
+  .hero-evolve-sticky {
+    height: auto;
+    min-height: calc(100svh - var(--site-header, 4.6rem));
+  }
+
+  .hero-evolve-sticky .hero-cards--clean .hero-cards-stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: calc(100svh - var(--site-header, 4.6rem));
+    padding: clamp(3rem, 9svh, 6rem) 0 0;
+    overflow: hidden;
+  }
+
+  .hero-evolve-sticky .hero-wordmark--clean {
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: 2;
+    flex: 0 0 auto;
+    align-self: center;
+    align-items: center;
+    max-width: min(40rem, calc(100% - 4rem));
+    padding: 0;
+  }
+
+  .hero-wordmark--clean .hero-brand-box {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .hero-evolve-sticky .hero-scene {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    border-bottom: 0;
+  }
+
+  .hero-evolve-sticky .hero-scene picture {
+    display: contents;
+  }
+
+  .hero-evolve-sticky .hero-plate {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 70%;
+  }
+
+  .hero-evolve-sticky .hero-plate--bw {
+    display: block;
+    opacity: 0;
+    animation: hero-bw-fade 9s ease-in-out 1s infinite;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 861px) and (max-width: 1366px) and (prefers-reduced-motion: reduce) {
+  .hero-evolve-sticky .hero-plate--bw {
+    animation: none;
+  }
+}
+
+/* ---------- Systems page: alternating section backgrounds ---------- */
+/* Services (light) → Materials (grey) → Sensors (light). Inner cards go light for contrast. */
+#materials.eden-os-slide {
+  background: #e9eae7;
+}
+
+#materials .eos-software,
+#materials .veld-materials-sidebar {
+  background: #f7f7f5;
+}
+
+/* Enquire sits at the far right on desktop (the mobile nav is now the header's last child,
+   so `.veld-site-header-side:last-child` no longer matches). */
+.veld-site-header > .veld-site-header-side:has(.veld-site-cta) {
+  justify-content: flex-end;
+}
+
+/* ---------- Desktop hero: colour → B&W fade ---------- */
+/* Greyscale copy of the desktop render; an SVG mask (same 1672×941 frame, sized with `cover`
+   like the image) punches a soft hole over the pavilion so it stays in colour. */
+.hero-evolve-sticky .hero-plate--bw-desk {
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0;
+  animation: hero-bw-fade 9s ease-in-out 1s infinite;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1672' height='941' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='b' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeGaussianBlur stdDeviation='0.6'/%3E%3C/filter%3E%3C/defs%3E%3Cpath filter='url(%23b)' fill-rule='evenodd' d='M-5 -5H105V105H-5Z M24 31L84 16L98 39L98.5 71L85 73.5L27 69.5L27 34Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1672' height='941' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='b' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeGaussianBlur stdDeviation='0.6'/%3E%3C/filter%3E%3C/defs%3E%3Cpath filter='url(%23b)' fill-rule='evenodd' d='M-5 -5H105V105H-5Z M24 31L84 16L98 39L98.5 71L85 73.5L27 69.5L27 34Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Phones and portrait tablets use the separate portrait B&W image instead. */
+@media (max-width: 860px), (orientation: portrait) and (max-width: 1366px) {
+  .hero-evolve-sticky .hero-plate--bw-desk {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-evolve-sticky .hero-plate--bw-desk {
     animation: none;
   }
 }

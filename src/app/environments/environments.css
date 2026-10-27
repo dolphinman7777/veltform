@@ -1,0 +1,260 @@
+/* Ported from Veltform-Environments dist/styles.css; scoped under .env-page. */
+/* Neutralise the site-wide `section` padding from eden.css. */
+.env-page section { padding: 0; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ibm-plex-mono-subset-1.ttf") format("truetype"); unicode-range: U+20, U+25, U+28, U+29, U+2C, U+2D, U+2E, U+2F, U+30, U+31, U+32, U+33, U+34, U+36, U+37, U+38, U+39, U+3A, U+40, U+41, U+42, U+43, U+44, U+45, U+46, U+47, U+48, U+49, U+4B, U+4C, U+4D, U+4E, U+4F, U+50, U+52, U+53, U+54, U+55, U+56, U+57, U+58, U+59, U+5B, U+5D, U+61, U+62, U+63, U+64, U+65, U+66, U+67, U+68, U+69, U+6B, U+6C, U+6D, U+6E, U+6F, U+70, U+71, U+72, U+73, U+74, U+75, U+76, U+77, U+78, U+79, U+7A, U+A0, U+B0, U+B7, U+2022, U+2212; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ibm-plex-mono-subset-2.ttf") format("truetype"); unicode-range: U+21, U+26, U+27, U+3B, U+51, U+6A; }
+.env-page {
+  color-scheme: light;
+  --ink: #474948;
+  --muted: #68766a;
+  --mint: #d4ffd3;
+  --sage: #889b89;
+  --paper: #f7f7f5;
+  --line: #47494826;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --gallery-height: clamp(460px, calc(100svh - 330px), 760px);
+}
+.env-page, .env-page * { box-sizing: border-box; }
+.env-page { scroll-behavior: smooth; }
+.env-page { margin: 0; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+.env-page button, .env-page a { -webkit-tap-highlight-color: transparent; }
+.env-page button { color: inherit; }
+.env-page button, .env-page input { font: inherit; }
+.env-page button { cursor: pointer; }
+.env-page a { color: inherit; text-decoration: none; }
+.env-page button:focus-visible, .env-page a:focus-visible { outline: 2px solid #406a43; outline-offset: 4px; }
+.env-page [hidden] { display: none !important; }
+.env-page .env-main { width: min(1840px, 100%); margin: 0 auto; padding: 30px 4vw 24px; }
+.env-page .section-heading { text-align: center; padding-top: clamp(20px, 2.5vw, 40px); margin-bottom: clamp(48px, 4.5vw, 70px); }
+.env-page h1 { margin: 0; font: 400 clamp(36px, 4.3vw, 66px)/1.22 var(--mono); letter-spacing: -.045em; }
+.env-page h1 span { display: inline; padding: 0 .1em .05em; background: var(--mint); box-decoration-break: clone; }
+.env-page .section-heading > p { margin: 15px 0 0; color: var(--muted); font: 12px/1.6 var(--mono); }
+.env-page .climate-explorer { position: relative; }
+.env-page .climate-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); height: var(--gallery-height); overflow: hidden; background: #fff; }
+.env-page .climate-image { position: relative; min-width: 0; overflow: hidden; }
+.env-page .image-trigger { position: absolute; inset: 0; border: 0; background: none; padding: 0; width: 100%; height: 100%; }
+.env-page .image-trigger:focus-visible { outline-offset: -5px; z-index: 1; }
+.env-page .image-trigger img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: filter 300ms ease, opacity 220ms ease; }
+.env-page .climate-image.is-muted img { filter: grayscale(1); opacity: .85; }
+.env-page .climate-image.is-covered .image-trigger { visibility: hidden; }
+.env-page .climate-selectors { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.env-page .climate-selector { position: relative; min-width: 0; display: grid; grid-template-columns: 20px 1fr; align-content: start; column-gap: 8px; row-gap: 7px; padding: 18px 14px 16px 4px; border: 0; border-bottom: 1px solid var(--line); background: transparent; text-align: left; }
+.env-page .climate-selector + .climate-selector { padding-left: 18px; }
+.env-page .climate-number { align-self: center; font: 9px var(--mono); color: var(--muted); }
+.env-page .climate-name { width: fit-content; max-width: calc(100% - 12px); font: 400 clamp(20px, 2.1vw, 34px)/1.08 var(--serif); letter-spacing: -.03em; }
+.env-page .climate-description { grid-column: 2; color: var(--muted); font: 10px/1.5 var(--mono); }
+.env-page .selector-symbol { position: absolute; right: 12px; top: 24px; font: 13px var(--mono); color: var(--muted); }
+.env-page .climate-selector[aria-expanded="true"] { border-bottom-color: var(--ink); }
+.env-page .climate-selector[aria-expanded="true"] .climate-name { background: var(--mint); box-shadow: 3px 0 var(--mint), -3px 0 var(--mint); }
+.env-page .climate-selector:hover .climate-name { color: #1e4027; }
+.env-page .climate-details { pointer-events: none; position: absolute; top: 0; left: 0; width: 100%; height: var(--gallery-height); }
+.env-page .climate-detail { pointer-events: auto; position: absolute; top: 0; left: calc(var(--slot) * 25%); width: 25%; height: 100%; background: #fff; animation: reveal-panel 240ms ease both; }
+.env-page .climate-detail-copy { width: 100%; height: 100%; overflow-y: auto; padding: clamp(18px, 1.8vw, 34px); }
+.env-page .climate-neighbour { position: absolute; z-index: 1; top: 0; right: 0; width: 25%; height: 100%; padding: 0; border: 0; appearance: none; background: transparent; }
+.env-page .climate-neighbour:focus-visible { outline-offset: -4px; }
+.env-page .climate-detail--back .climate-neighbour { right: auto; left: 0; }
+.env-page .detail-topline { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 22px; font: 8px/1.4 var(--mono); color: var(--muted); }
+.env-page .close-panel { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 28px; height: 28px; margin: -7px -7px -7px 0; border: 0; background: transparent; color: var(--ink); font: 21px/1 var(--serif); }
+.env-page .close-panel:hover { background: var(--mint); }
+.env-page h2 { margin: 0 0 9px; font: 400 clamp(28px, 2.8vw, 44px)/1.02 var(--serif); letter-spacing: -.045em; overflow-wrap: anywhere; }
+.env-page .collection-type { margin: 0; color: var(--muted); font: 10px/1.5 var(--mono); }
+.env-page .detail-summary { margin: 25px 0 27px; font: 12px/1.65 var(--mono); }
+.env-page .climate-specs { margin: 0; font: 11px/1.5 var(--mono); }
+.env-page .climate-specs > div { display: flex; align-items: baseline; justify-content: space-between; gap: 7px; padding: 10px 0; border-top: 1px solid var(--line); }
+.env-page .climate-specs dt { color: var(--muted); }
+.env-page .climate-specs dd { margin: 0; text-align: right; white-space: nowrap; }
+.env-page .climate-specs dd span { font-size: 9px; }
+.env-page .climate-specs .light-row span { display: block; color: var(--muted); }
+.env-page .section-notes { display: flex; justify-content: space-between; gap: 24px; margin-top: 18px; font: 9px/1.6 var(--mono); color: var(--muted); }
+.env-page .section-notes p { margin: 0; }
+.env-page .touch-hint { display: none; }
+@keyframes reveal-panel { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+@media (min-width: 1700px) { .env-page .env-main { padding-left: 70px; padding-right: 70px; } .env-page .detail-summary { font-size: 14px; } .env-page .climate-specs { font-size: 12px; } }
+@media (max-width: 1150px) and (min-width: 901px) { .env-page .climate-name { font-size: 24px; } .env-page .climate-description { font-size: 9px; } .env-page .detail-topline { margin-bottom: 17px; } .env-page .detail-summary { font-size: 11px; margin: 20px 0; } .env-page .climate-specs { font-size: 10px; } .env-page .climate-specs > div { flex-wrap: wrap; } .env-page .climate-specs dd { margin-left: auto; } .env-page .climate-selector { grid-template-columns: 16px 1fr; column-gap: 4px; } }
+@media (max-width: 900px) {
+  .env-page { --gallery-height: clamp(300px, 50svh, 510px); }
+  .env-page .env-main { padding: 32px 24px 24px; }
+  .env-page .section-heading { padding-top: 24px; margin-bottom: 46px; }
+  .env-page h1 { font-size: clamp(34px, 6vw, 52px); }
+  .env-page .section-heading > p { max-width: 440px; margin: 14px auto 0; font-size: 11px; }
+  .env-page .climate-image.is-covered .image-trigger { visibility: visible; }
+  .env-page .climate-selectors { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; }
+  .env-page .climate-selector { padding: 17px 22px 15px 0; }
+  .env-page .climate-selector + .climate-selector { padding-left: 0; }
+  .env-page .climate-name { font-size: 28px; }
+  .env-page .climate-description { font-size: 10px; }
+  .env-page .selector-symbol { right: 4px; }
+  .env-page .climate-details { position: static; height: auto; }
+  .env-page .climate-detail { position: relative; left: auto; width: 100%; height: auto; overflow: visible; margin-top: 20px; }
+  .env-page .climate-detail-copy { width: 100%; height: auto; overflow: visible; padding: 28px; }
+  .env-page .climate-neighbour { display: none; }
+  .env-page .detail-topline { margin-bottom: 16px; font-size: 10px; }
+  .env-page h2 { font-size: 42px; }
+  .env-page .collection-type { font-size: 11px; }
+  .env-page .detail-summary { max-width: 520px; margin: 20px 0; font-size: 13px; }
+  .env-page .climate-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 26px; font-size: 12px; }
+  .env-page .climate-specs dd span { font-size: 10px; }
+  .env-page .section-notes { flex-direction: column; gap: 7px; font-size: 9px; }
+  .env-page .desktop-hint { display: none; } .env-page .touch-hint { display: inline; }
+}
+@media (max-width: 600px) {
+  .env-page .env-main { padding: 30px 16px 24px; }
+  .env-page .section-heading { padding-top: 20px; margin-bottom: 40px; }
+  .env-page h1 { font-size: clamp(30px, 8vw, 42px); }
+  .env-page .section-heading > p { max-width: 280px; font-size: 10px; }
+  .env-page .climate-gallery { height: 310px; }
+  .env-page .climate-name { font-size: 23px; }
+  .env-page .climate-description { font-size: 9px; }
+  .env-page .climate-selector { grid-template-columns: 15px 1fr; column-gap: 5px; padding-right: 12px; }
+  .env-page .climate-number { font-size: 8px; }
+  .env-page .selector-symbol { right: 0; top: 22px; font-size: 11px; }
+  .env-page .climate-detail-copy { padding: 24px 20px; }
+  .env-page .climate-specs { column-gap: 20px; font-size: 11px; }
+  .env-page .climate-specs > div { flex-wrap: wrap; row-gap: 2px; }
+  .env-page .climate-specs dd { margin-left: auto; }
+}
+@media (hover: none) { .env-page .desktop-hint { display: none; } .env-page .touch-hint { display: inline; } }
+@media (prefers-reduced-motion: reduce) { .env-page { scroll-behavior: auto; } .env-page, .env-page *, .env-page *::before, .env-page *::after { animation: none !important; transition: none !important; } }
+
+.env-page .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.env-page .greenhouse-concepts { margin-top: clamp(70px, 10vw, 150px); padding-top: clamp(38px, 5vw, 70px); border-top: 1px solid var(--line); }
+.env-page .service-quote { max-width: 880px; margin: clamp(38px, 5vw, 70px) auto; padding: 0 20px; color: var(--muted); text-align: center; font: 400 clamp(20px, 1.8vw, 28px)/1.5 var(--serif); }
+.env-page .service-quote p { margin: 0; }
+.env-page .service-quote + .greenhouse-concepts { margin-top: 0; }
+.env-page .concepts-heading { text-align: center; margin-bottom: clamp(32px, 5vw, 70px); }
+.env-page .concepts-heading h2 { margin: 0; font: 400 clamp(30px, 3.5vw, 54px)/1.24 var(--mono); letter-spacing: -.045em; overflow-wrap: normal; }
+.env-page .concepts-heading h2 span { background: var(--mint); padding: 0 .1em .05em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.env-page .concepts-heading > p { margin: 28px auto 0; color: var(--muted); font: 16px/1.8 var(--mono); }
+.env-page .greenhouse-concept { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); align-items: center; gap: clamp(28px, 4vw, 68px); padding: clamp(36px, 5vw, 72px) 0; border-top: 1px solid var(--line); }
+.env-page .concept-figure { min-width: 0; margin: 0; }
+.env-page .concept-figure img { display: block; width: 100%; height: auto; }
+.env-page .concept-figure figcaption { margin-top: 12px; color: var(--muted); font: 9px/1.6 var(--mono); }
+.env-page .concept-content { min-width: 0; }
+.env-page .concept-index { margin: 0 0 15px; color: var(--muted); font: 9px/1.5 var(--mono); letter-spacing: .04em; }
+.env-page .concept-content h3 { margin: 0 0 15px; font: 400 clamp(32px, 3vw, 46px)/1.05 var(--serif); letter-spacing: -.035em; }
+.env-page .concept-lead { margin: 0 0 13px; font: 13px/1.65 var(--mono); }
+.env-page .concept-description { margin: 0 0 25px; color: var(--muted); font: 11px/1.8 var(--mono); }
+.env-page .planting-table { width: 100%; border-collapse: collapse; table-layout: fixed; text-align: left; font: 10px/1.75 var(--mono); }
+.env-page .planting-table th, .env-page .planting-table td { padding: 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+.env-page .planting-table thead th { border-top: 1px solid var(--line); color: var(--muted); font-weight: 400; font-size: 9px; }
+.env-page .planting-table th:first-child { width: 34%; padding-right: 18px; }
+.env-page .planting-table tbody th { font-weight: 400; }
+.env-page .comfort-climate { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 15px; margin: 0 0 25px; font: 10px/1.7 var(--mono); }
+.env-page .comfort-climate > span:first-child { flex-basis: 100%; color: var(--muted); }
+.env-page .comfort-climate strong { font-size: 13px; font-weight: 400; background: var(--mint); padding: 1px 4px; }
+.env-page .design-target { color: var(--muted); font-size: 9px; }
+.env-page .concepts-note { margin: 0; padding: 22px 0 10px; border-top: 1px solid var(--line); color: var(--muted); font: 9px/1.7 var(--mono); }
+@media (min-width: 1700px) { .env-page .concept-lead { font-size: 15px; } .env-page .concept-description { font-size: 13px; } .env-page .planting-table { font-size: 12px; } .env-page .planting-table thead th { font-size: 11px; } }
+@media (max-width: 1050px) {
+  .env-page .greenhouse-concept { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 30px; }
+  .env-page .concept-content h3 { font-size: 34px; }
+  .env-page .concept-lead { font-size: 12px; }
+  .env-page .planting-table th:first-child { width: 36%; padding-right: 12px; }
+}
+@media (max-width: 760px) {
+  .env-page .greenhouse-concepts { margin-top: 70px; padding-top: 36px; }
+  .env-page .concepts-heading { margin-bottom: 32px; }
+  .env-page .concepts-heading h2 { font-size: clamp(24px, 5.9vw, 40px); }
+  .env-page .concepts-heading > p { max-width: 420px; margin-top: 24px; padding: 0 8px; font-size: 14px; }
+  .env-page .greenhouse-concept { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 36px 0 44px; }
+  .env-page .concept-figure figcaption { margin-top: 10px; font-size: 8px; }
+  .env-page .concept-index { margin-bottom: 11px; }
+  .env-page .concept-content h3 { font-size: 36px; }
+  .env-page .concept-description { margin-bottom: 22px; font-size: 12px; }
+  .env-page .planting-table { font-size: 11px; }
+  .env-page .planting-table thead th { font-size: 10px; }
+  .env-page .planting-table th:first-child { width: 34%; padding-right: 16px; }
+  .env-page .concepts-note { font-size: 9px; }
+}
+
+.env-page .plant-collection { grid-column: 1 / -1; min-width: 0; padding-top: 22px; border-top: 1px solid var(--line); }
+.env-page .plant-collection-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px 28px; margin-bottom: 18px; }
+.env-page .plant-collection-heading h4 { margin: 0; font: 400 clamp(24px, 2.3vw, 32px)/1.2 var(--serif); letter-spacing: -.02em; }
+.env-page .plant-collection-tools { display: flex; align-items: center; gap: 18px; }
+.env-page .plant-collection-tools > p { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; color: var(--muted); font: 9px/1.6 var(--mono); }
+.env-page .plant-scroll-controls { display: flex; flex-shrink: 0; gap: 7px; }
+.env-page .plant-scroll { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; padding: 0; border: 1px solid var(--line); background: transparent; font: 16px/1 var(--mono); }
+.env-page .plant-scroll:hover:not(:disabled) { background: var(--mint); }
+.env-page .plant-scroll:disabled { opacity: .3; cursor: default; }
+.env-page .plant-touch-hint { display: none; }
+.env-page .plant-room-note { margin: 0 0 17px; max-width: 680px; color: var(--muted); font: 10px/1.7 var(--mono); }
+.env-page .plant-grid { --plant-columns: 6; --plant-gap: 10px; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - (var(--plant-columns) - 1) * var(--plant-gap)) / var(--plant-columns)); align-items: start; gap: var(--plant-gap); overflow-x: auto; padding: 5px 1px 14px; scroll-snap-type: x proximity; scroll-padding-inline: 1px; scrollbar-width: thin; scrollbar-color: var(--sage) transparent; }
+.env-page .plant-grid:focus-visible { outline: 2px solid #406a43; outline-offset: 2px; }
+.env-page .plant-card { position: relative; display: grid; min-width: 0; background: transparent; scroll-snap-align: start; }
+.env-page .plant-card.is-open { z-index: 5; }
+.env-page .plant-trigger { position: relative; grid-area: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; width: 100%; height: 100%; padding: 16px 14px 18px; border: 1px solid transparent; background: transparent; text-align: center; transition: opacity 180ms ease; }
+.env-page .plant-trigger:hover, .env-page .plant-card:focus-within .plant-trigger { border-color: var(--line); }
+.env-page .plant-trigger img { display: block; width: 100%; max-width: 176px; height: auto; aspect-ratio: 1; object-fit: contain; }
+.env-page .plant-preview-name { display: block; min-height: 2.3em; max-width: 100%; font: 400 19px/1.15 var(--serif); }
+.env-page .plant-open-symbol { position: absolute; right: 10px; top: 11px; color: var(--muted); font: 12px var(--mono); }
+.env-page .plant-card.is-open .plant-trigger { opacity: 0; }
+.env-page .plant-info { position: fixed; grid-area: 1 / 1; z-index: 20; top: 0; left: 0; width: min(310px, calc(100vw - 32px)); overflow: visible; padding: 21px; border: 1px solid var(--line); background: #fff; text-align: left; pointer-events: none; animation: plant-reveal 180ms ease both; }
+.env-page .plant-card.is-click-open .plant-info { position: relative; top: auto; left: auto; align-self: start; width: 100%; min-width: 0; padding: 18px 14px; pointer-events: auto; }
+.env-page .plant-card.is-click-open .plant-info h5 { font-size: 24px; }
+.env-page .plant-info-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; color: var(--muted); font: 9px/1.5 var(--mono); }
+.env-page .plant-close { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin: -8px -9px -8px 0; padding: 0; border: 0; background: transparent; pointer-events: auto; font: 23px/1 var(--serif); }
+.env-page .plant-close:hover, .env-page .plant-close:focus-visible { background: var(--mint); }
+.env-page .plant-info h5 { margin: 0 0 7px; font: 400 27px/1.05 var(--serif); letter-spacing: -.025em; overflow-wrap: anywhere; }
+.env-page .plant-latin { margin: 0; color: var(--muted); font: 10px/1.6 var(--mono); overflow-wrap: anywhere; }
+.env-page .plant-climate { margin: 14px 0 19px; font: 10px/1.6 var(--mono); }
+.env-page .plant-climate > span { background: var(--mint); padding: 2px 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.env-page .plant-stats { margin: 0; font: 10px/1.65 var(--mono); }
+.env-page .plant-stats > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 3px 8px; padding: 8px 0; border-top: 1px solid var(--line); }
+.env-page .plant-stats dt { color: var(--muted); }
+.env-page .plant-stats dd { flex-shrink: 0; margin: 0 0 0 auto; text-align: right; }
+.env-page .plant-note { margin: 15px 0 0; color: var(--muted); font: 10px/1.7 var(--mono); }
+.env-page .plant-range-note { margin: 20px 0 0; color: var(--muted); font: 9px/1.7 var(--mono); }
+@keyframes plant-reveal { from { opacity: 0; } to { opacity: 1; } }
+@media (min-width: 1700px) { .env-page .plant-grid { --plant-columns: 7; } }
+@media (max-width: 1150px) { .env-page .plant-grid { --plant-columns: 5; } }
+@media (max-width: 950px) { .env-page .plant-grid { --plant-columns: 4; } .env-page .plant-collection-heading { align-items: flex-start; flex-direction: column; } .env-page .plant-collection-tools { width: 100%; justify-content: space-between; } }
+@media (max-width: 650px) { .env-page .plant-grid { --plant-columns: 3; --plant-gap: 4px; } .env-page .plant-preview-name { font-size: 18px; } .env-page .plant-trigger { padding: 14px 10px; } .env-page .plant-collection-tools > p { gap: 5px 14px; } }
+@media (max-width: 430px) { .env-page .plant-grid { --plant-columns: 2; } }
+@media (hover: none) { .env-page .plant-desktop-hint { display: none; } .env-page .plant-touch-hint { display: inline; } }
+@media (prefers-reduced-motion: reduce) { .env-page .plant-info { animation: none; } .env-page .plant-trigger { transition: none; } }
+
+/* Mobile/tablet: centre each concept's caption, index, title and lead line. */
+@media (max-width: 940px) {
+  .env-page .concept-figure figcaption,
+  .env-page .concept-index,
+  .env-page .concept-content h3,
+  .env-page .concept-lead {
+    text-align: center;
+  }
+}
+
+/* The page's Plex subset has no arrow glyph; a system font keeps ← → optically centred. */
+.env-page .plant-scroll {
+  font: 18px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 0;
+  padding-bottom: 2px;
+}
+
+@media (max-width: 760px) {
+  .env-page .plant-collection-heading {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .env-page .plant-scroll-controls {
+    justify-content: center;
+  }
+}
+
+/* Alternate backgrounds so each concept (and its plant row) reads as its own band.
+   Grey bleeds edge-to-edge past the page gutter. */
+.env-page #kitchen-garden,
+.env-page #living-space {
+  background: #e9eae7;
+  box-shadow: 0 0 0 100vmax #e9eae7;
+  clip-path: inset(0 -100vmax);
+  border-top-color: transparent;
+}
+
+.env-page #kitchen-garden .plant-card,
+.env-page #living-space .plant-card {
+  background: #f7f7f5;
+}

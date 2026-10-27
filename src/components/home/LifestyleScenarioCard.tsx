@@ -16,8 +16,8 @@ const expandableFields: {
   label: string;
 }[] = [
   { key: "focus", label: "focus" },
-  { key: "climateTypes", label: "climate types" },
-  { key: "cropTypes", label: "crop types" },
+  { key: "climateTypes", label: "climates" },
+  { key: "cropTypes", label: "plants" },
 ];
 
 export function LifestyleScenarioVisual({ scenario }: { scenario: LifestyleScenario }) {
