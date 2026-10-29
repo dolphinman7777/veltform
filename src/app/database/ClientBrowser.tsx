@@ -2,7 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-export type Person = { name: string; role: string; email: string; emailStatus: string; linkedin: string };
+export type Person = {
+  name: string;
+  role: string;
+  email: string;
+  emailStatus: string;
+  linkedin: string;
+  phone?: string;
+  phoneStatus?: string;
+};
 export type Client = {
   id: string;
   name: string;
@@ -22,7 +30,7 @@ export type Client = {
 const PAGE_SIZE = 48;
 
 function haystack(c: Client) {
-  return [c.name, c.area, c.fit, c.offer, c.website, ...c.segments, ...c.people.flatMap((p) => [p.name, p.role, p.email])]
+  return [c.name, c.area, c.fit, c.offer, c.website, ...c.segments, ...c.people.flatMap((p) => [p.name, p.role, p.email, p.phone ?? ""])]
     .join(" ")
     .toLowerCase();
 }
@@ -144,6 +152,11 @@ function ClientDetail({ client: c, onClose }: { client: Client; onClose: () => v
                 <p className="db-person-links mono">
                   {p.email ? <a href={`mailto:${p.email}`}>{p.email}</a> : <span className="db-muted">no email</span>}
                   {p.email && p.emailStatus && <span className="db-muted"> · {p.emailStatus}</span>}
+                  {p.phone ? (
+                    <> · <a href={`tel:${p.phone}`}>{p.phone}</a>{p.phoneStatus ? <span className="db-muted"> · {p.phoneStatus}</span> : null}</>
+                  ) : (
+                    <span className="db-muted"> · no mobile</span>
+                  )}
                   {p.linkedin && (
                     <> · <a href={p.linkedin.startsWith("http") ? p.linkedin : `https://${p.linkedin}`} target="_blank" rel="noreferrer">LinkedIn</a></>
                   )}

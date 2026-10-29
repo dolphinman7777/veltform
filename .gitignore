@@ -32,6 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+research/agents/.treg_token
+research/agents/treg-out/
+research/agents/treg-phone-out/
 
 # vercel
 .vercel
