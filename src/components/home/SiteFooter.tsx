@@ -11,8 +11,14 @@ export function SiteFooter() {
         </p>
       </div>
       <div className="veld-footer-mark">
-        <p className="veld-footer-name brand-natural">{site.name}</p>
-        <p className="veld-footer-sub mono">{site.tagline}</p>
+        <img
+          src={site.logo}
+          alt={site.logoAlt}
+          width={site.logoWidth}
+          height={site.logoHeight}
+          decoding="async"
+          loading="lazy"
+        />
       </div>
     </footer>
   );

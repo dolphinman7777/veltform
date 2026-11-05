@@ -9,6 +9,7 @@ import { site } from "@/content/site";
  */
 export function prefetchImageUrls(): string[] {
   const home = [
+    site.logo,
     site.heroBackground,
     site.architecturalInfluencesImage,
     site.climateSystemsImage,

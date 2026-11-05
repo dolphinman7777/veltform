@@ -7,9 +7,17 @@ export function HeroSection() {
         <div className="hero-cards hero-cards--clean">
           <div className="hero-cards-stage">
             <div className="hero-wordmark hero-wordmark--clean">
-              <div className="hero-brand-box">
-                <h1 className="hero-wordmark-eden brand-main brand-natural">{site.name}</h1>
-                <p className="hero-subline mono"><em>{site.heroMotto}</em></p>
+              <div className="hero-brand-box hero-brand-box--logo">
+                <h1 className="hero-brand-logo">
+                  <img
+                    src={site.logo}
+                    alt={site.logoAlt}
+                    width={site.logoWidth}
+                    height={site.logoHeight}
+                    decoding="async"
+                    fetchPriority="high"
+                  />
+                </h1>
               </div>
             </div>
 
