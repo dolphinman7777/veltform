@@ -627,7 +627,7 @@ body {
   gap: 0;
 }
 
-/* Outranks the translucent white box in the responsive blocks; the logo has transparent margins. */
+/* Outranks the translucent white box in the responsive blocks; the logo has a transparent background. */
 .hero-wordmark--clean .hero-brand-box.hero-brand-box--logo {
   background: transparent;
 }
@@ -3440,9 +3440,9 @@ html.veld-menu-open {
   }
 
   .hero-evolve-sticky .hero-wordmark--clean {
-    align-self: stretch;
+    align-self: center;
     flex: 0 0 auto;
-    align-items: flex-start;
+    align-items: center;
     max-width: none;
     padding: clamp(1.25rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 1.5rem);
   }
@@ -3517,6 +3517,21 @@ html.veld-menu-open {
     display: block;
     opacity: 0;
     animation: hero-bw-fade 9s ease-in-out 1s infinite;
+  }
+}
+
+/* Short landscape phones: keep the centred logo in the sky, clear of the greenhouse roof. */
+@media (max-width: 860px) and (orientation: landscape) {
+  .hero-evolve-sticky .hero-cards--clean .hero-cards-stage {
+    padding-top: 0;
+  }
+
+  .hero-evolve-sticky .hero-wordmark--clean {
+    padding-top: 0.75rem;
+  }
+
+  .hero-wordmark--clean .hero-brand-logo img {
+    width: 12rem;
   }
 }
 
@@ -3870,10 +3885,11 @@ html.veld-menu-open {
     position: relative;
     top: auto;
     right: auto;
+    left: auto;
     z-index: 2;
     flex: 0 0 auto;
-    align-self: flex-start;
-    align-items: flex-start;
+    align-self: center;
+    align-items: center;
     max-width: min(40rem, calc(100% - 4rem));
     padding: 0 clamp(1rem, 4vw, 1.5rem);
   }
