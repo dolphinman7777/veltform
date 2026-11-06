@@ -14,7 +14,7 @@ export function ArchitecturalInfluencesSection() {
           className="arch-slide-image"
           loading="lazy"
           src={site.architecturalInfluencesImage}
-          alt=""
+          alt={site.architecturalInfluencesImageAlt}
           width={1920}
           height={1080}
           decoding="async"

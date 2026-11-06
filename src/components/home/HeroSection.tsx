@@ -17,6 +17,7 @@ export function HeroSection() {
                     decoding="async"
                     fetchPriority="high"
                   />
+                  <span className="visually-hidden">{site.heroMotto}</span>
                 </h1>
               </div>
             </div>

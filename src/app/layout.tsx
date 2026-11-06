@@ -3,7 +3,7 @@ import { Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import { ImagePrefetcher } from "@/components/ImagePrefetcher";
 import { ScrollOnNavigate } from "@/components/ScrollOnNavigate";
 import { prefetchImageUrls } from "@/content/prefetch-images";
-import { shareImage } from "@/content/seo";
+import { ogLocale, sentenceCase, shareImage } from "@/content/seo";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.displayName,
-    locale: "en_GB",
+    locale: ogLocale,
     title: site.seo.home.title,
     description: site.seo.home.description,
     url: "/",
@@ -69,13 +69,31 @@ const structuredData = {
       url: site.url,
       email: site.contactEmail,
       logo: `${site.url}${site.logo}`,
+      image: `${site.url}${shareImage.url}`,
       description: site.seo.home.description,
+      slogan: site.tagline,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: site.location.city,
+        addressRegion: site.location.region,
+        addressCountry: site.location.countryCode,
+      },
+      areaServed: { "@type": "City", name: site.location.city },
       contactPoint: {
         "@type": "ContactPoint",
         email: site.contactEmail,
         contactType: "sales",
         url: `${site.url}/enquire`,
       },
+      makesOffer: site.scenarios.map(({ title, body }) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: sentenceCase(title),
+          description: body,
+          serviceType: "Bespoke greenhouse design and build",
+        },
+      })),
     },
     {
       "@type": "WebSite",
@@ -84,14 +102,14 @@ const structuredData = {
       name: site.displayName,
       description: site.seo.home.description,
       publisher: { "@id": `${site.url}/#organization` },
-      inLanguage: "en",
+      inLanguage: "en-ZA",
     },
   ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en-ZA" className={`${cormorant.variable} ${ibmPlexMono.variable}`}>
       <body>
         <script
           type="application/ld+json"

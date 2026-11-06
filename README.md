@@ -13,23 +13,24 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
-Set these as environment variables (`.env.local` locally, `npx wrangler secret put <NAME>` in production):
+Set these as environment variables (`.env.local` locally, `npx wrangler secret put <NAME> --name veltform` in production):
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `RESEND_API_KEY` | Yes, for the enquiry form | [Resend](https://resend.com) API key used to email enquiries. |
-| `ENQUIRY_FROM` | Once the domain is verified in Resend | Sender, e.g. `Veldform <enquiries@veldform.com>`. |
+| `ENQUIRY_FROM` | Once the domain is verified in Resend | Sender, e.g. `Veldform <enquiries@veldform.co.za>`. |
 | `ENQUIRY_TO` | No | Recipient; defaults to `site.contactEmail`. |
-| `NEXT_PUBLIC_SITE_URL` | Before launch | Public origin for canonical URLs, sitemap and share tags. Defaults to `https://veldform.com`. |
+| `NEXT_PUBLIC_SITE_URL` | Before launch | Public origin for canonical URLs, sitemap and share tags. Defaults to `https://veldform.co.za`. |
 
 ## Deploy (Cloudflare)
 
+Pushes to `main` build and deploy through Workers Builds on the `veltform` worker. Don't use `npm run deploy`: `wrangler.jsonc` names a different worker, `veldform`.
+
 ```bash
 npm run preview   # Workers build, locally
-npm run deploy    # requires an authenticated Wrangler
 ```
 
-After launch, submit `/sitemap.xml` in Google Search Console.
+After launch, submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 
 ## Structure
 
@@ -40,6 +41,7 @@ After launch, submit `/sitemap.xml` in Google Search Console.
 | `src/app/` | Routes: `/`, `/lifestyle`, `/systems`, `/environments`, `/process`, `/enquire`, `/portal` (placeholder, not indexed) |
 | `src/app/enquire/actions.ts` | Enquiry form handler (sends via Resend) |
 | `src/app/{sitemap,robots,manifest}.ts` | Generated `sitemap.xml`, `robots.txt`, web manifest |
+| `src/app/llms.txt/route.ts` | Generated `llms.txt` summary for AI tools; extra detail lives in `src/content/llms-copy.ts` |
 | `src/app/{favicon.ico,icon.png,apple-icon.png}` | Browser, Android and Apple icons |
 | `src/components/environments/` | Environments page (climate explorer, plant rows) |
 | `src/styles/` | Global styles (`eden.css` foundation, `veldform.css` site layout) |

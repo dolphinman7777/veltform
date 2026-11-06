@@ -9,6 +9,9 @@ export function SiteFooter() {
         <p>
           Enquiries: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
         </p>
+        <p>
+          {site.location.city}, {site.location.country}
+        </p>
       </div>
       <div className="veld-footer-mark">
         <img

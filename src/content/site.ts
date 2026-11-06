@@ -53,6 +53,7 @@ export type LifestyleScenario = {
   body: string;
   image: string;
   homeImage: string;
+  imageAlt: string;
   slide: LifestyleScenarioSlide;
   details: LifestyleScenarioDetails;
 };
@@ -114,6 +115,7 @@ export const site = {
   architecturalInfluencesHighlight: "bespoke",
   architecturalInfluencesHeadline: "greenhouse designs",
   architecturalInfluencesImage: "/images/home/architectural-influences.webp",
+  architecturalInfluencesImageAlt: "Four bespoke greenhouse designs shown as exploded diagrams of their timber frames, roofs and bases.",
   climateSystemsHighlight: "automatic",
   climateSystemsHeadline: "climate management",
   climateSystemsSubline: "For more than comfort.",
@@ -123,7 +125,7 @@ export const site = {
   thesisSupport:
     "Each one is planned around the light, weather, and crops on your site.",
   servicesIntro:
-    "The sum or selection of these services makeup a complete greenhouse solution",
+    "The sum or selection of these services make up a complete greenhouse solution.",
   services: [
     {
       id: "viability",
@@ -227,6 +229,7 @@ export const site = {
       body: "Vegetable production, planned for maximum efficiency.",
       image: "/images/lifestyle/kitchen-garden.webp",
       homeImage: "/images/home/lifestyle-kitchen-garden.webp",
+      imageAlt: "A timber and glass greenhouse on a city rooftop terrace, with vegetables and herbs growing in raised beds.",
       slide: {
         tagline: "Grown for flavour.",
         paragraphs: [
@@ -250,6 +253,7 @@ export const site = {
       body: "A stable climate for rare collections.",
       image: "/images/lifestyle/botanical-library.webp",
       homeImage: "/images/home/lifestyle-botanical-library.webp",
+      imageAlt: "A gabled timber and glass greenhouse in a landscaped garden, filled with palms, ferns and flowering tropical plants.",
       slide: {
         tagline: "A collector’s paradise.",
         paragraphs: [
@@ -274,6 +278,7 @@ export const site = {
       body: "A comfortable mixed-use space for plants and people.",
       image: "/images/lifestyle/living-space.webp",
       homeImage: "/images/home/lifestyle-living-space.webp",
+      imageAlt: "A timber and glass garden room on a stone terrace, with sofas, a dining table and potted palms.",
       slide: {
         tagline: "The tranquility of nature and the expression of design.",
         paragraphs: [
@@ -292,17 +297,18 @@ export const site = {
     },
   ] satisfies LifestyleScenario[],
   contactEmail: "hello@veldform.com",
+  location: { city: "Cape Town", region: "Western Cape", country: "South Africa", countryCode: "ZA" },
   /** Public origin used for canonical URLs, sitemap and share tags. Override with NEXT_PUBLIC_SITE_URL. */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://veldform.com").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://veldform.co.za").replace(/\/$/, ""),
   /**
    * Search/social copy only — shown in Google results and link previews, never on the page.
    * Kept in step with on-page copy.
    */
   seo: {
     home: {
-      title: "Veldform — Bespoke Botanical Environments",
+      title: "Veldform — Bespoke Greenhouses in Cape Town, South Africa",
       description:
-        "Bespoke botanical environments with automatic climate management: kitchen gardens, botanical libraries and living spaces, designed and built around your plants.",
+        "Bespoke greenhouses with automatic climate management, designed and built in Cape Town: kitchen gardens, botanical libraries and living spaces.",
     },
     lifestyle: {
       title: "Lifestyle Segments — Kitchen Gardens to Living Spaces",

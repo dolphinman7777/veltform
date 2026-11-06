@@ -16,7 +16,7 @@ export function LifestyleSlide({ scenario }: { scenario: LifestyleScenario }) {
         <img
           className="veld-lifestyle-slide__image"
           src={scenario.image}
-          alt=""
+          alt={scenario.imageAlt}
           width={LIFESTYLE_ART_WIDTH}
           height={LIFESTYLE_ART_HEIGHT}
           decoding="async"
