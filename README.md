@@ -38,7 +38,7 @@ After launch, submit `/sitemap.xml` in Google Search Console and Bing Webmaster 
 | --- | --- |
 | `src/content/site.ts` | Page copy and search (SEO) copy — edit here first |
 | `src/content/seo.ts` | Per-page title, description, canonical and share tags |
-| `src/app/` | Routes: `/`, `/lifestyle`, `/systems`, `/environments`, `/process`, `/enquire`, `/portal` (placeholder, not indexed) |
+| `src/app/` | Routes: `/`, `/lifestyle`, `/systems`, `/environments`, `/process`, `/faq`, `/enquire`, `/portal` (placeholder, not indexed) |
 | `src/app/enquire/actions.ts` | Enquiry form handler (sends via Resend) |
 | `src/app/{sitemap,robots,manifest}.ts` | Generated `sitemap.xml`, `robots.txt`, web manifest |
 | `src/app/llms.txt/route.ts` | Generated `llms.txt` summary for AI tools; extra detail lives in `src/content/llms-copy.ts` |
@@ -55,7 +55,7 @@ After launch, submit `/sitemap.xml` in Google Search Console and Bing Webmaster 
 | `images/environments/` | Climate photos, concept renders and `plants/` thumbnails |
 | `images/systems/` | Materials grid and sensor icon sprites |
 | `images/portal/` | Portal placeholder artwork |
-| `images/shared/` | Used on every page (footer strawberry) |
+| `images/shared/` | Used on every page (logo) |
 | `videos/` | Home page video |
 | `fonts/` | IBM Plex Mono subsets used by the Environments page |
 | `og/` | Link-preview (Open Graph) image |

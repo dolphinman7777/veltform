@@ -296,6 +296,63 @@ export const site = {
       },
     },
   ] satisfies LifestyleScenario[],
+  faqHeading: "FAQ",
+  faq: [
+    {
+      question: "What does Veldform build?",
+      answer:
+        "Veldform designs and builds bespoke greenhouses and climate systems, bringing together horticultural science and design. Our greenhouse systems include kitchen gardens for growing food, botanical libraries for plant collections, and living spaces shared by plants and people.",
+    },
+    {
+      question: "Where does Veldform work?",
+      answer: "Veldform is based in Cape Town, South Africa, and designs and builds greenhouses in Cape Town.",
+    },
+    {
+      question: "How much does a bespoke greenhouse cost?",
+      answer:
+        "All solutions are currently bespoke, so the cost depends on the structure, glazing specification and fabrication required. After a size and concept is chosen and the specification agreed, we provide a cost estimate and delivery window.",
+    },
+    {
+      question: "What warranty do you offer?",
+      answer:
+        "All structural and glazing elements (frame and cladding) come with a 10 year warranty. If equipment goes out of commission due to a hardware fault, we will replace it at no cost.",
+    },
+    {
+      question: "What can I grow?",
+      answer:
+        "A kitchen garden can grow tomatoes, cucumber, herbs, peppers, chillies, strawberries, dwarf bananas and leafy greens. A botanical library can hold tropical aroids and palms, arid cacti and succulents, or cloud forest orchids, bromeliads and ferns. A living space suits palms, ferns, creepers and flowers.",
+    },
+    {
+      question: "Do I need to be an expert grower?",
+      answer:
+        "No. Climate, watering and lighting are managed automatically, helping maintain the conditions plants need without daily attention. You can enjoy a productive garden without having to master the science behind it. We also offer onsite training for owners and staff, from hands-on growing basics to more detailed system management, supported by a digital or printed guide.",
+    },
+    {
+      question: "Can I check on the greenhouse remotely?",
+      answer:
+        "Yes. A locally hosted, web connected control system lets you check greenhouse conditions remotely, operate compatible irrigation and ventilation equipment, and receive alerts when readings move outside your chosen ranges.",
+    },
+    {
+      question: "Can I leave my plants when I travel?",
+      answer:
+        "That’s the idea. Grow your collection, and travel with peace of mind: the automatic climate and self watering systems will keep your plants thriving while you’re away.",
+    },
+    {
+      question: "Can a greenhouse be more than a place to grow plants?",
+      answer:
+        "Yes. As a mixed utility space the options are boundless. Be it a bar, a braai or a discreet yet immersive sound system, a plunge pool or a sauna, if we can’t install or build it we’ll find a sub-contractor who can, or work alongside artisans of your choosing.",
+    },
+    {
+      question: "Do you work with restaurants and hospitality?",
+      answer:
+        "Yes. Kitchen gardens are designed to sustain restaurants, private chefs and larger hospitality operations, offering the opportunity to grow around a menu and choose ingredients for the qualities a dish calls for. Grown locally, picked when ripe.",
+    },
+    {
+      question: "Can solar power run the lighting?",
+      answer:
+        "Solar and battery systems can supply some or all of the electricity for supplementary lighting, depending on their capacity and the lighting demand, and on when the lights run.",
+    },
+  ],
   contactEmail: "hello@veldform.com",
   location: { city: "Cape Town", region: "Western Cape", country: "South Africa", countryCode: "ZA" },
   /** Public origin used for canonical URLs, sitemap and share tags. Override with NEXT_PUBLIC_SITE_URL. */
@@ -329,6 +386,11 @@ export const site = {
       title: "Process — From Enquiry to Build",
       description:
         "How a Veldform environment comes together: enquire, map your site, quote, measure and build.",
+    },
+    faq: {
+      title: "Bespoke Greenhouse FAQ — Cost, Warranty and Care",
+      description:
+        "Answers about bespoke greenhouses from Veldform in Cape Town: how pricing works, the 10 year warranty, what you can grow, remote monitoring and more.",
     },
     enquire: {
       title: "Enquire — Book a Consultation",

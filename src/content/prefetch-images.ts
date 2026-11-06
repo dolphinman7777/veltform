@@ -14,7 +14,6 @@ export function prefetchImageUrls(): string[] {
     site.architecturalInfluencesImage,
     site.climateSystemsImage,
     ...site.scenarios.map((s) => s.homeImage),
-    "/images/shared/strawberry.webp",
   ];
   const lifestyle = site.scenarios.map((s) => s.image);
   const environments = [...environmentsMarkup.matchAll(/src="(\/images\/[^"]+)"/g)].map((m) => m[1]);

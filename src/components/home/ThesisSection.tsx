@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import { RootCalculations } from "@/components/home/RootCalculations";
 import { ThesisIntro } from "@/components/home/ThesisIntro";
-import { site } from "@/content/site";
 
 export function ThesisSection() {
   return (
@@ -64,12 +63,6 @@ export function ThesisSection() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="signal-footer">
-        <p className="signal-url mono">
-          <span className="brand-natural">{site.name}</span>
-        </p>
       </div>
     </section>
   );

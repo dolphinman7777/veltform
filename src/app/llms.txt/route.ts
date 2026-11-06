@@ -1,5 +1,5 @@
 import { consultationTopics } from "@/app/enquire/topics";
-import { llmsCopy } from "@/content/llms-copy";
+import { llmsCopy, type LlmsBlock } from "@/content/llms-copy";
 import { indexablePages, pageUrl, sentenceCase } from "@/content/seo";
 import { site, type LifestyleScenarioDetailCopy } from "@/content/site";
 
@@ -21,6 +21,14 @@ function detailText(copy: LifestyleScenarioDetailCopy) {
 
 function bullets(items: readonly string[]) {
   return items.map((item) => `- ${item}`).join("\n");
+}
+
+function blockText({ heading, paragraphs = [], items }: LlmsBlock) {
+  return [
+    ...(heading ? [`### ${heading}`] : []),
+    ...paragraphs,
+    ...(items ? [bullets(items.map(({ term, text }) => `${term}: ${text}`))] : []),
+  ];
 }
 
 /** Plain-language summary for AI tools (llmstxt.org): site copy plus the extra detail in llms-copy.ts. */
@@ -67,23 +75,15 @@ export function GET() {
           : `${offering.title}: ${offering.body}`,
       ),
     ),
-    "## Essential plant growth concepts",
-    bullets(llmsCopy.growthConcepts.map(({ title, body: detail }) => `${title}: ${detail}`)),
-    "## Climate steering",
-    llmsCopy.climateSteering.intro,
-    bullets(llmsCopy.climateSteering.levers),
+    ...llmsCopy.sections.flatMap(({ heading, blocks }) => [`## ${heading}`, ...blocks.flatMap(blockText)]),
     "## How a project works",
     llmsCopy.process.map(({ title, body: detail }, index) => `${index + 1}. ${title}: ${detail}`).join("\n"),
     "## Pricing",
     llmsCopy.pricing,
     "## Warranty",
     bullets(llmsCopy.warranty),
-    "## What makes a greenhouse",
-    ...llmsCopy.whatMakesAGreenhouse,
-    "## A climate of your own",
-    ...llmsCopy.aClimateOfYourOwn,
-    "## Community projects",
-    llmsCopy.community,
+    "## Frequently asked questions",
+    ...site.faq.flatMap(({ question, answer }) => [`### ${question}`, answer]),
     "## Contact",
     bullets([
       `Location: ${city}, ${country}`,

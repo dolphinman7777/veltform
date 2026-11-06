@@ -25,6 +25,7 @@ export const indexablePages: {
   // Hidden for now — restore with the nav link in PrimaryNav.
   // { key: "systems", path: "/systems", priority: 0.8, changeFrequency: "monthly" },
   { key: "process", path: "/process", priority: 0.7, changeFrequency: "yearly" },
+  { key: "faq", path: "/faq", priority: 0.7, changeFrequency: "yearly" },
   { key: "enquire", path: "/enquire", priority: 0.8, changeFrequency: "yearly" },
 ];
 
