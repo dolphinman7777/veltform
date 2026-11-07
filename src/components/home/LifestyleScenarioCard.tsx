@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { AvifImage } from "@/components/AvifImage";
 import {
   detailCopyHasContent,
   renderDetailCopy,
@@ -23,7 +24,7 @@ const expandableFields: {
 export function LifestyleScenarioVisual({ scenario }: { scenario: LifestyleScenario }) {
   return (
     <article className="veld-scenario" id={scenario.id}>
-      <img src={scenario.homeImage} alt={scenario.imageAlt} loading="lazy" decoding="async" />
+      <AvifImage src={scenario.homeImage} alt={scenario.imageAlt} loading="lazy" decoding="async" />
       <div className="veld-scenario-copy">
         <h3 className="brand-natural">{scenario.title}</h3>
         <p className="mono veld-scenario-lead">{scenario.body}</p>

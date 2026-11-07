@@ -1,4 +1,7 @@
+import { AvifImage, avifSrc } from "@/components/AvifImage";
 import { site } from "@/content/site";
+
+const PORTRAIT_SCREENS = "(max-width: 860px), (orientation: portrait) and (max-width: 1366px)";
 
 export function HeroSection() {
   return (
@@ -26,11 +29,14 @@ export function HeroSection() {
               {/* Phones get a portrait render with open sky for the wordmark. */}
               <picture>
                 <source
-                  media="(max-width: 860px), (orientation: portrait) and (max-width: 1366px)"
-                  srcSet={site.heroBackgroundMobile}
+                  media={PORTRAIT_SCREENS}
+                  type="image/avif"
+                  srcSet={avifSrc(site.heroBackgroundMobile)}
                   width={800}
                   height={1600}
                 />
+                <source media={PORTRAIT_SCREENS} srcSet={site.heroBackgroundMobile} width={800} height={1600} />
+                <source type="image/avif" srcSet={avifSrc(site.heroBackground)} />
                 <img
                   className="hero-plate"
                   src={site.heroBackground}
@@ -41,17 +47,19 @@ export function HeroSection() {
                   fetchPriority="high"
                 />
               </picture>
-              {/* Desktop: a greyscale copy of the same render (pavilion masked out, so it stays in colour) fades in and out. */}
-              <img
+              {/* Desktop: a greyscale copy of the same render (pavilion masked out, so it stays in colour) fades in and out.
+                  Lazy so phones, where it is hidden, never download it. */}
+              <AvifImage
                 className="hero-plate hero-plate--bw-desk"
                 src={site.heroBackground}
                 alt=""
                 width={1672}
                 height={941}
                 decoding="async"
+                loading="lazy"
               />
               {/* Mobile only: a black-and-white twin that slowly fades in and out over the colour render. */}
-              <img
+              <AvifImage
                 className="hero-plate hero-plate--bw"
                 src={site.heroBackgroundMobileBw}
                 alt=""

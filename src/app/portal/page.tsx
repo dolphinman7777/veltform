@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AvifImage } from "@/components/AvifImage";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/content/site";
 
@@ -25,7 +26,7 @@ export default function PortalPage() {
             <Link href="/">back to site</Link>
           </p>
         </div>
-        <img
+        <AvifImage
           className="veld-portal-fynbos"
           src="/images/portal/fynbos.webp"
           alt=""

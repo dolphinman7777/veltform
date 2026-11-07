@@ -1,3 +1,4 @@
+import { AvifImage } from "@/components/AvifImage";
 import { site } from "@/content/site";
 
 export function ArchitecturalInfluencesSection() {
@@ -10,7 +11,7 @@ export function ArchitecturalInfluencesSection() {
             {site.architecturalInfluencesHeadline}
           </span>
         </h2>
-        <img
+        <AvifImage
           className="arch-slide-image"
           loading="lazy"
           src={site.architecturalInfluencesImage}

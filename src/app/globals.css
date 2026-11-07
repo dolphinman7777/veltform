@@ -24,6 +24,16 @@ body {
   min-height: 100vh;
 }
 
+/* Lets the <img> inside lay out exactly as if the <picture> wrapper weren't there. */
+.avif-picture {
+  display: contents;
+}
+
+/* Browsers don't hide <source> by default, so with the wrapper gone it would pick up flex and grid gaps. */
+picture > source {
+  display: none;
+}
+
 /* Present for screen readers and search engines, invisible on the page. */
 .visually-hidden {
   position: absolute;

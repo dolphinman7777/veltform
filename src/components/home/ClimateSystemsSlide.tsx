@@ -1,3 +1,4 @@
+import { AvifImage } from "@/components/AvifImage";
 import { site } from "@/content/site";
 
 export function ClimateSystemsSlide() {
@@ -14,7 +15,7 @@ export function ClimateSystemsSlide() {
           <p className="climate-systems-slide__body mono">{site.climateSystemsBody}</p>
         </div>
         <figure className="climate-systems-slide__figure">
-          <img
+          <AvifImage
             className="arch-slide-image climate-systems-slide__image"
             loading="lazy"
             src={site.climateSystemsImage}

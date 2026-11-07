@@ -1,22 +1,32 @@
+import { avifSrc } from "@/components/AvifImage";
 import { environmentsMarkup } from "@/components/environments/environments-markup";
 import { site } from "@/content/site";
 
+export type PrefetchImage = { src: string; avif?: string };
+
 /**
- * Every image used across the site, in the order a visitor is likely to need them.
- * Built on the server (the Environments markup is never shipped to the browser for this);
- * only the resulting URL list is passed to <ImagePrefetcher />.
- * Environments URLs keep their `?v=` hash so the prefetched copy is the one the page requests.
+ * Home and Lifestyle images, in the order a visitor is likely to need them.
+ * Environments is left out: it loads its own images as it opens, and warming them here
+ * cost every first-time visitor about 8 MB whether or not they went there.
+ * Built on the server; only the resulting list is passed to <ImagePrefetcher />.
  */
-export function prefetchImageUrls(): string[] {
-  const home = [
-    site.logo,
+export function prefetchImages(): PrefetchImage[] {
+  const pictures = [
     site.heroBackground,
     site.architecturalInfluencesImage,
     site.climateSystemsImage,
     ...site.scenarios.map((s) => s.homeImage),
+    ...site.scenarios.map((s) => s.image),
   ];
-  const lifestyle = site.scenarios.map((s) => s.image);
-  const environments = [...environmentsMarkup.matchAll(/src="(\/images\/[^"]+)"/g)].map((m) => m[1]);
 
-  return [...new Set([...home, ...lifestyle, ...environments])];
+  return [{ src: site.logo }, ...pictures.map((src) => ({ src, avif: avifSrc(src) }))];
+}
+
+/**
+ * The four panels at the top of /environments, fetched the moment someone reaches for the link.
+ * Built on the server (the Environments markup is never shipped to the browser for this).
+ * URLs keep their `?v=` hash so the fetched copy is the one the page requests.
+ */
+export function environmentPanelUrls(): string[] {
+  return [...environmentsMarkup.matchAll(/class="image-trigger"[^>]*>\s*<img src="([^"]+)"/g)].map((m) => m[1]);
 }

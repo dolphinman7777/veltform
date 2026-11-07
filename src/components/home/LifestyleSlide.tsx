@@ -1,3 +1,4 @@
+import { AvifImage } from "@/components/AvifImage";
 import { LifestyleScenarioDetails } from "@/components/home/LifestyleScenarioCard";
 import type { LifestyleScenario } from "@/content/site";
 import { site } from "@/content/site";
@@ -13,7 +14,7 @@ export function LifestyleSlide({ scenario }: { scenario: LifestyleScenario }) {
       aria-labelledby={`${scenario.id}-title`}
     >
       <figure className="veld-lifestyle-slide__frame">
-        <img
+        <AvifImage
           className="veld-lifestyle-slide__image"
           src={scenario.image}
           alt={scenario.imageAlt}
