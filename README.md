@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
-Set these as environment variables (`.env.local` locally, `npx wrangler secret put <NAME> --name veltform` in production):
+Set these as environment variables (`.env.local` locally, `npx wrangler secret put <NAME> --name veldform` in production):
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ Set these as environment variables (`.env.local` locally, `npx wrangler secret p
 
 ## Deploy (Cloudflare)
 
-Pushes to `main` build and deploy through Workers Builds on the `veltform` worker. Don't use `npm run deploy`: `wrangler.jsonc` names a different worker, `veldform`.
+Custom domain `veldform.co.za` is on the **`veldform`** worker (`wrangler.jsonc`). Deploy with `npm run deploy` or Workers Builds on that worker.
 
 ```bash
 npm run preview   # Workers build, locally
