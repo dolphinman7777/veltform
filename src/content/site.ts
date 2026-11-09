@@ -82,35 +82,42 @@ export const site = {
       label: "01",
       title: "enquire",
       description:
-        "Share your site, crops, and how you want to use the greenhouse. We listen first, then outline what is possible on your plot.",
+        "Share your desired location and your greenhouse type. You can also share any special aesthetic or material consideration. As all solutions are bespoke, please indicate either when the project could commence or when you would like it completed.",
     },
     {
       id: "map",
       label: "02",
-      title: "Map",
+      title: "Map, collect, consult",
       description:
-        "We assess light through the year, access, services, and where the structure fits best — so the design works with the land, not against it.",
+        "We assess the potential of the site, from soil to sunlight, existing structures and utilities. This data, along with your goals or planting choices, can tell us where the structure fits best within your property. Readings from multiple locations can be compared as each may offer different microclimatic advantages in relation to your goals.",
     },
     {
-      id: "quote",
+      id: "design",
       label: "03",
-      title: "Quote",
+      title: "Design & costing",
       description:
-        "You receive a clear scope, specification, and price for the greenhouse and systems included — no surprises once work begins.",
-    },
-    {
-      id: "measure",
-      label: "04",
-      title: "Measure",
-      description:
-        "We confirm dimensions, levels, and fixing details on site before fabrication so the build matches the plan.",
+        "After setting a clear scope, understanding the site, and your preferences we will propose a solution. If desired, multiple design iteration consultations can take place until we’ve found the perfect long term system for you.",
     },
     {
       id: "build",
       label: "05",
-      title: "Build",
+      title: "Pre-fabrication & build",
       description:
-        "The greenhouse is installed, climate systems commissioned, and you are shown how to run it for your crops.",
+        "The engineering and design is finalised, materials ordered and prefabrication commences. Foundations can be laid and utility services installed simultaneously during this time. Components are then delivered and assembled, beds are filled, the irrigation and HVAC is set up, and the climate systems commissioned and tested.",
+    },
+    {
+      id: "handover",
+      label: "06",
+      title: "Handover, training & operation",
+      description:
+        "You will be set up with an app, allowing you to monitor and adjust the automation wherever you are, but you don't have to use it. If you're not a proficient gardener, the handover can include practical onsite demonstrations or training; if more formal or academic lessons are desired these can be provided.",
+    },
+    {
+      id: "support",
+      label: "07",
+      title: "Ongoing support",
+      description:
+        "After handover, your climate data will be analysed by our team to further refine or revise the climate strategy, as no amount of calculations and simulations can ever surpass the value of real world data. At the end of each season, or after each year, we can adjust automation parameters accordingly. If outlined in your service agreement you can schedule checkups for ongoing in-person support and guidance, or remote assistance.",
     },
   ] as const,
   architecturalInfluencesHighlight: "bespoke",
@@ -384,9 +391,9 @@ export const site = {
         "Temperature, humidity, VPD and light ranges for Mediterranean, tropical, arid and cloud forest growing environments, with botanical curation and rare plant sourcing.",
     },
     process: {
-      title: "Process — From Enquiry to Build",
+      title: "Process — From Enquiry to Handover",
       description:
-        "How a Veldform environment comes together: enquire, map your site, quote, measure and build.",
+        "How a Veldform environment comes together: enquire, map and consult, design and costing, build, handover and ongoing support.",
     },
     faq: {
       title: "Bespoke Greenhouse FAQ — Cost, Warranty and Care",

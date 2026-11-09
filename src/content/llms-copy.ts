@@ -329,32 +329,28 @@ export const llmsCopy = {
   ] as readonly LlmsSection[],
   process: [
     {
-      title: "Enquire",
-      body: "Share your approximate site location and your desired greenhouse type, along with any special aesthetic or material considerations. Because all solutions are currently bespoke, please indicate when the project could commence (consultation and design phase) and when installation could take place or needs to be completed by.",
+      title: "01 Enquire",
+      body: "Share your desired location and your greenhouse type. You can also share any special aesthetic or material consideration. As all solutions are bespoke, please indicate either when the project could commence or when you would like it completed.",
     },
     {
-      title: "Map and collect",
-      body: "Design with the land, not against it. We assess the potential of the site, from soil to sunlight, existing structures and utilities. This data, along with your goals or crop types, shows where the structure fits best within your property. Readings from multiple locations can be compared based on their microclimatic advantages or challenges.",
+      title: "02 Map, collect, consult",
+      body: "We assess the potential of the site, from soil to sunlight, existing structures and utilities. This data, along with your goals or planting choices, can tell us where the structure fits best within your property. Readings from multiple locations can be compared as each may offer different microclimatic advantages in relation to your goals.",
     },
     {
-      title: "Design and quote",
-      body: "After setting a clear scope and understanding the site and your preferences, we propose a solution. Once a size and concept is chosen and the specification agreed, we provide a cost estimate and delivery window.",
+      title: "03 Design & costing",
+      body: "After setting a clear scope, understanding the site, and your preferences we will propose a solution. If desired, multiple design iteration consultations can take place until we’ve found the perfect long term system for you.",
     },
     {
-      title: "Measure",
-      body: "We confirm dimensions, levels and fixing details on site before fabrication so the build matches the plan.",
+      title: "05 Pre-fabrication & build",
+      body: "The engineering and design is finalised, materials ordered and prefabrication commences. Foundations can be laid and utility services installed simultaneously during this time. Components are then delivered and assembled, beds are filled, the irrigation and HVAC is set up, and the climate systems commissioned and tested.",
     },
     {
-      title: "Prefabrication and build",
-      body: "The engineering and design are finalised, materials ordered and prefabrication commences. Foundations can be laid and utility services installed during this time. Components are then delivered and assembled, beds are filled, the irrigation and HVAC are set up, and the climate systems commissioned and tested.",
+      title: "06 Handover, training & operation",
+      body: "You will be set up with an app, allowing you to monitor and adjust the automation wherever you are, but you don't have to use it. If you're not a proficient gardener, the handover can include practical onsite demonstrations or training; if more formal or academic lessons are desired these can be provided.",
     },
     {
-      title: "Handover, training and operation",
-      body: "You are shown how to monitor and adjust the automation from wherever you are. Handover can include practical onsite demonstrations or training, and more formal or academic lessons can be provided. At the end of each season for the first year, our team analyses your climate data to refine or revise the climate strategy and adjust automation settings.",
-    },
-    {
-      title: "Ongoing support",
-      body: "If outlined in your service agreement, you can schedule checkups for in-person support and guidance, crop consulting or remote assistance such as climate strategy.",
+      title: "07 Ongoing support",
+      body: "After handover, your climate data will be analysed by our team to further refine or revise the climate strategy, as no amount of calculations and simulations can ever surpass the value of real world data. At the end of each season, or after each year, we can adjust automation parameters accordingly. If outlined in your service agreement you can schedule checkups for ongoing in-person support and guidance, or remote assistance.",
     },
   ],
   warranty: [

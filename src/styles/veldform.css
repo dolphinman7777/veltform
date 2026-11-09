@@ -3730,21 +3730,23 @@ html.veld-menu-open {
 /* Fixed number + label columns, centred as a block, so 01–05 share one left edge. */
 .veld-process__trigger {
   display: grid;
-  grid-template-columns: 1fr max-content 8ch 1fr;
+  grid-template-columns: 1fr max-content minmax(0, max-content) 1fr;
   align-items: baseline;
-  column-gap: 0.6rem;
+  column-gap: 0;
 }
 
 .veld-process__trigger .veld-process__index {
   grid-column: 2;
-  min-width: 2ch;
-  text-align: left;
+  min-width: 2.25ch;
+  margin-inline-end: clamp(1rem, 2.5vw, 1.65rem);
+  text-align: right;
+  padding-inline-end: 0.15rem;
 }
 
 .veld-process__trigger .veld-process__name {
   grid-column: 3;
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* Enquire form: custom select chevron, inset from the edge, consistent across browsers. */
