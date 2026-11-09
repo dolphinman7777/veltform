@@ -1,5 +1,4 @@
 import { avifSrc } from "@/components/AvifImage";
-import { environmentsMarkup } from "@/components/environments/environments-markup";
 import { site } from "@/content/site";
 
 export type PrefetchImage = { src: string; avif?: string };
@@ -20,13 +19,4 @@ export function prefetchImages(): PrefetchImage[] {
   ];
 
   return [{ src: site.logo }, ...pictures.map((src) => ({ src, avif: avifSrc(src) }))];
-}
-
-/**
- * The four panels at the top of /environments, fetched the moment someone reaches for the link.
- * Built on the server (the Environments markup is never shipped to the browser for this).
- * URLs keep their `?v=` hash so the fetched copy is the one the page requests.
- */
-export function environmentPanelUrls(): string[] {
-  return [...environmentsMarkup.matchAll(/class="image-trigger"[^>]*>\s*<img src="([^"]+)"/g)].map((m) => m[1]);
 }

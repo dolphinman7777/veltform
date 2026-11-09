@@ -4,16 +4,20 @@ import { useEffect } from "react";
 import { isConstrainedConnection } from "@/components/ImagePrefetcher";
 import { initClimate, initPlants } from "./environments-behaviour";
 
-// Panels first, then every other image straight away, so nothing waits for a scroll or slows the panels.
+// Once the panels are in, or as soon as someone starts scrolling, load everything else in the background
+// (including plants off to the right), so it is ready in the browser cache when they reach it.
 // Data Saver and very slow connections keep the markup's load-on-scroll behaviour.
 function loadRemainingImages(root: HTMLElement, signal: AbortSignal) {
   if (isConstrainedConnection()) return;
-  const panels = [...root.querySelectorAll<HTMLImageElement>(".climate-image img")];
-  void Promise.allSettled(panels.map((panel) => panel.decode())).then(() => {
-    if (signal.aborted) return;
+  const loadRest = () => {
     root.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((img) => {
       img.loading = "eager";
     });
+  };
+  window.addEventListener("scroll", loadRest, { once: true, passive: true, signal });
+  const panels = [...root.querySelectorAll<HTMLImageElement>(".climate-image img")];
+  void Promise.allSettled(panels.map((panel) => panel.decode())).then(() => {
+    if (!signal.aborted) loadRest();
   });
 }
 
